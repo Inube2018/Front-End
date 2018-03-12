@@ -41,9 +41,12 @@
     "babel-loader": "^7.0.0",
     "bootstrap": "^4.0.0-beta.3",
     "classnames": "^2.2.5",
+    "jQuery": "^1.7.4",
     "jquery": "^1.9.1",
+    "metrics-graphics": "^2.13.0",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
+    "react-metrics-graphics": "^1.0.2",
     "react-router-dom": "^4.2.2",
     "reactstrap": "^5.0.0-alpha.4"
   },
