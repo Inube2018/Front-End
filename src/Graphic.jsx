@@ -16,7 +16,7 @@ export default class Graphic extends React.Component {
             <div>
                 <MetricsGraphics
                     title="Downloads"
-                    description="This graphic shows a time-series of downloads."
+                    description="This graphic shows a time-series of downloads. Cosas"
                     data={ [{'date':new Date('2014-10-01'),'value':12},{'date':new Date('2015-10-01'),'value':-2}, {'date':new Date('2016-11-02'),'value':18}] }
                     width={600}
                     height={250}

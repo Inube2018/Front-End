@@ -39,7 +39,7 @@ export default class Filter extends React.Component {
             return (
                 <div>
                     <Button color="primary" size="lg" className='filter' onClick={this.onPress}><FontAwesome name='filter'/> Filtro <FontAwesome name={this.state.arrow}/></Button>
-                    <p id='pruebas' >PENE</p>
+                    <p id='pruebas' >Aquí va el filtro</p>
                 </div>
             );
         }
