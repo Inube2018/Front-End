@@ -10,11 +10,11 @@ export default class Graphic extends React.Component {
     render() {
         return (
             <div className='footer'>
-                <p><FontAwesome name='cloud' /> INUBE <FontAwesome name='copyright' />  Design with <FontAwesome name='heart' /> by group 11<span id='legal'><FontAwesome name='exclamation-triangle' /><Popup> Aviso Legal</Popup></span></p>
+                <p><FontAwesome name='cloud' /> INUBE <FontAwesome name='copyright' />  Design with <FontAwesome name='heart' /> by group 11<span id='legal'><FontAwesome name='exclamation-triangle' /></span></p>
             </div>
         );
 
     }
 }
-Popup.alert('Hello')
+
 

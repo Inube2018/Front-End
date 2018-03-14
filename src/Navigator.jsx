@@ -50,7 +50,7 @@ class Navigator extends React.Component {
                     <TabContent activeTab={this.props.activeTab}>
                         <TabPane tabId="0">
                             <Row>
-                                <Col sm="12" style={{padding: '20px', marginLeft: '20px'}}>
+                                <Col md="12" >
                                     <Home/>
                                 </Col>
                             </Row>
@@ -109,7 +109,7 @@ class Navigator extends React.Component {
                 <TabContent activeTab={this.props.activeTab}>
                     <TabPane tabId="0">
                         <Row>
-                            <Col sm="12" style={{padding: '20px', marginLeft: '20px'}}>
+                            <Col md="12" >
                                 <Dashboard/>
                             </Col>
                         </Row>
