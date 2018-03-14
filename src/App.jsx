@@ -17,6 +17,7 @@ class App extends React.Component {
             regBusinessType: '',
             regAverageSell: '',
             regIban: '',
+            logInFailed: false,
         };
         this.toggleTab = this.toggleTab.bind(this);
         this.logInHandler = this.logInHandler.bind(this);
@@ -26,8 +27,8 @@ class App extends React.Component {
     render() {
         return (
             <div style={{height: '100%'}}>
-                <h1 className="text-info" style={{textAlign: 'center', marginTop: '2%'}}>iNube</h1>
-                <Navigator isLogged={this.state.isLogged} toggleTab={this.toggleTab} logInHandler={this.logInHandler} stepHandler={this.stepHandler} registrationStep={this.state.registrationStep} activeTab={this.state.activeTab}/>
+                <h1 className="text-info" style={{textAlign: 'center', marginTop: '1%'}}>iNube</h1>
+                <Navigator isLogged={this.state.isLogged} logInFailed={this.state.logInFailed} toggleTab={this.toggleTab} logInHandler={this.logInHandler} stepHandler={this.stepHandler} registrationStep={this.state.registrationStep} activeTab={this.state.activeTab}/>
             </div>
         );        
     }
@@ -42,6 +43,12 @@ class App extends React.Component {
         if ((email === "admin") && (password === "1234")) {
             this.setState({
                 isLogged: !this.state.isLogged,
+                logInFailed: false,
+                activeTab: '0',
+            });
+        } else {
+            this.setState({
+                logInFailed: true,
             });
         }
     }

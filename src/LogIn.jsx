@@ -5,7 +5,22 @@ class LogIn extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            alert: false,
+            alertType: '',
+            alertText: '',
+        }
         this.logInHandler = this.logInHandler.bind(this);
+    }
+
+    componentDidMount() {
+        if (this.props.logInFailed) {
+            this.setState({
+                alert: !this.state.alert,
+                alertType: 'danger',
+                alertText: 'Usuario o contraseña incorrectos',
+            })
+        }
     }
 
     logInHandler() {
