@@ -15,7 +15,7 @@ class Who extends React.Component {
                         <CardImg top width='100%' src="./../public/etsit.jpg" alt='Image 1'/>
                         <CardBody>
                             <CardTitle>Desarrollador 1</CardTitle>
-                            <CardText>Texto describiendo al Desarrollador 1</CardText>
+                            <CardText>Senior Front-End Developer</CardText>
                         </CardBody>
                     </Card>
                     <Card>

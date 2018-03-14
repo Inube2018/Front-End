@@ -76,6 +76,8 @@ class App extends React.Component {
                 this.setState({
                     registrationStep: 0,
                     regIban: regData[0],
+                    isLogged: true,
+                    activeTab: '0',
                 });
             }
         } else {

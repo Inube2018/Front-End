@@ -142,7 +142,6 @@ class Navigator extends React.Component {
     }
 
     toggleTab(tab) {
-        console.log(tab);
         this.props.toggleTab(tab);
     }
 
