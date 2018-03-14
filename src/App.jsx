@@ -1,12 +1,16 @@
 import React from 'react';
 import Navigator from './Navigator.jsx';
+import Footer from './Footer.jsx';
+import './assets/main.scss';
+var FontAwesome = require('react-fontawesome');
+
 
 class App extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            isLogged: false, 
+            isLogged: false,
             activeTab: '0',
             registrationStep: 0,
             regUserName: '',
@@ -27,10 +31,11 @@ class App extends React.Component {
     render() {
         return (
             <div style={{height: '100%'}}>
-                <h1 className="text-info" style={{textAlign: 'center', marginTop: '1%'}}>iNube</h1>
+                <h1 className="text-info" style={{textAlign: 'center', marginTop: '1%'}}><FontAwesome name='cloud' /> iNube</h1>
                 <Navigator isLogged={this.state.isLogged} logInFailed={this.state.logInFailed} toggleTab={this.toggleTab} logInHandler={this.logInHandler} stepHandler={this.stepHandler} registrationStep={this.state.registrationStep} activeTab={this.state.activeTab}/>
+                <Footer/>
             </div>
-        );        
+        );
     }
 
     toggleTab(tab) {
@@ -63,7 +68,7 @@ class App extends React.Component {
                     regUserName: regData[0],
                     regEmail: regData[1],
                     regPassword: regData[2],
-                });  
+                });
             } else if (this.state.registrationStep === 1) {
                 this.setState({
                     registrationStep: this.state.registrationStep+1,

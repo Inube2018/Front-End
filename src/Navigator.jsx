@@ -5,8 +5,8 @@ import Home from './Home.jsx'
 import Who from './Who.jsx'
 import LogIn from './LogIn.jsx'
 import Registration from './Registration.jsx'
-import MetricsGraphics from 'react-metrics-graphics';
-import 'metrics-graphics/dist/metricsgraphics.css';
+import Dashboard from './Dashboard.jsx'
+
 
 class Navigator extends React.Component {
     constructor(props) {
@@ -110,15 +110,7 @@ class Navigator extends React.Component {
                     <TabPane tabId="0">
                         <Row>
                             <Col sm="12" style={{padding: '20px', marginLeft: '20px'}}>
-                                <MetricsGraphics
-                                        title="Downloads"
-                                        description="This graphic shows a time-series of downloads."
-                                        data={ [{'date':new Date('2014-10-01'),'value':12}, {'date':new Date('2014-11-02'),'value':18}] }
-                                        width={600}
-                                        height={250}
-                                        x_accessor="date"
-                                        y_accessor="value"
-                                    />
+                                <Dashboard/>
                             </Col>
                         </Row>
                     </TabPane>
