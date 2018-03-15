@@ -6,6 +6,7 @@ import Who from './Who.jsx'
 import LogIn from './LogIn.jsx'
 import Registration from './Registration.jsx'
 import Dashboard from './Dashboard.jsx'
+import Faq from './Faq.jsx'
 
 
 class Navigator extends React.Component {
@@ -65,7 +66,7 @@ class Navigator extends React.Component {
                         <TabPane tabId="2">
                             <Row>
                                 <Col sm="12">
-                                    <h4>Página de FAQ</h4>
+                                    <Faq/>
                                 </Col>
                             </Row>
                         </TabPane>
