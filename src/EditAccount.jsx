@@ -11,18 +11,12 @@ class EditAccount extends React.Component {
             alertType: '',
             alertText: '',
         }
-<<<<<<< HEAD
-        this.onDismiss = this.onDismiss.bind(this);
-        this.stepEditHandler = this.stepEditHandler.bind(this);
-        this.stepEditBackHandler = this.stepEditBackHandler.bind(this);
-=======
         //this.stepHandler = this.stepHandler.bind(this);
         this.onDismiss = this.onDismiss.bind(this);
         //this.stepBackHandler = this.stepBackHandler.bind(this);
         this.stepEditHandler = this.stepEditHandler.bind(this);
         this.stepEditBackHandler = this.stepEditBackHandler.bind(this);
         this.stepEditSaltarHandler = this.stepEditSaltarHandler.bind(this);
->>>>>>> ab0f38d3a5f8d32666a3b6c88b660469aa169662
     }
 
     stepEditHandler(){
@@ -61,10 +55,6 @@ class EditAccount extends React.Component {
                 document.getElementById('emailEdit').value = '';
                 document.getElementById('passwordEdit').value = '';
                 document.getElementById('passwordRepeatEdit').value = '';
-<<<<<<< HEAD
-                console.log(this.props);
-=======
->>>>>>> ab0f38d3a5f8d32666a3b6c88b660469aa169662
                 this.props.stepEditHandler(0, editData);
             }
         } else if (this.props.editStep === 1) {
@@ -107,11 +97,6 @@ class EditAccount extends React.Component {
         } else if (this.props.editStep === 2) {
             console.log("Step 3");
             let ibanEdit = document.getElementById('ibanEdit').value;
-<<<<<<< HEAD
-            let checkboxEdit = document.getElementById('checkboxEdit').value;
-            console.log(checkboxEdit);
-=======
->>>>>>> ab0f38d3a5f8d32666a3b6c88b660469aa169662
             if ((ibanEdit.length !== 24) || ((ibanEdit[0] !== 'E') && (ibanEdit[1] !== 'S')) || (ibanEdit === '')) {
                 this.setState({
                     alert: !this.state.alert,
@@ -124,20 +109,12 @@ class EditAccount extends React.Component {
                     alertType: 'danger',
                     alertText: 'Debe aceptar las condiciones de uso para registrarse',
                 });
-<<<<<<< HEAD
-            } else {
-=======
             }
              else {
->>>>>>> ab0f38d3a5f8d32666a3b6c88b660469aa169662
                 let editData = [ibanEdit];
                 document.getElementById('ibanEdit').value = '';
                 this.props.stepEditHandler(0, editData);
             }
-<<<<<<< HEAD
-        }
-    }
-=======
         } 
         }
     
@@ -157,7 +134,6 @@ class EditAccount extends React.Component {
                 this.props.stepEditHandler(0, editData2);
                 }
             }
->>>>>>> ab0f38d3a5f8d32666a3b6c88b660469aa169662
     
 
     stepEditBackHandler() {
@@ -175,12 +151,8 @@ class EditAccount extends React.Component {
         if (this.props.editStep === 0) {            
             return (
                 <div style={{height: '90%', width: '90%', display: 'flex', justifyContent: 'center', margin: '5%', marginTop: '1%', flexDirection: 'column', alignItems: 'center'}}>
-                    <div style={{width: '40%', display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
-<<<<<<< HEAD
-                        <h3 style={{display: 'flex', justifyContent: 'center', marginBottom: '15px'}}>Paso 1: Información de Log In</h3>
-=======
+                    <div style={{width: '50%', display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
                         <h3 style={{display: 'flex', justifyContent: 'center', marginBottom: '15px'}}>¿Deseas modificar tus datos de log in?</h3>
->>>>>>> ab0f38d3a5f8d32666a3b6c88b660469aa169662
                         {alert}
                     </div>
                     <Form>
@@ -209,7 +181,7 @@ class EditAccount extends React.Component {
                             </Col>
                         </FormGroup>
                         <FormGroup check row style={{display: 'flex', justifyContent: 'center'}}>
-                            <Col sm={{ size: 10, offset: 5 }}>
+                            <Col sm={{ size: 10, offset: 2 }}>
                                 <Button style={{margin: '5px'}} onClick={this.stepEditHandler}>Modificar</Button>
                                 <Button style={{margin: '5px'}} onClick={this.stepEditSaltarHandler}>Conservar</Button>
                                 
@@ -221,7 +193,7 @@ class EditAccount extends React.Component {
         } else if (this.props.editStep === 1) {
             return(
                 <div style={{height: '90%', width: '90%', display: 'flex', justifyContent: 'center', margin: '5%', marginTop: '1%', flexDirection: 'column', alignItems: 'center'}}>
-                    <div style={{width: '40%', display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
+                    <div style={{width: '60%', display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
                         <h3 style={{display: 'flex', justifyContent: 'center', marginBottom: '15px'}}>¿Deseas modificar la información de tu negocio?</h3>
                         {alert}
                     </div>
@@ -256,7 +228,7 @@ class EditAccount extends React.Component {
                             </Col>
                         </FormGroup>
                         <FormGroup check row style={{display: 'flex', justifyContent: 'center'}}>
-                            <Col sm={{ size: 11, offset: 5 }}>
+                            <Col sm={{ size: 11, offset: 3 }}>
                                 <Button style={{margin: '5px'}} onClick={this.stepEditBackHandler} style={{margin: '5px'}}>Anterior</Button>
                                 <Button style={{margin: '5px'}} onClick={this.stepEditHandler} style={{margin: '5px'}}>Modificar</Button>
                                 <Button style={{margin: '5px'}} onClick={this.stepEditSaltarHandler}>Conservar</Button>
@@ -268,8 +240,8 @@ class EditAccount extends React.Component {
         } else if (this.props.editStep === 2) {
             return (
                 <div style={{height: '90%', width: '90%', display: 'flex', justifyContent: 'center', margin: '5%', marginTop: '1%', flexDirection: 'column', alignItems: 'center'}}>
-                    <div style={{width: '50%', display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
-                        <h3 style={{display: 'flex', justifyContent: 'center', marginBottom: '15px'}}>¿Deseas modificar los datos de tu TPV?</h3>
+                    <div style={{width: '50%', display: 'flex', justifyContent: 'center', flexDirection: 'column', justifyContent: 'center'}}>
+                        <h3 style={{display: 'flex', alignSelf: 'center', textAlign: 'center', marginBottom: '15px'}}>¿Deseas modificar los datos de tu TPV?</h3>
                         {alert}
                     </div>
                     <Form>

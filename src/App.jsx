@@ -29,16 +29,30 @@ class App extends React.Component {
         this.stepHandler = this.stepHandler.bind(this);
         this.stepEditHandler = this.stepEditHandler.bind(this);
         this.stepEditSaltarHandler = this.stepEditSaltarHandler.bind(this);
+        this.logOutHandler = this.logOutHandler.bind(this);
     }
 
     render() {
         return (
             <div style={{height: '100%'}}>
                 <h1 className="text-info" style={{textAlign: 'center', marginTop: '1%'}}><FontAwesome name='cloud' /> iNube</h1>
-                <Navigator isLogged={this.state.isLogged} logInFailed={this.state.logInFailed} toggleTab={this.toggleTab} logInHandler={this.logInHandler} stepHandler={this.stepHandler} registrationStep={this.state.registrationStep} editStep={this.state.editStep} stepEditHandler={this.stepEditHandler} stepEditSaltarHandler={this.stepEditSaltarHandler} activeTab={this.state.activeTab}/>
+                <Navigator logOutHandler={this.logOutHandler} isLogged={this.state.isLogged} logInFailed={this.state.logInFailed} toggleTab={this.toggleTab} logInHandler={this.logInHandler} stepHandler={this.stepHandler} registrationStep={this.state.registrationStep} editStep={this.state.editStep} stepEditHandler={this.stepEditHandler} stepEditSaltarHandler={this.stepEditSaltarHandler} activeTab={this.state.activeTab}/>
                 <Footer/>
             </div>
         );
+    }
+
+    logOutHandler(logOut) {
+        if (logOut) {
+            this.setState({
+                isLogged: false,
+                activeTab: '0'
+            });
+        } else {
+            this.setState({
+                activeTab: '0'
+            })
+        }
     }
 
     toggleTab(tab) {
