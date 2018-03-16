@@ -10,11 +10,15 @@ export default class Graphic extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            random: 0,
             title:[
                 'Downloads',
                 'Selling',
                 'Amount',
-                'prices'
+                'prices',
+                'drafts',
+                'clients',
+                'invoice'
             ],
             description:[
                 'Loren Ipsum',
@@ -22,59 +26,70 @@ export default class Graphic extends React.Component {
                 'Loren Ipsum',
                 'Loren Ipsum'
             ],
-            data:[
-                [
-                    'date'  : '2014-10-01',
-                    'value' : 40
-                ],
-                [
-                    'date'  : '2014-12-01',
-                    'value' : 20
+            date:[
+                '2011-11-02',
+                '2011-12-02',
+                '2012-01-02',
+                '2012-02-02',
+                '2012-03-02',
+                '2012-04-02',
+                '2012-05-02',
+                '2012-06-02',
+                '2012-07-02',
+                '2012-08-02',
+                '2012-09-02',
+                '2012-10-02',
+                '2012-11-02',
+                '2012-12-02',
+                '2013-01-02',
+                '2013-02-02',
+                '2013-03-02',
+                '2013-04-02',
+                '2013-05-02',
+                '2013-06-02',
+                '2013-07-02',
+                '2013-08-02',
+                '2013-09-02',
+                '2013-10-02',
+                '2013-11-02',
+                '2013-12-02'
             ],
-                [
-                    'date'  : '2013-10-01',
-                    'value' : 2
-            ],
-                [
-                    'date'  : '2014-10-34',
-                    'value' : 13
-            ],
-                [
-                    'date'  : '2017-10-01',
-                    'value' : 40
-            ],
-                [
-                    'date'  : '2014-01-01',
-                    'value' : 423
-            ],
-                [
-                    'date'  : '1994-01-09',
-                    'value' : 19
-            ],
-                [
-                    'date'  : '2015-10-01',
-                    'value' : 23
-            ],
-                [
-                    'date'  : '2016-10-01',
-                    'value' : 34
-            ],
-                [
-                    'date'  : '2018-10-01',
-                    'value' : 56
+            value:[
+                '10',
+                '11',
+                '12',
+                '13',
+                '14',
+                '15',
+                '16',
+                '17',
+                '18',
+                '19',
+                '20',
+                '21',
+                '22',
+                '23',
+                '24',
+                '25',
+                '26',
+                '27',
+                '28'
+
             ]
-        ]
+
+        }
     }
-}
+
 
 
     render() {
+
         return (
             <div>
                 <MetricsGraphics
-                    title='Downloads'
-                    description='Loren Ipsum'
-                    data={ [{'date':new Date('2012-11-02'),'value':22},{'date':new Date('2015-10-01'),'value':-2}, {'date':new Date('2016-11-02'),'value':18}] }
+                    title={this.state.title[Math.floor(Math.random()*this.state.title.length)]}
+                    description={this.state.description[Math.floor(Math.random()*this.state.description.length)]}
+                    data={ [{'date':new Date(this.state.date[Math.floor(Math.random()*this.state.date.length)]),'value':this.state.value[Math.floor(Math.random()*this.state.value.length)]},{'date':new Date(this.state.date[Math.floor(Math.random()*this.state.date.length)]),'value':this.state.value[Math.floor(Math.random()*this.state.value.length)]}, {'date':new Date(this.state.date[Math.floor(Math.random()*this.state.date.length)]),'value':this.state.value[Math.floor(Math.random()*this.state.value.length)]},{'date':new Date(this.state.date[Math.floor(Math.random()*this.state.date.length)]),'value':this.state.value[Math.floor(Math.random()*this.state.value.length)]},{'date':new Date(this.state.date[Math.floor(Math.random()*this.state.date.length)]),'value':this.state.value[Math.floor(Math.random()*this.state.value.length)]},{'date':new Date(this.state.date[Math.floor(Math.random()*this.state.date.length)]),'value':this.state.value[Math.floor(Math.random()*this.state.value.length)]},{'date':new Date(this.state.date[Math.floor(Math.random()*this.state.date.length)]),'value':this.state.value[Math.floor(Math.random()*this.state.value.length)]},{'date':new Date(this.state.date[Math.floor(Math.random()*this.state.date.length)]),'value':this.state.value[Math.floor(Math.random()*this.state.value.length)]}] }
                     width={480}
                     height={250}
                     x_accessor="date"

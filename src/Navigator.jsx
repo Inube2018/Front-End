@@ -1,11 +1,12 @@
 import React from 'react';
-import { Alert, Nav, NavItem, NavLink, TabContent, TabPane, Row, Col } from 'reactstrap';
+import { Alert, Nav, NavItem, NavLink, TabContent, TabPane, Row, Col, Card, Button, CardTitle, CardText } from 'reactstrap';
 import classnames from 'classnames';
 import Home from './Home.jsx'
 import Who from './Who.jsx'
 import LogIn from './LogIn.jsx'
 import Registration from './Registration.jsx'
 import Dashboard from './Dashboard.jsx'
+import EditAccount from './EditAccount.jsx'
 import Faq from './Faq.jsx'
 
 
@@ -15,6 +16,9 @@ class Navigator extends React.Component {
         this.toggleTab = this.toggleTab.bind(this);
         this.logInHandler = this.logInHandler.bind(this);
         this.stepHandler = this.stepHandler.bind(this);
+        this.stepEditHandler = this.stepEditHandler.bind(this);
+        this.stepEditSaltarHandler = this.stepEditSaltarHandler.bind(this);
+        this.logOutHandler = this.logOutHandler.bind(this);
     }
 
     render() {
@@ -118,14 +122,22 @@ class Navigator extends React.Component {
                     <TabPane tabId="1">
                         <Row>
                             <Col sm="12">
-                                <h4>Ajustes de mi cuenta</h4>
+                                <EditAccount stepEditHandler={this.stepEditHandler} stepEditSaltarHandler = {this.stepEditSaltarHandler} editStep={this.props.editStep}/>
                             </Col>
                         </Row>
                     </TabPane>
                     <TabPane tabId="2">
                         <Row>
                             <Col sm="12">
-                                <h4>Cerrar Sesión</h4>
+                                <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'center'}}>
+                                    <Card body>
+                                        <CardTitle>Cerrar sesión</CardTitle>
+                                        <CardText>¿Seguro que quieres cerrar sesión?</CardText>
+                                        <div style={{display: 'flex', flexDirection: 'row', alignSelf: 'center'}}>
+                                            <Button style={{width: '190px', margin: '10px'}} onClick={() => {this.logOutHandler(true)}}>Sí, cerrar sesión</Button><Button style={{width: '190px', margin: '10px'}} onClick={() => {this.logOutHandler(false)}}>No, seguir navegando</Button>
+                                        </div>
+                                    </Card>
+                                </div>
                             </Col>
                         </Row>
                     </TabPane>
@@ -146,6 +158,19 @@ class Navigator extends React.Component {
         this.props.stepHandler(direction, regData);
     }
 
+    stepEditHandler(direction, editData) {
+        this.props.stepEditHandler(direction, editData);
+    }
+
+    stepEditSaltarHandler(direction, editData2) {
+        this.props.stepEditSaltarHandler(direction, editData2);
+    }
+
+    logOutHandler(logOut) {
+        this.props.logOutHandler(logOut);
+    }
+
 }
 
 export default Navigator;
+

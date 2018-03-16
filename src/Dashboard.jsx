@@ -1,7 +1,8 @@
 import React from 'react';
 import { Container, Row, Col, ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem  } from 'reactstrap';
-import Graphic from './Graphic.jsx'
+import Graphic from './Graphic.jsx';
 import GraphicTypes from './GraphicTypes.jsx';
+
 var FontAwesome = require('react-fontawesome');
 
 
@@ -14,6 +15,7 @@ export default class Dashboard extends React.Component {
             dropdownOpen: false,
             Graphic_number:4
         };
+
     }
     toggle() {
         this.setState({
@@ -23,13 +25,13 @@ export default class Dashboard extends React.Component {
 
     render() {
         return (
-                <Container fluid className='dashboard'>
+                <Container fluid className='dashboard' style={{marginTop: '1%', marginBottom: '2%'}}>
                     <Row>
-                        <Col md='3'>
+                        <Col md='2'>
                             <GraphicTypes />
                         </Col>
-                        <Col md='9'>
-                            <Row>
+                        <Col md='10'>
+                            <Row style={{marginBottom: '15px'}}>
                                 <Col md='9'/>
                                 <Col md='3'>
                                     <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
@@ -65,7 +67,6 @@ export default class Dashboard extends React.Component {
                     </Row>
                 </Container>
         );
-
     }
 }
 
