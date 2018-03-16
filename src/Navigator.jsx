@@ -6,7 +6,8 @@ import Who from './Who.jsx'
 import LogIn from './LogIn.jsx'
 import Registration from './Registration.jsx'
 import Dashboard from './Dashboard.jsx'
-import EditAccount from './EditAccount.jsx';
+import EditAccount from './EditAccount.jsx'
+import Faq from './Faq.jsx'
 
 
 class Navigator extends React.Component {
@@ -16,6 +17,7 @@ class Navigator extends React.Component {
         this.logInHandler = this.logInHandler.bind(this);
         this.stepHandler = this.stepHandler.bind(this);
         this.stepEditHandler = this.stepEditHandler.bind(this);
+        this.stepEditSaltarHandler = this.stepEditSaltarHandler.bind(this);
     }
 
     render() {
@@ -52,7 +54,7 @@ class Navigator extends React.Component {
                     <TabContent activeTab={this.props.activeTab}>
                         <TabPane tabId="0">
                             <Row>
-                                <Col sm="12" style={{padding: '20px', marginLeft: '20px'}}>
+                                <Col md="12" >
                                     <Home/>
                                 </Col>
                             </Row>
@@ -67,7 +69,7 @@ class Navigator extends React.Component {
                         <TabPane tabId="2">
                             <Row>
                                 <Col sm="12">
-                                    <h4>Página de FAQ</h4>
+                                    <Faq/>
                                 </Col>
                             </Row>
                         </TabPane>
@@ -111,7 +113,7 @@ class Navigator extends React.Component {
                 <TabContent activeTab={this.props.activeTab}>
                     <TabPane tabId="0">
                         <Row>
-                            <Col sm="12" style={{padding: '20px', marginLeft: '20px'}}>
+                            <Col md="12" >
                                 <Dashboard/>
                             </Col>
                         </Row>
@@ -119,7 +121,7 @@ class Navigator extends React.Component {
                     <TabPane tabId="1">
                         <Row>
                             <Col sm="12">
-                                <EditAccount stepEditHandler={this.stepEditHandler} editStep={this.props.editStep}/>
+                            <EditAccount stepEditHandler={this.stepEditHandler} stepEditSaltarHandler = {this.stepEditSaltarHandler} editStep={this.props.editStep}/>
                             </Col>
                         </Row>
                     </TabPane>
@@ -151,6 +153,14 @@ class Navigator extends React.Component {
         this.props.stepEditHandler(direction, editData);
     }
 
+<<<<<<< HEAD
+=======
+    stepEditSaltarHandler(direction, editData2) {
+        this.props.stepEditSaltarHandler(direction, editData2);
+    }
+
+>>>>>>> ab0f38d3a5f8d32666a3b6c88b660469aa169662
 }
 
 export default Navigator;
+

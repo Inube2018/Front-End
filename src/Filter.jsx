@@ -8,12 +8,11 @@ export default class Filter extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLogged: false,
-            activeTab: '0',
+
             arrow: 'arrow-right',
             compress_filter: '0'
         };
-        this.toggleTab = this.toggleTab.bind(this);
+
     }
 
     onPress = () => {
@@ -23,14 +22,14 @@ export default class Filter extends React.Component {
                 arrow: 'arrow-down',
                 compress_filter: '1'
             });
-            document.getElementById('pruebas').style.display = 'none';
+            document.getElementById('pruebas').style.display = 'block';
 
         }else{
             this.setState({
                 arrow: 'arrow-right',
                 compress_filter: '0'
             });
-            document.getElementById('pruebas').style.display = 'block';
+            document.getElementById('pruebas').style.display = 'none';
         }
 
     }
@@ -39,15 +38,11 @@ export default class Filter extends React.Component {
             return (
                 <div>
                     <Button color="primary" size="lg" className='filter' onClick={this.onPress}><FontAwesome name='filter'/> Filtro <FontAwesome name={this.state.arrow}/></Button>
-                    <p id='pruebas' >Aquí va el filtro</p>
+                    <div id='pruebas'><p>Aquí va el filtro</p></div>
                 </div>
             );
         }
     }
 
-    toggleTab(tab) {
-        this.props.toggleTab(tab);
-        console.log(this.props)
-    }
 }
 

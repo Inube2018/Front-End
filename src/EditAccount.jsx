@@ -11,9 +11,18 @@ class EditAccount extends React.Component {
             alertType: '',
             alertText: '',
         }
+<<<<<<< HEAD
         this.onDismiss = this.onDismiss.bind(this);
         this.stepEditHandler = this.stepEditHandler.bind(this);
         this.stepEditBackHandler = this.stepEditBackHandler.bind(this);
+=======
+        //this.stepHandler = this.stepHandler.bind(this);
+        this.onDismiss = this.onDismiss.bind(this);
+        //this.stepBackHandler = this.stepBackHandler.bind(this);
+        this.stepEditHandler = this.stepEditHandler.bind(this);
+        this.stepEditBackHandler = this.stepEditBackHandler.bind(this);
+        this.stepEditSaltarHandler = this.stepEditSaltarHandler.bind(this);
+>>>>>>> ab0f38d3a5f8d32666a3b6c88b660469aa169662
     }
 
     stepEditHandler(){
@@ -52,7 +61,10 @@ class EditAccount extends React.Component {
                 document.getElementById('emailEdit').value = '';
                 document.getElementById('passwordEdit').value = '';
                 document.getElementById('passwordRepeatEdit').value = '';
+<<<<<<< HEAD
                 console.log(this.props);
+=======
+>>>>>>> ab0f38d3a5f8d32666a3b6c88b660469aa169662
                 this.props.stepEditHandler(0, editData);
             }
         } else if (this.props.editStep === 1) {
@@ -95,8 +107,11 @@ class EditAccount extends React.Component {
         } else if (this.props.editStep === 2) {
             console.log("Step 3");
             let ibanEdit = document.getElementById('ibanEdit').value;
+<<<<<<< HEAD
             let checkboxEdit = document.getElementById('checkboxEdit').value;
             console.log(checkboxEdit);
+=======
+>>>>>>> ab0f38d3a5f8d32666a3b6c88b660469aa169662
             if ((ibanEdit.length !== 24) || ((ibanEdit[0] !== 'E') && (ibanEdit[1] !== 'S')) || (ibanEdit === '')) {
                 this.setState({
                     alert: !this.state.alert,
@@ -109,13 +124,40 @@ class EditAccount extends React.Component {
                     alertType: 'danger',
                     alertText: 'Debe aceptar las condiciones de uso para registrarse',
                 });
+<<<<<<< HEAD
             } else {
+=======
+            }
+             else {
+>>>>>>> ab0f38d3a5f8d32666a3b6c88b660469aa169662
                 let editData = [ibanEdit];
                 document.getElementById('ibanEdit').value = '';
                 this.props.stepEditHandler(0, editData);
             }
+<<<<<<< HEAD
         }
     }
+=======
+        } 
+        }
+    
+        stepEditSaltarHandler(){
+            if (this.props.editStep === 0) {
+                    let editData2 = [];
+                    this.props.stepEditHandler(0, editData2);
+                
+            } else if (this.props.editStep === 1) {
+                
+                    let editData2 = [];
+                    this.props.stepEditHandler(0, editData2);
+                
+
+            } else if (this.props.editStep === 2) {
+                let editData2 = [];
+                this.props.stepEditHandler(0, editData2);
+                }
+            }
+>>>>>>> ab0f38d3a5f8d32666a3b6c88b660469aa169662
     
 
     stepEditBackHandler() {
@@ -134,24 +176,28 @@ class EditAccount extends React.Component {
             return (
                 <div style={{height: '90%', width: '90%', display: 'flex', justifyContent: 'center', margin: '5%', marginTop: '1%', flexDirection: 'column', alignItems: 'center'}}>
                     <div style={{width: '40%', display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
+<<<<<<< HEAD
                         <h3 style={{display: 'flex', justifyContent: 'center', marginBottom: '15px'}}>Paso 1: Información de Log In</h3>
+=======
+                        <h3 style={{display: 'flex', justifyContent: 'center', marginBottom: '15px'}}>¿Deseas modificar tus datos de log in?</h3>
+>>>>>>> ab0f38d3a5f8d32666a3b6c88b660469aa169662
                         {alert}
                     </div>
                     <Form>
                         <FormGroup row>
                             <Label for="userNameEdit" sm={9}>Nombre de usuario</Label>
                             <Col sm={12}>
-                                <Input type="emailEdit" id="userNameEdit"/>
+                                <Input type="emailEdit" id="userNameEdit" placeholder="NombreUsuarioRegistro"/>
                             </Col>
                         </FormGroup>
                         <FormGroup row>
                             <Label for="emailEdit" sm={5}>Email</Label>
                             <Col sm={12}>
-                                <Input type="email" id="emailEdit" placeholder="example@email.com"/>
+                                <Input type="email" id="emailEdit" placeholder="emailRegistro"/>
                             </Col>
                         </FormGroup>
                         <FormGroup row>
-                            <Label for="passwordEdit" sm={5}>Contraseña</Label>
+                            <Label for="passwordEdit" sm={5}>Nueva contraseña</Label>
                             <Col sm={12}>
                                 <Input type="password" id="passwordEdit"/>
                             </Col>
@@ -164,7 +210,9 @@ class EditAccount extends React.Component {
                         </FormGroup>
                         <FormGroup check row style={{display: 'flex', justifyContent: 'center'}}>
                             <Col sm={{ size: 10, offset: 5 }}>
-                                <Button onClick={this.stepEditHandler}>Siguiente</Button>
+                                <Button style={{margin: '5px'}} onClick={this.stepEditHandler}>Modificar</Button>
+                                <Button style={{margin: '5px'}} onClick={this.stepEditSaltarHandler}>Conservar</Button>
+                                
                             </Col>
                         </FormGroup>
                     </Form>
@@ -174,24 +222,24 @@ class EditAccount extends React.Component {
             return(
                 <div style={{height: '90%', width: '90%', display: 'flex', justifyContent: 'center', margin: '5%', marginTop: '1%', flexDirection: 'column', alignItems: 'center'}}>
                     <div style={{width: '40%', display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
-                        <h3 style={{display: 'flex', justifyContent: 'center', marginBottom: '15px'}}>Paso 2: Información de su Negocio</h3>
+                        <h3 style={{display: 'flex', justifyContent: 'center', marginBottom: '15px'}}>¿Deseas modificar la información de tu negocio?</h3>
                         {alert}
                     </div>
                     <Form>
                         <FormGroup row>
                             <Label for="restaurantNameEdit" sm={9}>Nombre del negocio</Label>
                             <Col sm={12}>
-                                <Input type="email" id="restaurantNameEdit" placeholder=''/>
+                                <Input type="email" id="restaurantNameEdit" placeholder='nombreRestauranteRegistro'/>
                             </Col>
                         </FormGroup>
                         <FormGroup row>
                             <Label for="zipCodeEdit" sm={5}>Código Postal</Label>
                             <Col sm={12}>
-                                <Input type="email" id="zipCodeEdit" placeholder=''/>
+                                <Input type="email" id="zipCodeEdit" placeholder='CodigoPostalRegistro'/>
                             </Col>
                         </FormGroup>
                         <FormGroup row>
-                            <Label for="businessTypeEdit" sm={12}>Eliga la opción que mejor define su negocio</Label>
+                            <Label for="businessTypeEdit" sm={12}>Elija la opción que mejor define su negocio</Label>
                             <Col sm={12}>
                                 <Input type="select" name="select" id="businessTypeEdit">
                                     <option>Eliga una opción</option>
@@ -204,13 +252,14 @@ class EditAccount extends React.Component {
                         <FormGroup row>
                             <Label for="averageSellEdit" sm={9}>Precio medio del menú</Label>
                             <Col sm={12}>
-                                <Input type="averageSell" id="averageSellEdit" placeholder=''/>
+                                <Input type="averageSell" id="averageSellEdit" placeholder='CuentaMediaRegistro'/>
                             </Col>
                         </FormGroup>
                         <FormGroup check row style={{display: 'flex', justifyContent: 'center'}}>
                             <Col sm={{ size: 11, offset: 5 }}>
-                                <Button onClick={this.stepEditBackHandler} style={{margin: '5px'}}>Anterior</Button>
-                                <Button onClick={this.stepEditHandler} style={{margin: '5px'}}>Siguiente</Button>
+                                <Button style={{margin: '5px'}} onClick={this.stepEditBackHandler} style={{margin: '5px'}}>Anterior</Button>
+                                <Button style={{margin: '5px'}} onClick={this.stepEditHandler} style={{margin: '5px'}}>Modificar</Button>
+                                <Button style={{margin: '5px'}} onClick={this.stepEditSaltarHandler}>Conservar</Button>
                             </Col>
                         </FormGroup>
                     </Form>
@@ -220,26 +269,22 @@ class EditAccount extends React.Component {
             return (
                 <div style={{height: '90%', width: '90%', display: 'flex', justifyContent: 'center', margin: '5%', marginTop: '1%', flexDirection: 'column', alignItems: 'center'}}>
                     <div style={{width: '50%', display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
-                        <h3 style={{display: 'flex', justifyContent: 'center', marginBottom: '15px'}}>Paso 3: Datos TPV</h3>
+                        <h3 style={{display: 'flex', justifyContent: 'center', marginBottom: '15px'}}>¿Deseas modificar los datos de tu TPV?</h3>
                         {alert}
                     </div>
                     <Form>
                         <FormGroup row>
                             <Label for="ibanEdit" sm={9}>IBAN</Label>
                             <Col sm={12}>
-                                <Input type="email" id="ibanEdit"/>
-                            </Col>
-                        </FormGroup>
-                        <FormGroup row>
-                            <Col sm={12}>
-                                <Input type="checkbox" id="checkbox" onClick={() => {if (document.getElementById('checkbox').value === 'on') {document.getElementById('checkbox').value = 'off'} else {document.getElementById('checkbox').value = 'on'}}}/>{' '}Acepto las condiciones de uso de iNube
+                                <Input type="email" id="ibanEdit" placeholder="IbanRegistro"/>
                             </Col>
                         </FormGroup>
                         <FormGroup check row style={{display: 'flex', justifyContent: 'center'}}>
                             <Col sm={{ size: 12, offset: 0 }}>
                                 <div style={{display: 'flex', justifyContent: 'center'}}>
-                                    <Button onClick={this.stepEditBackHandler} style={{margin: '5px'}}>Anterior</Button>
-                                    <Button onClick={this.stepEditHandler} style={{margin: '5px'}}>Registrarse</Button>
+                                    <Button style={{margin: '5px'}} onClick={this.stepEditBackHandler} style={{margin: '5px'}}>Anterior</Button>
+                                    <Button style={{margin: '5px'}} onClick={this.stepEditHandler} style={{margin: '5px'}}>Modificar</Button>
+                                    <Button style={{margin: '5px'}} onClick={this.stepEditSaltarHandler}>Conservar</Button>
                                 </div>
                             </Col>
                         </FormGroup>
