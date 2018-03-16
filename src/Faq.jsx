@@ -39,7 +39,7 @@ class Faq extends React.Component {
       return (
         <div style={{height: '100%', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'left'}}>
             
-            <Button color="white" onClick={this.toggle1} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold" }}>¿A qué tipo de contenido tengo acceso como usuario premium?</Button>
+            <Button color="white" onClick={this.toggle1} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold", borderColor: 'grey', borderWidth: '1', marginLeft: '5', marginRight: '5' }}>¿A qué tipo de contenido tengo acceso como usuario premium?</Button>
             <Collapse isOpen={this.state.collapse1}>
                 <Card>
                 <CardBody>
@@ -48,7 +48,7 @@ class Faq extends React.Component {
                 </Card>
             </Collapse>
            
-            <Button color="white" onClick={this.toggle2} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold" }}>¿Con qué bancos trabajais?</Button>
+            <Button color="white" onClick={this.toggle2} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold" ,borderColor: 'grey', borderWidth: '1', marginLeft: '5', marginRight: '5'  }}>¿Con qué bancos trabajais?</Button>
             <Collapse isOpen={this.state.collapse2}>
                 <Card>
                 <CardBody>
@@ -57,7 +57,7 @@ class Faq extends React.Component {
                 </Card>
             </Collapse>
            
-            <Button color="white" onClick={this.toggle3} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold" }}>¿Si os doy permiso para acceder a los datos bancarios de mi negocio, significa eso que teneís acceso a mi cuenta corriente?</Button>
+            <Button color="white" onClick={this.toggle3} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold", borderColor: 'grey', borderWidth: '1', marginLeft: '5', marginRight: '5'  }}>¿Si os doy permiso para acceder a los datos bancarios de mi negocio, significa eso que teneís acceso a mi cuenta corriente?</Button>
             <Collapse isOpen={this.state.collapse3}>
                 <Card>
                 <CardBody>
@@ -66,7 +66,7 @@ class Faq extends React.Component {
                 </Card>
             </Collapse>
             
-            <Button color="white" onClick={this.toggle4} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold" }}>¿Para quién esta dirigida esta aplicación?</Button>
+            <Button color="white" onClick={this.toggle4} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold", borderColor: 'grey', borderWidth: '1', marginLeft: '5', marginRight: '5'  }}>¿Para quién esta dirigida esta aplicación?</Button>
             <Collapse isOpen={this.state.collapse4}>
                 <Card>
                 <CardBody>
@@ -75,7 +75,7 @@ class Faq extends React.Component {
                 </Card>
             </Collapse>
 
-            <Button color="white" onClick={this.toggle5} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold" }}>¿?</Button>
+            <Button color="white" onClick={this.toggle5} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold", borderColor: 'grey', borderWidth: '1', marginLeft: '5', marginRight: '5' }}>¿?</Button>
             <Collapse isOpen={this.state.collapse5}>
                 <Card>
                 <CardBody>
