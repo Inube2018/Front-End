@@ -22,17 +22,27 @@ class App extends React.Component {
             regAverageSell: '',
             regIban: '',
             logInFailed: false,
+            editUserName: '',
+            editEmail: '',
+            editPassword: '',
+            editRestaurantName: '',
+            editZipCode: '',
+            editBusinessType: '',
+            editAverageSell: '',
+            editIban: '',
+            editStep: 0,
         };
         this.toggleTab = this.toggleTab.bind(this);
         this.logInHandler = this.logInHandler.bind(this);
         this.stepHandler = this.stepHandler.bind(this);
+        this.stepEditHandler = this.stepEditHandler.bind(this);
     }
 
     render() {
         return (
             <div style={{height: '100%'}}>
                 <h1 className="text-info" style={{textAlign: 'center', marginTop: '1%'}}><FontAwesome name='cloud' /> iNube</h1>
-                <Navigator isLogged={this.state.isLogged} logInFailed={this.state.logInFailed} toggleTab={this.toggleTab} logInHandler={this.logInHandler} stepHandler={this.stepHandler} registrationStep={this.state.registrationStep} activeTab={this.state.activeTab}/>
+                <Navigator editStep={this.state.editStep} stepEditHandler={this.stepEditHandler} isLogged={this.state.isLogged} logInFailed={this.state.logInFailed} toggleTab={this.toggleTab} logInHandler={this.logInHandler} stepHandler={this.stepHandler} registrationStep={this.state.registrationStep} activeTab={this.state.activeTab}/>
                 <Footer/>
             </div>
         );
@@ -90,6 +100,39 @@ class App extends React.Component {
                 registrationStep: this.state.registrationStep-1,
             });
             // Mandar datos de registro ANTES DE ACTUALIZAR EL ESTADO?
+        }
+    }
+
+    stepEditHandler(direction, editData) {
+        if (direction === 0) {
+            console.log(editData);
+            if (this.state.editStep === 0) {
+                this.setState({
+                    editStep: this.state.editStep+1,
+                    editUserName: editData[0],
+                    editEmail: editData[1],
+                    editPassword: editData[2],
+                });
+            } else if (this.state.editStep === 1) {
+                this.setState({
+                    editStep: this.state.editStep+1,
+                    editRestaurantName: editData[0],
+                    editZipCode: editData[1],
+                    editBusinessType: editData[2],
+                    editAverageSell: editData[2],
+                });
+            } else if (this.state.editStep === 2) {
+                this.setState({
+                    editStep: 0,
+                    editIban: editData[0],
+                    isLogged: true,
+                });
+            }
+        } else {
+            this.setState({
+                editStep: this.state.editStep-1,
+            });
+            
         }
     }
 
