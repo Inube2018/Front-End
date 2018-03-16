@@ -1,75 +1,59 @@
+/*Nombre superior de la web*/
 #brand-name{
   background-color: aliceblue;
 }
-.filter-column{
-  background-color: cornsilk;
-  border-right: 1px solid red;
-}
+/*Tamaño del dashboard*/
 .dashboard{
   max-width: 100%;
 }
-/**
- * Cambios
- */
-
-html {
-  height: 100%;
-  box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
-body {
-  position: relative;
-  margin: 0;
-  padding-bottom: 6rem;
-  min-height: 100%;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-}
-
-
-/**
- * Footer Styles
- */
-
-.footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  padding-left: 3%;
-  background-color: #efefef;
+/*Footer sticky*/
+#footer{
+  background-color: #E7E7E7;
+  font-size: 15px;
+  color: black;
+  border-top: 1px solid #E7E7E7;
   text-align: left;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 60px;
+  width: 100%;
+  display: block;
+}
+#phantom {
+  display: block;
+  padding: 20px;
+  height: 60px;
+  width: 100%;
 }
 #legal{
   text-align: right;
 }
+/*No se muestra de primeras la frase del filtro*/
 #pruebas{
    display: none;
  }
+/*Ocultamos uno de los logos de los filtros para ir cambiandolos luego*/
 #botones-graficos{
   display: none;
 }
+/*Centrado del botón del filtro con el gráfico*/
 .filtro{
   padding-left: 15%;
 }
-.carousel {
 
+/*Posición y tamaño del carrousel*/
+.carousel {
   position: absolute;
   vertical-align: middle;
   width: 100%;
-
 }
 .carousel-inner {
-
   position: relative;
   width: 100%;
   overflow: hidden;
-  left: 20%;
-
+}
+img{
+    width: 100%;
 }

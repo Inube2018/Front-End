@@ -1,7 +1,8 @@
 import React from 'react';
 import { Container, Row, Col, ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem  } from 'reactstrap';
-import Graphic from './Graphic.jsx'
+import Graphic from './Graphic.jsx';
 import GraphicTypes from './GraphicTypes.jsx';
+
 var FontAwesome = require('react-fontawesome');
 
 
@@ -14,6 +15,7 @@ export default class Dashboard extends React.Component {
             dropdownOpen: false,
             Graphic_number:4
         };
+
     }
     toggle() {
         this.setState({
@@ -65,7 +67,6 @@ export default class Dashboard extends React.Component {
                     </Row>
                 </Container>
         );
-
     }
 }
 
