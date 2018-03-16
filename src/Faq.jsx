@@ -10,12 +10,16 @@ class Faq extends React.Component {
       this.toggle2 = this.toggle2.bind(this);
       this.toggle3 = this.toggle3.bind(this);
       this.toggle4 = this.toggle4.bind(this);
+      this.toggle5 = this.toggle5.bind(this);
+      this.toggle6 = this.toggle6.bind(this);
+
       this.state = { 
           collapse1: false,
           collapse2: false,
           collapse3: false,
           collapse4: false,
           collapse5: false,
+          collapse6: false
         };
     }
   
@@ -34,10 +38,13 @@ class Faq extends React.Component {
     toggle5() {
         this.setState({ collapse5: !this.state.collapse5 });
     }
+    toggle6() {
+        this.setState({ collapse6: !this.state.collapse6 });
+    }
    
     render() {
       return (
-        <div style={{height: '100%', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'left'}}>
+        <div style={{height: '100%', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'left',  marginTop: '5'}}>
             
             <Button color="white" onClick={this.toggle1} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold", borderColor: 'grey', borderWidth: '1', marginLeft: '5', marginRight: '5' }}>¿A qué tipo de contenido tengo acceso como usuario premium?</Button>
             <Collapse isOpen={this.state.collapse1}>
@@ -80,6 +87,15 @@ class Faq extends React.Component {
                 <Card>
                 <CardBody>
                    
+                </CardBody>
+                </Card>
+            </Collapse>
+
+            <Button color="white" onClick={this.toggle6} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold", borderColor: 'grey', borderWidth: '1', marginLeft: '5', marginRight: '5' }}>No encuentro la respuesta a mi pregunta, ¿qué hago?</Button>
+            <Collapse isOpen={this.state.collapse6}>
+                <Card>
+                <CardBody>
+                   Envíanos a un correo a inube@gmail.com y le reponderemos tan pronto como sea posible.
                 </CardBody>
                 </Card>
             </Collapse>
