@@ -12,6 +12,8 @@ class Faq extends React.Component {
       this.toggle4 = this.toggle4.bind(this);
       this.toggle5 = this.toggle5.bind(this);
       this.toggle6 = this.toggle6.bind(this);
+      this.toggle7 = this.toggle7.bind(this);
+
       this.state = {
           collapse1: false,
           collapse2: false,
@@ -42,21 +44,21 @@ class Faq extends React.Component {
         this.setState({ collapse6: !this.state.collapse6 });
     }
     toggle7() {
-        this.setState({ collapse6: !this.state.collapse7 });
+        this.setState({ collapse7: !this.state.collapse7 });
     }
    
     render() {
       return (
         <div style={{height: '100%', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'left',  marginTop: '5'}}>
             
-            <Button color="white" onClick={this.toggle1} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold", borderColor: 'grey', borderWidth: '1', marginLeft: '5', marginRight: '5' }}>¿A qué tipo de contenido tengo acceso como usuario premium?</Button>
+           {/*<Button color="white" onClick={this.toggle1} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold", borderColor: 'grey', borderWidth: '1', marginLeft: '5', marginRight: '5' }}>¿A qué tipo de contenido tengo acceso como usuario premium?</Button>
             <Collapse isOpen={this.state.collapse1}>
                 <Card>
                 <CardBody>
                     Tener una cuenta premium te permitirá comparar los datos de tu negocio con los de la competencia de la zona en la que este ubicada tu establecimiento, elegir entre distintas configuraciones del dashboard y gráficas que te ayudarán a analizar y visualizar mejor la evolución de tu negocio.
                 </CardBody>
                 </Card>
-            </Collapse>
+      </Collapse>*/}
 
             <Button color="white" onClick={this.toggle2} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold" ,borderColor: 'grey', borderWidth: '1', marginLeft: '5', marginRight: '5'  }}>¿Con qué bancos trabajais?</Button>
             <Collapse isOpen={this.state.collapse2}>
@@ -85,7 +87,7 @@ class Faq extends React.Component {
                 </Card>
             </Collapse>
 
-            <Button color="white" onClick={this.toggle5} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold", borderColor: 'grey', borderWidth: '1', marginLeft: '5', marginRight: '5' }}>¿Existe Algún tipo de permanencia?</Button>
+            <Button color="white" onClick={this.toggle5} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold", borderColor: 'grey', borderWidth: '1', marginLeft: '5', marginRight: '5' }}>¿Existe algún tipo de permanencia?</Button>
             <Collapse isOpen={this.state.collapse5}>
                 <Card>
                 <CardBody>
