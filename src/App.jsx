@@ -136,15 +136,15 @@ class App extends React.Component {
                     isLogged: true,
                 });
             }
-       
+
         }
            else {
             this.setState({
                 editStep: this.state.editStep-1,
             });
-            
+
         }
-        
+
     }
 
     stepEditSaltarHandler(direction, editData2) {
@@ -153,28 +153,28 @@ class App extends React.Component {
             if (this.state.editStep === 0) {
                 this.setState({
                     editStep: this.state.editStep+1,
-                    
+
                 });
             } else if (this.state.editStep === 1) {
                 this.setState({
                     editStep: this.state.editStep+1,
-                    
+
                 });
             } else if (this.state.editStep === 2) {
                 this.setState({
                     editStep: this.state.editStep+1,
-                    
+
                 });
             }
-       
+
         }
            else {
             this.setState({
                 editStep: this.state.editStep-1,
             });
-            
+
         }
-        
+
     }
 
 }
