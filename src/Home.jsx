@@ -5,7 +5,7 @@ import { Carousel, CarouselItem, CarouselControl, CarouselIndicators, CarouselCa
 const items = [
     {
         id: 'slide1',
-        src:'./../public/field.jpg' ,
+        src:'./../public/field.png' ,
         altText: 'Slide 1',
         caption: 'Descripción BREVE del sistema'
     },
@@ -17,7 +17,7 @@ const items = [
     },
     {
         id: 'slide3',
-        src: './../public/road.jpg',
+        src: './../public/road.png',
         altText: 'Slide 3',
         caption: 'Opinión 2'
     }

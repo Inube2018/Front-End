@@ -237,14 +237,14 @@ class Registration extends React.Component {
                         </FormGroup>
                         <FormGroup row>
                             <Col sm={12}>
-                                <Input type="checkbox" id="checkbox" onClick={() => {if (document.getElementById('checkbox').value === 'on') {document.getElementById('checkbox').value = 'off'} else {document.getElementById('checkbox').value = 'on'}}}/>{' '}Acepto las<Button className='pop-up' onClick={this.toggle}> condiciones de uso</Button>
+                                <Input style={{marginTop: '14px'}} type="checkbox" id="checkbox" onClick={() => {if (document.getElementById('checkbox').value === 'on') {document.getElementById('checkbox').value = 'off'} else {document.getElementById('checkbox').value = 'on'}}}/>{' '}Acepto las<Button className='pop-up' style={{paddingTop: '9px', paddingLeft: '4px', paddingRight: '4px'}} onClick={this.toggle}> condiciones de uso</Button>
                                 <Modal isOpen={this.state.modal} toggle={this.toggle} className='legal'>
                                     <ModalHeader toggle={this.toggle}> Política de Privacidad</ModalHeader>
                                     <ModalBody>
 
                                         <p className='text-center'>USO DE DATOS</p>
 
-                                        <p>Los Datos de Carácter Personal, recogidos en la web de INUBE y que voluntariamente faciliten en el proceso de
+                                        <p>Los Datos de Carácter Personal, recogidos en la web de INUBE y que voluntariamente se faciliten en el proceso de
                                             Registro de usuarios son objeto de tratamiento automatizado, con un único uso exclusivo identificativo.
                                             Los datos recopilados en el registro únicamente se destinan a los fines descritos en el formulario correspondiente
                                             de recopilación de datos y nunca, en ningún caso, serán cedidos a terceros sin el consentimiento expreso previo de sus titulares.

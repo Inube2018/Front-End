@@ -33,7 +33,7 @@ export default class Footer extends React.Component {
                 <Container fluid id='footer'>
                     <Row>
                         <Col md='6'>
-                            <FontAwesome name='cloud' /> INUBE <FontAwesome name='copyright' />  Design with <FontAwesome name='heart' /> by group 11
+                            <FontAwesome name='cloud' /> INUBE <FontAwesome name='copyright' />  Design with <FontAwesome name='heart' /> by group 02
                         </Col>
                         <Col md='6' className='text-right'>
                             <Row>

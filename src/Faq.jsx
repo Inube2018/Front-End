@@ -49,7 +49,7 @@ class Faq extends React.Component {
    
     render() {
       return (
-        <div style={{height: '100%', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'left',  marginTop: '5'}}>
+        <div style={{height: '100%', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'left',  marginTop: '5px'}}>
             
            {/*<Button color="white" onClick={this.toggle1} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold", borderColor: 'grey', borderWidth: '1', marginLeft: '5', marginRight: '5' }}>¿A qué tipo de contenido tengo acceso como usuario premium?</Button>
             <Collapse isOpen={this.state.collapse1}>
@@ -60,25 +60,25 @@ class Faq extends React.Component {
                 </Card>
       </Collapse>*/}
 
-            <Button color="white" onClick={this.toggle2} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold" ,borderColor: 'grey', borderWidth: '1', marginLeft: '5', marginRight: '5'  }}>¿Con qué bancos trabajais?</Button>
+            <Button color="white" onClick={this.toggle2} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold" ,borderColor: 'grey', borderWidth: '1px', marginLeft: '5px', marginRight: '5px'  }}>¿Con qué bancos trabajais?</Button>
             <Collapse isOpen={this.state.collapse2}>
                 <Card>
                 <CardBody>
-                    Inube no tiene ninguna restricción según el banco con el que gestiones tu negocio, independientemente de tu banco podrás registrar tu negocio.
+                    Inube no tiene ninguna restricción en cuanto al banco con el que gestiones tu negocio.
                 </CardBody>
                 </Card>
             </Collapse>
 
-            <Button color="white" onClick={this.toggle3} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold", borderColor: 'grey', borderWidth: '1', marginLeft: '5', marginRight: '5'  }}>¿Si os doy permiso para acceder a los datos bancarios de mi negocio, significa eso que teneís acceso a mi cuenta corriente?</Button>
+            <Button color="white" onClick={this.toggle3} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold", borderColor: 'grey', borderWidth: '1px', marginLeft: '5px', marginRight: '5px'  }}>Si os doy permiso para acceder a los datos bancarios de mi negocio, ¿significa eso que teneís pleno acceso a mi cuenta corriente?</Button>
             <Collapse isOpen={this.state.collapse3}>
                 <Card>
                 <CardBody>
-                    En Inube nos tomamos muy en serio la integridad y confidencialidad de tus datos bancarios por lo que solo accedemos a tus datos en modo lectura. Esto significa que solo podemos interpretarlos y representarlos en nuestra aplicación pero bajo ningún concepto podemos
+                    En Inube nos tomamos muy en serio la integridad y confidencialidad de tus datos bancarios por lo que solo accedemos a tus datos en modo lectura. Esto significa que solo podemos interpretarlos y representarlos en nuestra aplicación pero bajo ningún concepto podemos realizar ninguna operación.
                 </CardBody>
                 </Card>
             </Collapse>
 
-            <Button color="white" onClick={this.toggle4} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold", borderColor: 'grey', borderWidth: '1', marginLeft: '5', marginRight: '5'  }}>¿Para quién esta dirigida esta aplicación?</Button>
+            <Button color="white" onClick={this.toggle4} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold", borderColor: 'grey', borderWidth: '1px', marginLeft: '5px', marginRight: '5px'  }}>¿Hacia quién esta dirigida esta aplicación?</Button>
             <Collapse isOpen={this.state.collapse4}>
                 <Card>
                 <CardBody>
@@ -87,29 +87,29 @@ class Faq extends React.Component {
                 </Card>
             </Collapse>
 
-            <Button color="white" onClick={this.toggle5} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold", borderColor: 'grey', borderWidth: '1', marginLeft: '5', marginRight: '5' }}>¿Existe algún tipo de permanencia?</Button>
+            <Button color="white" onClick={this.toggle5} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold", borderColor: 'grey', borderWidth: '1px', marginLeft: '5px', marginRight: '5px' }}>¿Existe algún tipo de permanencia?</Button>
             <Collapse isOpen={this.state.collapse5}>
                 <Card>
                 <CardBody>
-                    Inube no tiene ningún tipo de permanencia, por lo que podrás cancelar tu suscripción en el momento en el que desees.
+                    Inube no tiene ningún tipo de permanencia, por lo que podrás cancelar tu cuenta en el momento en el que desees.
                 </CardBody>
                 </Card>
             </Collapse>
 
-            <Button color="white" onClick={this.toggle6} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold", borderColor: 'grey', borderWidth: '1', marginLeft: '5', marginRight: '5' }}>¿Cómo puedo filtrar mi búsqueda?</Button>
+            <Button color="white" onClick={this.toggle6} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold", borderColor: 'grey', borderWidth: '1px', marginLeft: '5px', marginRight: '5px' }}>¿Cómo puedo filtrar mi búsqueda?</Button>
             <Collapse isOpen={this.state.collapse6}>
                 <Card>
                 <CardBody>
-                Podrás encontrar todas las opciones de filtrado en la columna de la izquierda de nuestra página web.
+                Podrás encontrar todas las opciones de filtrado en la columna de la izquierda del dashboard.
                 </CardBody>
                 </Card>
             </Collapse>
 
-            <Button color="white" onClick={this.toggle7} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold", borderColor: 'grey', borderWidth: '1', marginLeft: '5', marginRight: '5' }}>No encuentro la respuesta a mi pregunta, ¿qué hago?</Button>
+            <Button color="white" onClick={this.toggle7} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold", borderColor: 'grey', borderWidth: '1px', marginLeft: '5px', marginRight: '5px' }}>No encuentro la respuesta a mi pregunta, ¿qué hago?</Button>
             <Collapse isOpen={this.state.collapse7}>
                 <Card>
                 <CardBody>
-                   Envíanos a un correo a inube@gmail.com y le reponderemos tan pronto como sea posible.
+                   Envíanos a un correo a inube@gmail.com y te reponderemos tan pronto como sea posible.
                 </CardBody>
                 </Card>
             </Collapse>

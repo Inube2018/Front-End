@@ -15,10 +15,10 @@ export default class Graphic extends React.Component {
                 'Downloads',
                 'Selling',
                 'Amount',
-                'prices',
-                'drafts',
-                'clients',
-                'invoice'
+                'Prices',
+                'Drafts',
+                'Clients',
+                'Invoice'
             ],
             description:[
                 'Loren Ipsum',
