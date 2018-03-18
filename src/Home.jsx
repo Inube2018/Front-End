@@ -7,19 +7,19 @@ const items = [
         id: 'slide1',
         src:'./../public/field.jpg' ,
         altText: 'Slide 1',
-        caption: 'Descripción BREVE del sistema'
+        caption: 'Donde tus datos se convierten en oportunidades'
     },
     {
         id: 'slide2',
         src: './../public/mountains.jpg',
         altText: 'Slide 2',
-        caption: 'Opinión 1'
+        caption: 'Sumate a la transformación digital tomando mejores decisiones de negocio'
     },
     {
         id: 'slide3',
         src: './../public/road.jpg',
         altText: 'Slide 3',
-        caption: 'Opinión 2'
+        caption: 'Visualiza tu siguiente paso en el camino del éxito'
     }
 ]
 
@@ -72,7 +72,7 @@ class Home extends React.Component {
             return (
                 <CarouselItem onExiting={this.onExiting} onExited={this.onExited} key={item.src}>
                     <img src={item.src} alt={item.altText} />
-                    <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
+                    <CarouselCaption  captionHeader={item.caption} />
                 </CarouselItem>
       );
     });
@@ -87,12 +87,12 @@ class Home extends React.Component {
                         <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
                     </Carousel>
                 </Row>
-                <Row>
+               {/* <Row>
                     <Col md='4'> <img src='./../public/nube.svg' /> </Col>
                     <Col md='8'>
                         <p id='home-description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam a dapibus quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum mauris sit amet sagittis ullamcorper. Pellentesque hendrerit congue nibh, tempor euismod tellus congue id. Praesent interdum, sem non elementum pharetra, elit massa dictum tortor, ac vulputate est nibh id turpis. Integer finibus aliquet eros vel tristique. Nunc sit amet pharetra ante. Morbi purus mi, pellentesque vel consectetur efficitur, efficitur ut odio. Etiam in mattis urna. Nullam volutpat vel dolor quis eleifend. Nullam vulputate venenatis erat, venenatis dictum velit aliquam eu. Sed iaculis congue nisl, sed bibendum justo consectetur non. Morbi auctor interdum lectus, id bibendum dui convallis at. Donec nulla diam, tincidunt non pulvinar vitae, sagittis at leo. Phasellus porttitor nec erat ut pharetra.</p>
                     </Col>
-                </Row>
+        </Row>*/}
             </Container>
         );
     }
