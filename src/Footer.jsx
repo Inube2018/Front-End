@@ -2,7 +2,7 @@ import React from 'react';
 import Popup from 'react-popup';
 var FontAwesome = require('react-fontawesome');
 
-export default class Graphic extends React.Component {
+export default class Footer extends React.Component {
 
     constructor(props) {
         super(props);

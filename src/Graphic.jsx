@@ -76,7 +76,6 @@ export default class Graphic extends React.Component {
                 '28'
 
             ]
-
         }
     }
 
@@ -95,7 +94,7 @@ export default class Graphic extends React.Component {
                     x_accessor="date"
                     y_accessor="value"
                 />
-                <Filter/>
+                <Filter id={this.props.id}/>
 
             </div>
         );

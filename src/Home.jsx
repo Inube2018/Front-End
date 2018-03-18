@@ -1,19 +1,23 @@
 import React from 'react';
-import { Carousel, CarouselItem, CarouselControl, CarouselIndicators, CarouselCaption } from 'reactstrap';
+import { Carousel, CarouselItem, CarouselControl, CarouselIndicators, CarouselCaption, Container, Row, Col } from 'reactstrap';
+
 
 const items = [
     {
-        src: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15ba800aa1d%20text%20%7B%20fill%3A%23555%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15ba800aa1d%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22285.921875%22%20y%3D%22218.3%22%3EFirst%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E',
+        id: 'slide1',
+        src:'./../public/field.jpg' ,
         altText: 'Slide 1',
         caption: 'Descripción BREVE del sistema'
     },
     {
-        src: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15ba800aa20%20text%20%7B%20fill%3A%23444%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15ba800aa20%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23666%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22247.3203125%22%20y%3D%22218.3%22%3ESecond%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E',
+        id: 'slide2',
+        src: './../public/mountains.jpg',
         altText: 'Slide 2',
         caption: 'Opinión 1'
     },
     {
-        src: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15ba800aa21%20text%20%7B%20fill%3A%23333%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15ba800aa21%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23555%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22277%22%20y%3D%22218.3%22%3EThird%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E',
+        id: 'slide3',
+        src: './../public/road.jpg',
         altText: 'Slide 3',
         caption: 'Opinión 2'
     }
@@ -23,8 +27,8 @@ class Home extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { 
-            activeIndex: 0 
+        this.state = {
+            activeIndex: 0
         };
         this.next = this.next.bind(this);
         this.previous = this.previous.bind(this);
@@ -36,7 +40,7 @@ class Home extends React.Component {
     onExiting() {
         this.animating = true;
     }
-    
+
     onExited() {
         this.animating = false;
     }
@@ -52,7 +56,7 @@ class Home extends React.Component {
         const nextIndex = this.state.activeIndex === 0 ? items.length - 1 : this.state.activeIndex - 1;
         this.setState({ activeIndex: nextIndex });
     }
-    
+
     goToIndex(newIndex) {
         if (this.animating) return;
         this.setState({ activeIndex: newIndex });
@@ -74,14 +78,22 @@ class Home extends React.Component {
     });
 
         return (
-            <div style={{height: '100%', width: '100%', display: 'flex'}}>
-                <Carousel activeIndex={activeIndex} next={this.next} previous={this.previous}>
-                    <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
-                    {slides}
-                    <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
-                    <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
-                </Carousel>
-            </div>
+            <Container fluid>
+                <Row>
+                    <Carousel activeIndex={activeIndex} next={this.next} previous={this.previous}>
+                        <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
+                        {slides}
+                        <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
+                        <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
+                    </Carousel>
+                </Row>
+                <Row>
+                    <Col md='4'> <img src='./../public/nube.svg' /> </Col>
+                    <Col md='8'>
+                        <p id='home-description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam a dapibus quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum mauris sit amet sagittis ullamcorper. Pellentesque hendrerit congue nibh, tempor euismod tellus congue id. Praesent interdum, sem non elementum pharetra, elit massa dictum tortor, ac vulputate est nibh id turpis. Integer finibus aliquet eros vel tristique. Nunc sit amet pharetra ante. Morbi purus mi, pellentesque vel consectetur efficitur, efficitur ut odio. Etiam in mattis urna. Nullam volutpat vel dolor quis eleifend. Nullam vulputate venenatis erat, venenatis dictum velit aliquam eu. Sed iaculis congue nisl, sed bibendum justo consectetur non. Morbi auctor interdum lectus, id bibendum dui convallis at. Donec nulla diam, tincidunt non pulvinar vitae, sagittis at leo. Phasellus porttitor nec erat ut pharetra.</p>
+                    </Col>
+                </Row>
+            </Container>
         );
     }
 }

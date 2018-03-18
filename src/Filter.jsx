@@ -10,26 +10,29 @@ export default class Filter extends React.Component {
         this.state = {
 
             arrow: 'arrow-right',
-            compress_filter: '0'
+            compress_filter: '0',
+            id: this.props.id
         };
 
     }
 
     onPress = () => {
 
+        var id =this.state.id;
+
         if(this.state.compress_filter == '0'){
             this.setState({
                 arrow: 'arrow-down',
                 compress_filter: '1'
             });
-            document.getElementById('pruebas').style.display = 'block';
+            document.getElementById(id).style.display = 'block';
 
         }else{
             this.setState({
                 arrow: 'arrow-right',
                 compress_filter: '0'
             });
-            document.getElementById('pruebas').style.display = 'none';
+            document.getElementById(id).style.display = 'none';
         }
 
     }
@@ -38,7 +41,7 @@ export default class Filter extends React.Component {
             return (
                 <div>
                     <Button color="primary" size="lg" className='filter' onClick={this.onPress}><FontAwesome name='filter'/> Filtro <FontAwesome name={this.state.arrow}/></Button>
-                    <div id='pruebas'><p>Aquí va el filtro</p></div>
+                    <div id={this.state.id}><p>Aquí va el filtro</p></div>
                 </div>
             );
         }

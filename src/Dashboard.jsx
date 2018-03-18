@@ -49,18 +49,18 @@ export default class Dashboard extends React.Component {
                             </Row>
                             <Row>
                                 <Col md='6'>
-                                    <Graphic/>
+                                    <Graphic id='1'/>
                                 </Col>
                                 <Col md='6'>
-                                    <Graphic/>
+                                    <Graphic id='2'/>
                                 </Col>
                             </Row>
                             <Row>
                                 <Col md='6'>
-                                    <Graphic/>
+                                    <Graphic id='3'/>
                                 </Col>
                                 <Col md='6'>
-                                    <Graphic/>
+                                    <Graphic id='4'/>
                                 </Col>
                             </Row>
                         </Col>
