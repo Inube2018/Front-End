@@ -94,7 +94,7 @@ export default class Footer extends React.Component {
                                         <ModalHeader toggle={this.togglemodal2}>Licencia</ModalHeader>
                                         <ModalBody>
                                             <div className='text-center'>
-                                                <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+                                                <a rel="license">
                                                     <img alt="Licencia de Creative Commons"  src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
                                                 </a>
                                                 <br />
