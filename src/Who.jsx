@@ -12,38 +12,55 @@ class Who extends React.Component {
             <div style={{height: '100%', margin: '2%'}}>
                 <CardGroup>
                     <Card>
-                        <CardImg top width='100%' src="./../public/etsit.jpg" alt='Image 1'/>
+                        <div style={{height: '200px', overflow: 'hidden'}}>
+                            <CardImg top width='100%' src="./../public/jaime.jpg" alt='Image 1'/>
+                        </div>
                         <CardBody>
-                            <CardTitle>Desarrollador 1</CardTitle>
-                            <CardText>Senior Front-End Developer</CardText>
+                            <CardTitle>Jaime Hurtado de Mendoza Sastre</CardTitle>
+                            <CardText>Developer/Product Owner</CardText>
+                            <CardText>"El mundo es digital"</CardText>
                         </CardBody>
                     </Card>
                     <Card>
-                        <CardImg top width='100%' src="./../public/etsit.jpg" alt='Image 1'/>
+                        <div style={{height: '200px', overflow: 'hidden'}}>
+                            <CardImg top width='100%' src="./../public/roberto.jpg" alt='Image 1'/>
+                        </div>
                         <CardBody>
-                            <CardTitle>Desarrollador 2</CardTitle>
-                            <CardText>Texto describiendo al Desarrollador 2</CardText>
+                            <CardTitle>Roberto Llop Cardenal</CardTitle>
+                            <CardText>Developer/Scrum Master</CardText>
+                            <CardText>"Visualiza, luego construye"</CardText>
                         </CardBody>
                     </Card>
                     <Card>
-                        <CardImg top width='100%' src="./../public/etsit.jpg" alt='Image 1'/>
+                        <div style={{height: '200px', overflow: 'hidden'}}>
+                            <CardImg top width='100%' src="./../public/paula.jpg" alt='Image 1'/>
+                        </div>
                         <CardBody>
-                            <CardTitle>Desarrollador 3</CardTitle>
-                            <CardText>Texto describiendo al Desarrollador 3</CardText>
+                            <CardTitle> Paula  Otero  Colmenar</CardTitle>
+                            <div style={{height: '25px'}}></div>
+                            <CardText>Developer</CardText>
+                            <CardText>"Piensa global, actúa local"</CardText>
                         </CardBody>
                     </Card>
                     <Card>
-                        <CardImg top width='100%' src="./../public/etsit.jpg" alt='Image 1'/>
+                        <div style={{height: '200px', overflow: 'hidden'}}>
+                            <CardImg top width='100%' src="./../public/cris.png" alt='Image 1'/>
+                        </div>
                         <CardBody>
-                            <CardTitle>Desarrollador 4</CardTitle>
-                            <CardText>Texto describiendo al Desarrollador 4</CardText>
+                            <CardTitle>Cristina Sánchez Enciso</CardTitle>
+                            <CardText>Developer</CardText>
+                            <CardText>"Elige la visión antes que el dinero"</CardText>
                         </CardBody>
                     </Card>
                     <Card>
-                        <CardImg top width='100%' src="./../public/etsit.jpg" alt='Image 1'/>
+                        <div style={{height: '200px', overflow: 'hidden'}}>
+                            <CardImg top width='100%' src="./../public/marcos.png" alt='Image 1'/>
+                        </div>
                         <CardBody>
-                            <CardTitle>Desarrollador 5</CardTitle>
-                            <CardText>Texto describiendo al Desarrollador 5</CardText>
+                            <CardTitle>Marcos Luna Garrido</CardTitle>
+                            <div style={{height: '25px'}}></div>
+                            <CardText>Developer</CardText>
+                            <CardText>"La verdad solo se puede encontrar en un lugar; el código"</CardText>
                         </CardBody>
                     </Card>
                 </CardGroup>

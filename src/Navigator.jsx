@@ -24,7 +24,7 @@ class Navigator extends React.Component {
     render() {
         if (!this.props.isLogged) {
             return (
-                <div>
+                <div style={{paddingLeft: '5px'}}>
                     <Nav tabs>
                         <NavItem>
                             <NavLink onClick={() => {this.toggleTab('0');}} className={classnames({ active: this.props.activeTab === '0' })}>
