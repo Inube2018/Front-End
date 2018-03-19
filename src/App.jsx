@@ -46,7 +46,8 @@ class App extends React.Component {
         if (logOut) {
             this.setState({
                 isLogged: false,
-                activeTab: '0'
+                activeTab: '0',
+                registrationStep: 0
             });
         } else {
             this.setState({
@@ -131,9 +132,10 @@ class App extends React.Component {
                 });
             } else if (this.state.editStep === 2) {
                 this.setState({
-                    editStep: this.state.editStep+1,
+                    editStep: 0,
                     editIban: editData[0],
                     isLogged: true,
+                    activeTab: '0'
                 });
             }
 
@@ -162,8 +164,9 @@ class App extends React.Component {
                 });
             } else if (this.state.editStep === 2) {
                 this.setState({
-                    editStep: this.state.editStep+1,
-
+                    editStep: 0,
+                    isLogged: true,
+                    activeTab: '0'
                 });
             }
 

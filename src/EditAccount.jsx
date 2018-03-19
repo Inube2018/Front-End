@@ -103,12 +103,6 @@ class EditAccount extends React.Component {
                     alertType: 'danger',
                     alertText: 'El formato del IBAN no es válido. Sólo se aceptan IBAN españoles'
                 });
-            } else if (checkboxEdit === 'on') {
-                this.setState({
-                    alert: !this.state.alert,
-                    alertType: 'danger',
-                    alertText: 'Debe aceptar las condiciones de uso para registrarse',
-                });
             }
              else {
                 let editData = [ibanEdit];
