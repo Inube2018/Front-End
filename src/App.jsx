@@ -12,34 +12,122 @@ class App extends React.Component {
         this.state = {
             isLogged: false,
             activeTab: '0',
-            registrationStep: 0,
             regUserName: '',
             regEmail: '',
             regPassword: '',
-            regRestaurantName: '',
-            regZipCode: '',
-            regBusinessType: '',
-            regAverageSell: '',
             regIban: '',
             logInFailed: false,
             editStep: 0,
+            userInfo: {
+                userName: 'admin',
+                userEmail: 'admin@email.com',
+                business: [
+                    {
+                        businessName: 'restaurante 1',
+                        businessZipCode: '12345',
+                        businessType: 'Restaurante',
+                        businessPrice: '10',
+                        tpvs: [
+                            {
+                                id: '1234567890',
+                                iban: 'ES1234567890123456789000'
+                            },
+                            {
+                                id: '0987654321',
+                                iban: 'ES0987654321098765432111'
+                            }
+                        ]
+                    },
+                    {
+                        businessName: 'cafetería 1',
+                        businessZipCode: '67890',
+                        businessType: 'Cafetería',
+                        businessPrice: '5',
+                        tpvs: [
+                            {
+                                id: '2468013579',
+                                iban: 'ES1234567890098765432123'
+                            },
+                            {
+                                id: '1357924680',
+                                iban: 'ES0987654321123456789098'
+                            }
+                        ]
+                    }
+                ],
+            }
         };
         this.toggleTab = this.toggleTab.bind(this);
         this.logInHandler = this.logInHandler.bind(this);
-        this.stepHandler = this.stepHandler.bind(this);
+        this.registrationHandler = this.registrationHandler.bind(this);
         this.stepEditHandler = this.stepEditHandler.bind(this);
         this.stepEditSaltarHandler = this.stepEditSaltarHandler.bind(this);
         this.logOutHandler = this.logOutHandler.bind(this);
+        this.acceptBusinessChanges = this.acceptBusinessChanges.bind(this);
+        this.addBusiness = this.addBusiness.bind(this);
+        this.changeLoginInfo = this.changeLoginInfo.bind(this);
+        this.addTPV = this.addTPV.bind(this);
+        this.deleteTPV = this.deleteTPV.bind(this);
+        this.onDismissLogIn = this.onDismissLogIn.bind(this);
     }
 
     render() {
         return (
             <div style={{height: '100%'}}>
                 <h1 className="text-info" style={{textAlign: 'center', marginTop: '1%'}}><FontAwesome name='cloud' /> iNube</h1>
-                <Navigator logOutHandler={this.logOutHandler} isLogged={this.state.isLogged} logInFailed={this.state.logInFailed} toggleTab={this.toggleTab} logInHandler={this.logInHandler} stepHandler={this.stepHandler} registrationStep={this.state.registrationStep} editStep={this.state.editStep} stepEditHandler={this.stepEditHandler} stepEditSaltarHandler={this.stepEditSaltarHandler} activeTab={this.state.activeTab}/>
+                <Navigator onDismissLogIn={this.onDismissLogIn} logOutHandler={this.logOutHandler} isLogged={this.state.isLogged} logInFailed={this.state.logInFailed} toggleTab={this.toggleTab} logInHandler={this.logInHandler} registrationHandler={this.registrationHandler} editStep={this.state.editStep} stepEditHandler={this.stepEditHandler} stepEditSaltarHandler={this.stepEditSaltarHandler} activeTab={this.state.activeTab} userInfo={this.state.userInfo} acceptBusinessChanges={this.acceptBusinessChanges} addBusiness={this.addBusiness} changeLoginInfo={this.changeLoginInfo} addTPV={this.addTPV} deleteTPV={this.deleteTPV}/>
                 <Footer/>
             </div>
         );
+    }
+
+    onDismissLogIn() {
+        this.setState({
+            logInFailed: false,
+        });
+    }
+
+    deleteTPV(businessIndex, TPVindex) {
+        let userInfo = this.state.userInfo;
+        userInfo.business[businessIndex].tpvs.splice(TPVindex, 1);
+        this.setState({
+            userInfo: userInfo,
+        });
+    }
+
+    addTPV(index, TPVdata) {
+        let userInfo = this.state.userInfo;
+        userInfo.business[index].tpvs.push({id: TPVdata[0], iban: TPVdata[1]});
+        this.setState({
+            userInfo: userInfo,
+        });
+    }
+
+    addBusiness(business) {
+        let userInfo = this.state.userInfo;
+        userInfo.business.push({businessName: business[0], businessZipCode: business[1], businessType: business[2], businessPrice: business[3]});
+        this.setState({
+            userInfo: userInfo,
+        });
+    }
+
+    acceptBusinessChanges(business) {
+        let userInfo = this.state.userInfo;
+        userInfo.business = business;
+        console.log("Desde App: ", userInfo);
+        this.setState({
+            userInfo: userInfo,
+        });
+    }
+
+    changeLoginInfo(userName, userEmail) {
+        console.log("App: ", userName, userEmail);
+        let userInfo = this.state.userInfo;
+        userInfo.userName = userName;
+        userInfo.userEmail = userEmail;
+        this.setState({
+            userInfo: userInfo,
+        });
     }
 
     logOutHandler(logOut) {
@@ -47,7 +135,6 @@ class App extends React.Component {
             this.setState({
                 isLogged: false,
                 activeTab: '0',
-                registrationStep: 0
             });
         } else {
             this.setState({
@@ -71,45 +158,21 @@ class App extends React.Component {
                 activeTab: '0',
             });
         } else {
+            console.log("ha fallado")
             this.setState({
                 logInFailed: true,
             });
+            console.log(this.state);
         }
     }
 
-    stepHandler(direction, regData) {
+    registrationHandler(direction, regData) {
         // direction === 0 si se avanza
-        if (direction === 0) {
-            console.log(regData);
-            if (this.state.registrationStep === 0) {
-                this.setState({
-                    registrationStep: this.state.registrationStep+1,
-                    regUserName: regData[0],
-                    regEmail: regData[1],
-                    regPassword: regData[2],
-                });
-            } else if (this.state.registrationStep === 1) {
-                this.setState({
-                    registrationStep: this.state.registrationStep+1,
-                    regRestaurantName: regData[0],
-                    regZipCode: regData[1],
-                    regBusinessType: regData[2],
-                    regAverageSell: regData[2],
-                });
-            } else if (this.state.registrationStep === 2) {
-                this.setState({
-                    registrationStep: 0,
-                    regIban: regData[0],
-                    isLogged: true,
-                    activeTab: '0',
-                });
-            }
-        } else {
-            this.setState({
-                registrationStep: this.state.registrationStep-1,
-            });
-            // Mandar datos de registro ANTES DE ACTUALIZAR EL ESTADO?
-        }
+        // Mandar los datos de registro al servidor!!!!
+        this.setState({
+            isLogged: true,
+            activeTab: '0',
+        });
     }
 
     stepEditHandler(direction, editData) {

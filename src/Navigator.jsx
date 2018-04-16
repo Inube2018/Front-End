@@ -6,8 +6,8 @@ import Who from './Who.jsx'
 import LogIn from './LogIn.jsx'
 import Registration from './Registration.jsx'
 import Dashboard from './Dashboard.jsx'
-import EditAccount from './EditAccount.jsx'
 import Faq from './Faq.jsx'
+import AccountSection from './AccountSection.jsx';
 
 
 class Navigator extends React.Component {
@@ -15,10 +15,41 @@ class Navigator extends React.Component {
         super(props);
         this.toggleTab = this.toggleTab.bind(this);
         this.logInHandler = this.logInHandler.bind(this);
-        this.stepHandler = this.stepHandler.bind(this);
+        this.registrationHandler = this.registrationHandler.bind(this);
         this.stepEditHandler = this.stepEditHandler.bind(this);
         this.stepEditSaltarHandler = this.stepEditSaltarHandler.bind(this);
         this.logOutHandler = this.logOutHandler.bind(this);
+        this.acceptBusinessChanges = this.acceptBusinessChanges.bind(this);
+        this.addBusiness = this.addBusiness.bind(this);
+        this.changeLoginInfo = this.changeLoginInfo.bind(this);
+        this.addTPV = this.addTPV.bind(this);
+        this.deleteTPV = this.deleteTPV.bind(this);
+        this.onDismissLogIn = this.onDismissLogIn.bind(this);
+    }
+
+    onDismissLogIn() {
+        this.props.onDismissLogIn();
+    }
+
+    deleteTPV(businessIndex, TPVindex) {
+        this.props.deleteTPV(businessIndex, TPVindex);
+    }
+
+    addTPV(index, TPVdata) {
+        this.props.addTPV(index, TPVdata);
+    }
+
+    addBusiness(business) {
+        this.props.addBusiness(business);
+    }
+
+    acceptBusinessChanges(business) {
+        this.props.acceptBusinessChanges(business);
+    }
+
+    changeLoginInfo(userName, userEmail) {
+        console.log("Navigator: ", userName, userEmail);
+        this.props.changeLoginInfo(userName, userEmail);
     }
 
     render() {
@@ -77,14 +108,14 @@ class Navigator extends React.Component {
                         <TabPane tabId="3">
                             <Row>
                                 <Col sm="12" style={{display: 'flex', justifyContent: 'center'}}>
-                                    <LogIn logInHandler={this.logInHandler} logInFailed={this.props.logInFailed}/>
+                                    <LogIn logInHandler={this.logInHandler} logInFailed={this.props.logInFailed} onDismissLogIn={this.onDismissLogIn}/>
                                 </Col>
                             </Row>
                         </TabPane>
                         <TabPane tabId="4">
                             <Row>
                                 <Col sm="12">
-                                    <Registration registrationStep={this.props.registrationStep} stepHandler={this.stepHandler}/>
+                                    <Registration registrationHandler={this.registrationHandler}/>
                                 </Col>
                             </Row>
                         </TabPane>
@@ -122,7 +153,7 @@ class Navigator extends React.Component {
                     <TabPane tabId="1">
                         <Row>
                             <Col sm="12">
-                                <EditAccount stepEditHandler={this.stepEditHandler} stepEditSaltarHandler = {this.stepEditSaltarHandler} editStep={this.props.editStep}/>
+                                <AccountSection userInfo={this.props.userInfo} acceptBusinessChanges={this.acceptBusinessChanges} addBusiness={this.addBusiness} changeLoginInfo={this.changeLoginInfo} addTPV={this.addTPV} deleteTPV={this.deleteTPV}/>
                             </Col>
                         </Row>
                     </TabPane>
@@ -154,8 +185,8 @@ class Navigator extends React.Component {
         this.props.logInHandler(email, password);
     }
 
-    stepHandler(direction, regData) {
-        this.props.stepHandler(direction, regData);
+    registrationHandler(direction, regData) {
+        this.props.registrationHandler(direction, regData);
     }
 
     stepEditHandler(direction, editData) {
