@@ -105,7 +105,7 @@ class App extends React.Component {
 
     addBusiness(business) {
         let userInfo = this.state.userInfo;
-        userInfo.business.push({businessName: business[0], businessZipCode: business[1], businessType: business[2], businessPrice: business[3]});
+        userInfo.business.push({businessName: business[0], businessZipCode: business[1], businessType: business[2], businessPrice: business[3], tpvs: []});
         this.setState({
             userInfo: userInfo,
         });
