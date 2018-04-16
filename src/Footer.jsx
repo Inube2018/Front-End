@@ -86,7 +86,7 @@ export default class Footer extends React.Component {
                                 </Col>
                                 <Col md='3'>
                                     <Button className='pop-up' onClick={this.togglemodal2}>
-                                        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+                                        <a rel="license">
                                             <img alt="Licencia de Creative Commons"  src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
                                         </a>
                                     </Button>
@@ -98,7 +98,11 @@ export default class Footer extends React.Component {
                                                     <img alt="Licencia de Creative Commons"  src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
                                                 </a>
                                                 <br />
-                                                <span href="http://purl.org/dc/dcmitype/Dataset" property="dct:title" >Inube - Un proyecto de ISST</span> by <a href="https://github.com/Inube2018/Front-End"  >Jaime Hurtado, Roberto Llop,  Marcos Luna, Cristina Sanchez y Paula Otero</a> is licensed under a <a  href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional License</a>.<br />Creado a partir de la obra en <a  href="https://github.com/Inube2018/Front-End" >https://github.com/Inube2018/Front-End</a>.
+                                                <span href="http://purl.org/dc/dcmitype/Dataset" >Inube - Un proyecto de ISST</span> by
+                                                <a href="https://github.com/Inube2018/Front-End"  > Jaime Hurtado, Roberto Llop,  Marcos Luna, Cristina Sanchez y Paula Otero</a>
+                                                is licensed under a <a  href="http://creativecommons.org/licenses/by-nc-sa/4.0/"> Creative Commons Reconocimiento-NoComercial-CompartirIgual
+                                                4.0 Internacional License</a>.<br /> Creado a partir de la obra en <a  href="https://github.com/Inube2018/Front-End" >
+                                                 https://github.com/Inube2018/Front-End</a>.
                                             </div>
                                         </ModalBody>
                                         <ModalFooter>
