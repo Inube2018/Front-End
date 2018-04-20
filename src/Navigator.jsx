@@ -25,6 +25,11 @@ class Navigator extends React.Component {
         this.addTPV = this.addTPV.bind(this);
         this.deleteTPV = this.deleteTPV.bind(this);
         this.onDismissLogIn = this.onDismissLogIn.bind(this);
+        this.getBusiness = this.getBusiness.bind(this);
+    }
+
+    getBusiness() {
+        this.props.getBusiness();
     }
 
     onDismissLogIn() {
@@ -43,8 +48,8 @@ class Navigator extends React.Component {
         this.props.addBusiness(business);
     }
 
-    acceptBusinessChanges(business) {
-        this.props.acceptBusinessChanges(business);
+    acceptBusinessChanges(editData, index) {
+        this.props.acceptBusinessChanges(editData, index);
     }
 
     changeLoginInfo(userName, userEmail) {
@@ -153,7 +158,7 @@ class Navigator extends React.Component {
                     <TabPane tabId="1">
                         <Row>
                             <Col sm="12">
-                                <AccountSection userInfo={this.props.userInfo} acceptBusinessChanges={this.acceptBusinessChanges} addBusiness={this.addBusiness} changeLoginInfo={this.changeLoginInfo} addTPV={this.addTPV} deleteTPV={this.deleteTPV}/>
+                                <AccountSection userInfo={this.props.userInfo} acceptBusinessChanges={this.acceptBusinessChanges} addBusiness={this.addBusiness} changeLoginInfo={this.changeLoginInfo} addTPV={this.addTPV} deleteTPV={this.deleteTPV} getBusiness={this.getBusiness}/>
                             </Col>
                         </Row>
                     </TabPane>

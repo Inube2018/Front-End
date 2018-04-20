@@ -19,10 +19,12 @@ class App extends React.Component {
             logInFailed: false,
             editStep: 0,
             userInfo: {
+                userId: 0,
                 userName: 'admin',
                 userEmail: 'admin@email.com',
                 business: [
                     {
+                        businessId: 0,
                         businessName: 'restaurante 1',
                         businessZipCode: '12345',
                         businessType: 'Restaurante',
@@ -39,6 +41,7 @@ class App extends React.Component {
                         ]
                     },
                     {
+                        businessId: 0,
                         businessName: 'cafetería 1',
                         businessZipCode: '67890',
                         businessType: 'Cafetería',
@@ -53,7 +56,7 @@ class App extends React.Component {
                                 iban: 'ES0987654321123456789098'
                             }
                         ]
-                    }
+                    },
                 ],
             }
         };
@@ -69,16 +72,34 @@ class App extends React.Component {
         this.addTPV = this.addTPV.bind(this);
         this.deleteTPV = this.deleteTPV.bind(this);
         this.onDismissLogIn = this.onDismissLogIn.bind(this);
+        this.getBusiness = this.getBusiness.bind(this);
     }
 
     render() {
         return (
             <div style={{height: '100%'}}>
                 <h1 className="text-info" style={{textAlign: 'center', marginTop: '1%'}}><FontAwesome name='cloud' /> iNube</h1>
-                <Navigator onDismissLogIn={this.onDismissLogIn} logOutHandler={this.logOutHandler} isLogged={this.state.isLogged} logInFailed={this.state.logInFailed} toggleTab={this.toggleTab} logInHandler={this.logInHandler} registrationHandler={this.registrationHandler} editStep={this.state.editStep} stepEditHandler={this.stepEditHandler} stepEditSaltarHandler={this.stepEditSaltarHandler} activeTab={this.state.activeTab} userInfo={this.state.userInfo} acceptBusinessChanges={this.acceptBusinessChanges} addBusiness={this.addBusiness} changeLoginInfo={this.changeLoginInfo} addTPV={this.addTPV} deleteTPV={this.deleteTPV}/>
+                <Navigator getBusiness={this.getBusiness} onDismissLogIn={this.onDismissLogIn} logOutHandler={this.logOutHandler} isLogged={this.state.isLogged} logInFailed={this.state.logInFailed} toggleTab={this.toggleTab} logInHandler={this.logInHandler} registrationHandler={this.registrationHandler} editStep={this.state.editStep} stepEditHandler={this.stepEditHandler} stepEditSaltarHandler={this.stepEditSaltarHandler} activeTab={this.state.activeTab} userInfo={this.state.userInfo} acceptBusinessChanges={this.acceptBusinessChanges} addBusiness={this.addBusiness} changeLoginInfo={this.changeLoginInfo} addTPV={this.addTPV} deleteTPV={this.deleteTPV}/>
                 <Footer/>
             </div>
         );
+    }
+
+    getBusiness() {
+        var req = new XMLHttpRequest();
+        req.onreadystatechange = function () {
+            if (req.readyState == 4 && req.status == 200) {
+                console.log(req.response);
+                let userInfo = this.state.userInfo;
+                userInfo.business = JSON.parse(req.response);
+                this.setState({
+                    userInfo: userInfo,
+                })
+            }
+        }.bind(this);
+        req.open('GET', 'http://localhost:8080/InubeBackEnd/BusinessByUserServlet', true);
+        req.setRequestHeader('userId', this.state.userInfo.userId);
+        req.send(null);
     }
 
     onDismissLogIn() {
@@ -97,6 +118,16 @@ class App extends React.Component {
 
     addTPV(index, TPVdata) {
         let userInfo = this.state.userInfo;
+        var req = new XMLHttpRequest();
+        req.onreadystatechange = function () {
+            if (req.readyState == 4 && req.status == 200) {
+                console.log(req.response);
+            }
+        }.bind(this);
+        req.open('POST', 'http://localhost:8080/InubeBackEnd/RegisterTpvServlet', true);
+        req.setRequestHeader('Content-Type', 'application/json');
+        let body = '{\"businessId\": '+this.state.userInfo.business[index].businessId+', \"tpvId\": '+TPVdata[0]+', \"iban\": '+TPVdata[1]+'}';
+        req.send(body);
         userInfo.business[index].tpvs.push({id: TPVdata[0], iban: TPVdata[1]});
         this.setState({
             userInfo: userInfo,
@@ -105,15 +136,43 @@ class App extends React.Component {
 
     addBusiness(business) {
         let userInfo = this.state.userInfo;
+        var req = new XMLHttpRequest();
+        req.onreadystatechange = function () {
+            if (req.readyState == 4 && req.status == 200) {
+                console.log(req.response);
+                //Hacer algo!!
+                //Por ejemplo actualizar el estado con el id del business generado
+            }
+        }.bind(this);
+        req.open('POST', 'http://localhost:8080/InubeBackEnd/RegisterRestaurantServlet', true);
+        req.setRequestHeader('Content-Type', 'application/json');
+        let body = '{\"userId\": '+this.state.userInfo.userId+', \"businessName\": '+business[0]+', \"businessZipCode\": '+business[1]+', \"businessType\": '+business[2]+', \"businessPrice\": '+business[3]+'}';
+        req.send(body);
         userInfo.business.push({businessName: business[0], businessZipCode: business[1], businessType: business[2], businessPrice: business[3], tpvs: []});
         this.setState({
             userInfo: userInfo,
         });
     }
 
-    acceptBusinessChanges(business) {
+    acceptBusinessChanges(editData, index) {
         let userInfo = this.state.userInfo;
+        let business = userInfo.business;
+        let businessId = business[index].businessId;
+        business[index].businessName = editData[0];
+        business[index].businessZipCode = editData[1];
+        business[index].businessType = editData[2];
+        business[index].businessPrice = editData[3];
         userInfo.business = business;
+        var req = new XMLHttpRequest();
+        req.onreadystatechange = function () {
+            if (req.readyState == 4 && req.status == 200) {
+                console.log(req.response);
+            }
+        }.bind(this);
+        req.open('POST', 'http://localhost:8080/InubeBackEnd/UpdateRestaurantServlet', true);
+        req.setRequestHeader('Content-Type', 'application/json');
+        let body = '{\"businessId\": '+business[index].businessId+', \"businessName\": '+editData[0]+', \"businessZipCode\": '+editData[1]+', \"businessType\": '+editData[2]+', \"businessPrice\": '+editData[3]+'}'
+        req.send(body);
         console.log("Desde App: ", userInfo);
         this.setState({
             userInfo: userInfo,
@@ -121,13 +180,25 @@ class App extends React.Component {
     }
 
     changeLoginInfo(userName, userEmail) {
+        //Update!!
+        var req = new XMLHttpRequest();
+        req.onreadystatechange = function() {
+            if (req.readyState == 4 && req.status == 200) {
+                console.log(req.response);
+                //Hacer algo con el resultado!!!
+                let userInfo = this.state.userInfo;
+                userInfo.userName = userName;
+                userInfo.userEmail = userEmail;
+                this.setState({
+                    userInfo: userInfo,
+                });
+            }
+        }.bind(this);
+        req.open('POST', 'http://localhost:8080/InubeBackEnd/UpdateUserServlet', true);
+        req.setRequestHeader('Content-Type', 'application/json');
+        let body = '{\"id\": '+this.state.userInfo.userId+', \"name\": '+userName+', \"mail\": '+userEmail+'}';
+        req.send(body);
         console.log("App: ", userName, userEmail);
-        let userInfo = this.state.userInfo;
-        userInfo.userName = userName;
-        userInfo.userEmail = userEmail;
-        this.setState({
-            userInfo: userInfo,
-        });
     }
 
     logOutHandler(logOut) {
@@ -158,21 +229,70 @@ class App extends React.Component {
                 activeTab: '0',
             });
         } else {
-            console.log("ha fallado")
-            this.setState({
-                logInFailed: true,
-            });
-            console.log(this.state);
+            var req = new XMLHttpRequest();
+            req.onreadystatechange = function () {
+                if (req.readyState == 4 && req.status == 200) {
+                    console.log(req.response);
+                    let jsonResponse = JSON.parse(req.response);
+                    if (jsonResponse.login === 'ok') {
+                        let userInfo = this.state.userInfo;
+                        userInfo.userId = jsonResponse.user.id;
+                        userInfo.userName = jsonResponse.user.name;
+                        userInfo.userEmail = jsonResponse.user.mail;
+                        this.setState({
+                            isLogged: !this.state.isLogged,
+                            logInFailed: false,
+                            activeTab: '0',
+                            userInfo: userInfo,
+                        });
+                    }
+                }
+            }.bind(this);
+            req.open('GET', 'http://localhost:8080/InubeBackEnd/LoginServlet', true);
+            req.setRequestHeader("user", email);
+            req.setRequestHeader("password", password);
+            req.send(null);
+            //fetch('http://localhost:8080/ServidorISST/LoginServlet', {
+            //    method: 'GET',
+            //    headers: headers
+            //}).then(function(response){
+            //    console.log(response);
+            //});
+            //console.log("ha fallado")
+            //this.setState({
+            //    logInFailed: true,
+            //});
+            //console.log(this.state);
         }
     }
 
     registrationHandler(direction, regData) {
         // direction === 0 si se avanza
         // Mandar los datos de registro al servidor!!!!
-        this.setState({
-            isLogged: true,
-            activeTab: '0',
-        });
+        var req = new XMLHttpRequest();
+        req.onreadystatechange = function() {
+            if (req.readyState == 4 && req.status == 200) {
+                console.log(req.response);
+                let jsonResponse = JSON.parse(req.response); 
+                let userInfo = this.state.userInfo;
+                userInfo.userId = jsonResponse.id;
+                userInfo.userName = regData[0];
+                userInfo.userEmail = regData[1];
+                this.setState({
+                    isLogged: true,
+                    activeTab: '0',
+                    userInfo: userInfo,
+                });
+                //Hacer algo para mostrar el resultado del post
+                //P.ej: settear aquí el estado y que si la respuesta está bien
+                //devuelva un id != 0.
+            }
+        }.bind(this);
+        req.open('POST', 'http://localhost:8080/InubeBackEnd/RegistrationServlet', true);
+        req.setRequestHeader('Content-type', 'application/json');
+        //'{\"id\": '+this.state.userInfo.userId+', \"name\": '+userName+', \"mail\": '+userEmail+'}';
+        let body = '{\"name\": '+regData[0]+', \"mail\": '+regData[1]+', \"password\": '+regData[2]+'}';
+        req.send(body);
     }
 
     stepEditHandler(direction, editData) {

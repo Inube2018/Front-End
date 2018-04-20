@@ -77,6 +77,18 @@ export default class Graphic extends React.Component {
 
             ]
         }
+        this.download = this.download.bind(this);
+    }
+
+    download() {
+        let req = new XMLHttpRequest();
+        req.onreadystatechange = function () {
+            if (req.readyState == 4 && req.status == 200) {
+                console.log(req.response);
+            }
+        }.bind(this);
+        req.open('GET', 'http://localhost:8080/InubeBackEnd/GraphicServlet', true);
+        req.send(null);
     }
 
 

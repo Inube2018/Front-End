@@ -7,7 +7,7 @@ export default class AccountSecrtions extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            section: -1,
+            section: 0,
             addBusiness: false,
             alert: false,
             alertType: '',
@@ -19,6 +19,14 @@ export default class AccountSecrtions extends React.Component {
         this.changeLoginInfo = this.changeLoginInfo.bind(this);
         this.addTPV = this.addTPV.bind(this);
         this.deleteTPV = this.deleteTPV.bind(this);
+        this.getBusiness = this.getBusiness.bind(this);
+    }
+
+    getBusiness() {
+        this.props.getBusiness();
+        this.setState({
+            section: 2,
+        });
     }
 
     deleteTPV(businessIndex, TPVindex) {
@@ -45,12 +53,12 @@ export default class AccountSecrtions extends React.Component {
     }
     
     acceptChanges(editData, index) {
-        let business = this.props.userInfo.business;
-        business[index].businessName = editData[0];
-        business[index].businessZipCode = editData[1];
-        business[index].businessType = editData[2];
-        business[index].businessPrice = editData[3];
-        this.props.acceptBusinessChanges(business);
+        //let business = this.props.userInfo.business;
+        //business[index].businessName = editData[0];
+        //business[index].businessZipCode = editData[1];
+        //business[index].businessType = editData[2];
+        //business[index].businessPrice = editData[3];
+        this.props.acceptBusinessChanges(editData, index);
     }
 
     addBusiness() {
@@ -212,7 +220,7 @@ export default class AccountSecrtions extends React.Component {
                                 <ListGroup>
                                     <ListGroupItem active={ this.state.section === 0 } tag="button" action onClick={() => this.toggleSection(0)}>Perfil de usuario</ListGroupItem>
                                     <ListGroupItem active={ this.state.section === 1 } tag="button" action onClick={() => this.toggleSection(1)}>Contraseña</ListGroupItem>
-                                    <ListGroupItem active={ this.state.section === 2 } tag="button" action onClick={() => this.toggleSection(2)}>Mis Negocios</ListGroupItem>
+                                    <ListGroupItem active={ this.state.section === 2 } tag="button" action onClick={this.getBusiness}>Mis Negocios</ListGroupItem>
                                     <ListGroupItem active={ this.state.section === 3 } tag="button" action onClick={() => this.toggleSection(3)}>Mis TPVs</ListGroupItem>
                                 </ListGroup>
                             </div>
