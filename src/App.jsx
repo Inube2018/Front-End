@@ -32,11 +32,13 @@ class App extends React.Component {
                         tpvs: [
                             {
                                 id: '1234567890',
-                                iban: 'ES1234567890123456789000'
+                                iban: 'ES1234567890123456789000',
+                                tpvId: '',
                             },
                             {
                                 id: '0987654321',
-                                iban: 'ES0987654321098765432111'
+                                iban: 'ES0987654321098765432111',
+                                tpvId: '',
                             }
                         ]
                     },
@@ -49,11 +51,13 @@ class App extends React.Component {
                         tpvs: [
                             {
                                 id: '2468013579',
-                                iban: 'ES1234567890098765432123'
+                                iban: 'ES1234567890098765432123',
+                                tpvId: '',
                             },
                             {
                                 id: '1357924680',
-                                iban: 'ES0987654321123456789098'
+                                iban: 'ES0987654321123456789098',
+                                tpvId: '',
                             }
                         ]
                     },
@@ -73,16 +77,29 @@ class App extends React.Component {
         this.deleteTPV = this.deleteTPV.bind(this);
         this.onDismissLogIn = this.onDismissLogIn.bind(this);
         this.getBusiness = this.getBusiness.bind(this);
+        this.changePassword = this.changePassword.bind(this);
     }
 
     render() {
         return (
             <div style={{height: '100%'}}>
                 <h1 className="text-info" style={{textAlign: 'center', marginTop: '1%'}}><FontAwesome name='cloud' /> iNube</h1>
-                <Navigator getBusiness={this.getBusiness} onDismissLogIn={this.onDismissLogIn} logOutHandler={this.logOutHandler} isLogged={this.state.isLogged} logInFailed={this.state.logInFailed} toggleTab={this.toggleTab} logInHandler={this.logInHandler} registrationHandler={this.registrationHandler} editStep={this.state.editStep} stepEditHandler={this.stepEditHandler} stepEditSaltarHandler={this.stepEditSaltarHandler} activeTab={this.state.activeTab} userInfo={this.state.userInfo} acceptBusinessChanges={this.acceptBusinessChanges} addBusiness={this.addBusiness} changeLoginInfo={this.changeLoginInfo} addTPV={this.addTPV} deleteTPV={this.deleteTPV}/>
+                <Navigator changePassword={this.changePassword} getBusiness={this.getBusiness} onDismissLogIn={this.onDismissLogIn} logOutHandler={this.logOutHandler} isLogged={this.state.isLogged} logInFailed={this.state.logInFailed} toggleTab={this.toggleTab} logInHandler={this.logInHandler} registrationHandler={this.registrationHandler} editStep={this.state.editStep} stepEditHandler={this.stepEditHandler} stepEditSaltarHandler={this.stepEditSaltarHandler} activeTab={this.state.activeTab} userInfo={this.state.userInfo} acceptBusinessChanges={this.acceptBusinessChanges} addBusiness={this.addBusiness} changeLoginInfo={this.changeLoginInfo} addTPV={this.addTPV} deleteTPV={this.deleteTPV}/>
                 <Footer/>
             </div>
         );
+    }
+
+    changePassword(oldPassword, newPassword) {
+        var req = new XMLHttpRequest();
+        req.onreadystatechange = function () {
+            if (req.readyState == 4 && req.status == 200) {
+                console.log(req.response);
+            }
+        }.bind(this);
+        req.open('POST', 'http://localhost:8080/InubeBackEnd/UpdatePasswordServlet', true);
+        let body = '{\"userId\": '+this.state.userInfo.userId+', \"oldPass\": '+oldPassword+', \"newPass\": '+newPassword+'}';
+        req.send(body);
     }
 
     getBusiness() {
@@ -111,9 +128,16 @@ class App extends React.Component {
     deleteTPV(businessIndex, TPVindex) {
         let userInfo = this.state.userInfo;
         userInfo.business[businessIndex].tpvs.splice(TPVindex, 1);
-        this.setState({
-            userInfo: userInfo,
-        });
+        var req = new XMLHttpRequest();
+        req.onreadystatechange = function () {
+            console.log(req.response);
+            this.setState({
+                userInfo: userInfo,
+            });
+        }.bind(this);
+        req.open('GET', 'http://localhost:8080/InubeBackEnd/DeleteTpvServlet', true);
+        req.setRequestHeader('tpvId', this.state.userInfo.business[businessIndex].tpvs[TPVindex].id);
+        req.send(null);
     }
 
     addTPV(index, TPVdata) {
@@ -122,16 +146,16 @@ class App extends React.Component {
         req.onreadystatechange = function () {
             if (req.readyState == 4 && req.status == 200) {
                 console.log(req.response);
+                userInfo.business[index].tpvs.push({id: JSON.parse(req.response).id, iban: TPVdata[1], tpvId: TPVdata[0]});
+                this.setState({
+                    userInfo: userInfo,
+                });
             }
         }.bind(this);
         req.open('POST', 'http://localhost:8080/InubeBackEnd/RegisterTpvServlet', true);
         req.setRequestHeader('Content-Type', 'application/json');
         let body = '{\"businessId\": '+this.state.userInfo.business[index].businessId+', \"tpvId\": '+TPVdata[0]+', \"iban\": '+TPVdata[1]+'}';
         req.send(body);
-        userInfo.business[index].tpvs.push({id: TPVdata[0], iban: TPVdata[1]});
-        this.setState({
-            userInfo: userInfo,
-        });
     }
 
     addBusiness(business) {

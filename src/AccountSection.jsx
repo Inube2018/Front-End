@@ -20,6 +20,28 @@ export default class AccountSecrtions extends React.Component {
         this.addTPV = this.addTPV.bind(this);
         this.deleteTPV = this.deleteTPV.bind(this);
         this.getBusiness = this.getBusiness.bind(this);
+        this.changePassword = this.changePassword.bind(this);
+    }
+
+    changePassword() {
+        let newPassword = document.getElementById('passwordEdit').value;
+        let newPasswordRepeat = document.getElementById('passwordRepeatEdit').value;
+        let oldPassword = document.getElementById('actualPassword').value;
+        if ((newPassword.length === 0) || (newPasswordRepeat.length === 0) || (oldPassword.length === 0)) {
+            this.setState({
+                alert: !this.state.alert,
+                alertType: 'danger',
+                alertMessage: 'Debe rellenar todos los campos',
+            });
+        } else if (newPassword !== newPasswordRepeat) {
+            this.setState({
+                alert: !this.state.alert,
+                alertType: 'danger',
+                alertMessage: 'Las contraseñas no coinciden',
+            });
+        } else {
+            this.props.changePassword(oldPassword, newPassword);
+        }
     }
 
     getBusiness() {
@@ -154,7 +176,7 @@ export default class AccountSecrtions extends React.Component {
                     </FormGroup>
                     <FormGroup check row style={{display: 'flex', justifyContent: 'center'}}>
                         <Col sm={{ size: 10, offset: 7 }}>
-                            <Button style={{margin: '5px'}} onClick={this.stepEditHandler}>Modificar</Button> 
+                            <Button style={{margin: '5px'}} onClick={this.changePassword}>Modificar</Button> 
                         </Col>
                     </FormGroup>
                 </Form>
