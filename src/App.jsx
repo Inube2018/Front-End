@@ -17,6 +17,9 @@ class App extends React.Component {
             regPassword: '',
             regIban: '',
             logInFailed: false,
+            alert: false,
+            alertType: '',
+            alertMessage: '',
             editStep: 0,
             userInfo: {
                 userId: 0,
@@ -78,16 +81,47 @@ class App extends React.Component {
         this.onDismissLogIn = this.onDismissLogIn.bind(this);
         this.getBusiness = this.getBusiness.bind(this);
         this.changePassword = this.changePassword.bind(this);
+        this.onDismissAlert = this.onDismissAlert.bind(this);
     }
 
     render() {
         return (
             <div style={{height: '100%'}}>
                 <h1 className="text-info" style={{textAlign: 'center', marginTop: '1%'}}><FontAwesome name='cloud' /> iNube</h1>
-                <Navigator changePassword={this.changePassword} getBusiness={this.getBusiness} onDismissLogIn={this.onDismissLogIn} logOutHandler={this.logOutHandler} isLogged={this.state.isLogged} logInFailed={this.state.logInFailed} toggleTab={this.toggleTab} logInHandler={this.logInHandler} registrationHandler={this.registrationHandler} editStep={this.state.editStep} stepEditHandler={this.stepEditHandler} stepEditSaltarHandler={this.stepEditSaltarHandler} activeTab={this.state.activeTab} userInfo={this.state.userInfo} acceptBusinessChanges={this.acceptBusinessChanges} addBusiness={this.addBusiness} changeLoginInfo={this.changeLoginInfo} addTPV={this.addTPV} deleteTPV={this.deleteTPV}/>
+                <Navigator changePassword={this.changePassword} 
+                            getBusiness={this.getBusiness} 
+                            onDismissLogIn={this.onDismissLogIn} 
+                            logOutHandler={this.logOutHandler} 
+                            isLogged={this.state.isLogged} 
+                            logInFailed={this.state.logInFailed} 
+                            toggleTab={this.toggleTab} 
+                            logInHandler={this.logInHandler} 
+                            registrationHandler={this.registrationHandler} 
+                            editStep={this.state.editStep} 
+                            stepEditHandler={this.stepEditHandler} 
+                            stepEditSaltarHandler={this.stepEditSaltarHandler} 
+                            activeTab={this.state.activeTab} 
+                            userInfo={this.state.userInfo} 
+                            acceptBusinessChanges={this.acceptBusinessChanges} 
+                            addBusiness={this.addBusiness} 
+                            changeLoginInfo={this.changeLoginInfo} 
+                            addTPV={this.addTPV} 
+                            deleteTPV={this.deleteTPV}
+                            onDismissAlert={this.onDismissAlert}
+                            alert={this.state.alert}
+                            alertType={this.state.alertType}
+                            alertMessage={this.state.alertMessage}/>
                 <Footer/>
             </div>
         );
+    }
+
+    onDismissAlert() {
+        this.setState({
+            alert: !this.state.alert,
+            alertType: '',
+            alertMessage: '',
+        });
     }
 
     changePassword(oldPassword, newPassword) {
@@ -95,6 +129,21 @@ class App extends React.Component {
         req.onreadystatechange = function () {
             if (req.readyState == 4 && req.status == 200) {
                 console.log(req.response);
+                if (req.response === 'ko') {
+                    //Alerta de que no se ha podido actualizar
+                    this.setState({
+                        alert: !this.state.alert,
+                        alertType: 'danger',
+                        alertMessage: 'La contraseña no se ha podido actualizar',
+                    });
+                } else {
+                    //Alerta de que se ha actualizado
+                    this.setState({
+                        alert: !this.state.alert,
+                        alertType: 'success',
+                        alertMessage: 'Contraseña acutalizada',
+                    })
+                }
             }
         }.bind(this);
         req.open('POST', 'http://localhost:8080/InubeBackEnd/UpdatePasswordServlet', true);
@@ -126,14 +175,27 @@ class App extends React.Component {
     }
 
     deleteTPV(businessIndex, TPVindex) {
+        console.log("TPVIndex: ", TPVindex);
+        console.log("BusinessIndex: ", businessIndex);
         let userInfo = this.state.userInfo;
-        userInfo.business[businessIndex].tpvs.splice(TPVindex, 1);
         var req = new XMLHttpRequest();
         req.onreadystatechange = function () {
-            console.log(req.response);
-            this.setState({
-                userInfo: userInfo,
-            });
+            if (req.readyState == 4 && req.status == 200) {
+                console.log(req.response);
+                if (req.response === 'ko') {
+                    //Alerta de que no se ha podido eliminar
+                    this.setState({
+                        alert: !this.state.alert,
+                        alertType: 'danger',
+                        alertMessage: 'No se ha podido eliminar el TPV',
+                    })
+                } else {
+                    userInfo.business[businessIndex].tpvs.splice(TPVindex, 1);
+                    this.setState({
+                        userInfo: userInfo,
+                    });
+                }
+            }
         }.bind(this);
         req.open('GET', 'http://localhost:8080/InubeBackEnd/DeleteTpvServlet', true);
         req.setRequestHeader('tpvId', this.state.userInfo.business[businessIndex].tpvs[TPVindex].id);
@@ -146,10 +208,18 @@ class App extends React.Component {
         req.onreadystatechange = function () {
             if (req.readyState == 4 && req.status == 200) {
                 console.log(req.response);
-                userInfo.business[index].tpvs.push({id: JSON.parse(req.response).id, iban: TPVdata[1], tpvId: TPVdata[0]});
-                this.setState({
-                    userInfo: userInfo,
-                });
+                if (req.response === 'ko') {
+                    this.setState({
+                        alert: !this.state.alert,
+                        alertType: 'danger',
+                        alertMessage: 'No se ha podido añadir el TPV',
+                    })
+                } else {
+                    userInfo.business[index].tpvs.push({id: JSON.parse(req.response).id, iban: TPVdata[1], tpvId: TPVdata[0]});
+                    this.setState({
+                        userInfo: userInfo,
+                    });
+                }
             }
         }.bind(this);
         req.open('POST', 'http://localhost:8080/InubeBackEnd/RegisterTpvServlet', true);
@@ -164,18 +234,25 @@ class App extends React.Component {
         req.onreadystatechange = function () {
             if (req.readyState == 4 && req.status == 200) {
                 console.log(req.response);
-                //Hacer algo!!
-                //Por ejemplo actualizar el estado con el id del business generado
+                if (req.response === 'ko') {
+                    //Alerta de que no se ha podido actualizar
+                    this.setState({
+                        alert: !this.state.alert,
+                        alertType: 'danger',
+                        alertMessage: 'No se ha podido añadir el negocio'
+                    })
+                } else {
+                    userInfo.business.push({businessName: business[0], businessZipCode: business[1], businessType: business[2], businessPrice: business[3], tpvs: []});
+                    this.setState({
+                        userInfo: userInfo,
+                    });
+                }
             }
         }.bind(this);
         req.open('POST', 'http://localhost:8080/InubeBackEnd/RegisterRestaurantServlet', true);
         req.setRequestHeader('Content-Type', 'application/json');
         let body = '{\"userId\": '+this.state.userInfo.userId+', \"businessName\": '+business[0]+', \"businessZipCode\": '+business[1]+', \"businessType\": '+business[2]+', \"businessPrice\": '+business[3]+'}';
         req.send(body);
-        userInfo.business.push({businessName: business[0], businessZipCode: business[1], businessType: business[2], businessPrice: business[3], tpvs: []});
-        this.setState({
-            userInfo: userInfo,
-        });
     }
 
     acceptBusinessChanges(editData, index) {
@@ -191,6 +268,22 @@ class App extends React.Component {
         req.onreadystatechange = function () {
             if (req.readyState == 4 && req.status == 200) {
                 console.log(req.response);
+                if (req.response === 'ko') {
+                    //Alerta de que no se ha podido actualizar
+                    this.setState({
+                        userInfo: this.state.userInfo,
+                        alert: !this.state.alert,
+                        alertType: 'danger',
+                        alertMessage: 'No se ha podido modificar el negocio',
+                    })
+                } else {
+                    this.setState({
+                        userInfo: userInfo,
+                        alert: !this.state.alert,
+                        alertType: 'success',
+                        alertMessage: 'Negocio actualizado correctamente',
+                    });
+                }
             }
         }.bind(this);
         req.open('POST', 'http://localhost:8080/InubeBackEnd/UpdateRestaurantServlet', true);
@@ -198,9 +291,6 @@ class App extends React.Component {
         let body = '{\"businessId\": '+business[index].businessId+', \"businessName\": '+editData[0]+', \"businessZipCode\": '+editData[1]+', \"businessType\": '+editData[2]+', \"businessPrice\": '+editData[3]+'}'
         req.send(body);
         console.log("Desde App: ", userInfo);
-        this.setState({
-            userInfo: userInfo,
-        });
     }
 
     changeLoginInfo(userName, userEmail) {
@@ -209,13 +299,25 @@ class App extends React.Component {
         req.onreadystatechange = function() {
             if (req.readyState == 4 && req.status == 200) {
                 console.log(req.response);
-                //Hacer algo con el resultado!!!
-                let userInfo = this.state.userInfo;
-                userInfo.userName = userName;
-                userInfo.userEmail = userEmail;
-                this.setState({
-                    userInfo: userInfo,
-                });
+                if (req.response === 'ko') {
+                    //Alerta de que no se ha podido actualizar
+                    this.setState({
+                        alert: !this.state.alert,
+                        alertType: 'danger',
+                        alertMessage: 'No se ha podido actualizar la información de LogIn',
+                    })
+                } else {
+                    //Hacer algo con el resultado!!!
+                    let userInfo = this.state.userInfo;
+                    userInfo.userName = userName;
+                    userInfo.userEmail = userEmail;
+                    this.setState({
+                        userInfo: userInfo,
+                        alert: !this.state.alert,
+                        alertType: 'success',
+                        alertMessage: 'Información de LogIn actualizada correctamente',
+                    });
+                }
             }
         }.bind(this);
         req.open('POST', 'http://localhost:8080/InubeBackEnd/UpdateUserServlet', true);
@@ -257,18 +359,26 @@ class App extends React.Component {
             req.onreadystatechange = function () {
                 if (req.readyState == 4 && req.status == 200) {
                     console.log(req.response);
-                    let jsonResponse = JSON.parse(req.response);
-                    if (jsonResponse.login === 'ok') {
-                        let userInfo = this.state.userInfo;
-                        userInfo.userId = jsonResponse.user.id;
-                        userInfo.userName = jsonResponse.user.name;
-                        userInfo.userEmail = jsonResponse.user.mail;
+                    if (req.response === 'ko') {
                         this.setState({
-                            isLogged: !this.state.isLogged,
-                            logInFailed: false,
-                            activeTab: '0',
-                            userInfo: userInfo,
-                        });
+                            logInFailed: !this.state.logInFailed,
+                        })
+                    } else {
+                        document.getElementById('email').value = '';
+                        document.getElementById('password').value = '';
+                        let jsonResponse = JSON.parse(req.response);
+                        if (jsonResponse.login === 'ok') {
+                            let userInfo = this.state.userInfo;
+                            userInfo.userId = jsonResponse.user.id;
+                            userInfo.userName = jsonResponse.user.name;
+                            userInfo.userEmail = jsonResponse.user.mail;
+                            this.setState({
+                                isLogged: !this.state.isLogged,
+                                logInFailed: false,
+                                activeTab: '0',
+                                userInfo: userInfo,
+                            });
+                        }
                     }
                 }
             }.bind(this);
@@ -276,45 +386,32 @@ class App extends React.Component {
             req.setRequestHeader("user", email);
             req.setRequestHeader("password", password);
             req.send(null);
-            //fetch('http://localhost:8080/ServidorISST/LoginServlet', {
-            //    method: 'GET',
-            //    headers: headers
-            //}).then(function(response){
-            //    console.log(response);
-            //});
-            //console.log("ha fallado")
-            //this.setState({
-            //    logInFailed: true,
-            //});
-            //console.log(this.state);
         }
     }
 
     registrationHandler(direction, regData) {
-        // direction === 0 si se avanza
-        // Mandar los datos de registro al servidor!!!!
         var req = new XMLHttpRequest();
         req.onreadystatechange = function() {
             if (req.readyState == 4 && req.status == 200) {
                 console.log(req.response);
-                let jsonResponse = JSON.parse(req.response); 
-                let userInfo = this.state.userInfo;
-                userInfo.userId = jsonResponse.id;
-                userInfo.userName = regData[0];
-                userInfo.userEmail = regData[1];
-                this.setState({
-                    isLogged: true,
-                    activeTab: '0',
-                    userInfo: userInfo,
-                });
-                //Hacer algo para mostrar el resultado del post
-                //P.ej: settear aquí el estado y que si la respuesta está bien
-                //devuelva un id != 0.
+                if (req.response === 'ko') {
+                    //Alerta de que el registro ha fallado
+                } else {
+                    let jsonResponse = JSON.parse(req.response); 
+                    let userInfo = this.state.userInfo;
+                    userInfo.userId = jsonResponse.id;
+                    userInfo.userName = regData[0];
+                    userInfo.userEmail = regData[1];
+                    this.setState({
+                        isLogged: true,
+                        activeTab: '0',
+                        userInfo: userInfo,
+                    });
+                }
             }
         }.bind(this);
         req.open('POST', 'http://localhost:8080/InubeBackEnd/RegistrationServlet', true);
         req.setRequestHeader('Content-type', 'application/json');
-        //'{\"id\": '+this.state.userInfo.userId+', \"name\": '+userName+', \"mail\": '+userEmail+'}';
         let body = '{\"name\": '+regData[0]+', \"mail\": '+regData[1]+', \"password\": '+regData[2]+'}';
         req.send(body);
     }

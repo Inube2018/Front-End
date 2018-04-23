@@ -38,7 +38,9 @@ export default class Filter extends React.Component {
         if (!this.state.isLogged) {
             return (
                 <div className='tipos-grafica'>
-                    <Button color="primary" size="lg" className='filter' onClick={this.onPress}><FontAwesome name={this.state.graphic}/> Tipos de gráficos <FontAwesome name={this.state.arrow}/></Button>
+                    <Button color="primary" size="lg" className='filter' onClick={this.onPress}>
+                        <FontAwesome name={this.state.graphic}/> Tipos de gráficos <FontAwesome name={this.state.arrow}/>
+                    </Button>
                     <div id='botones-graficos'>EN CONSTRUCCION</div>
                 </div>
             );

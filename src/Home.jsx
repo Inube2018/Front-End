@@ -5,19 +5,19 @@ import { Carousel, CarouselItem, CarouselControl, CarouselIndicators, CarouselCa
 const items = [
     {
         id: 'slide1',
-        src:'./../public/field.jpg' ,
+        src:'/InubeBackEnd/public/field.jpg' ,
         altText: 'Slide 1',
         caption: 'Donde tus datos se convierten en oportunidades'
     },
     {
         id: 'slide2',
-        src: './../public/mountains.jpg',
+        src: '/InubeBackEnd/public/mountains.jpg',
         altText: 'Slide 2',
         caption: 'Súmate a la transformación digital tomando mejores decisiones de negocio'
     },
     {
         id: 'slide3',
-        src: './../public/road.jpg',
+        src: '/InubeBackEnd/public/road.jpg',
         altText: 'Slide 3',
         caption: 'Visualiza tu siguiente paso en el camino del éxito'
     }

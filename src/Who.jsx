@@ -13,7 +13,7 @@ class Who extends React.Component {
                 <CardGroup>
                     <Card>
                         <div style={{height: '200px', overflow: 'hidden'}}>
-                            <CardImg top width='100%' src="./../public/jaime.jpg" alt='Image 1'/>
+                            <CardImg top width='100%' src="/InubeBackEnd/public/jaime.jpg" alt='Image 1'/>
                         </div>
                         <CardBody>
                             <CardTitle>Jaime Hurtado de Mendoza Sastre</CardTitle>
@@ -23,7 +23,7 @@ class Who extends React.Component {
                     </Card>
                     <Card>
                         <div style={{height: '200px', overflow: 'hidden'}}>
-                            <CardImg top width='100%' src="./../public/roberto.jpg" alt='Image 1'/>
+                            <CardImg top width='100%' src="/InubeBackEnd/public/roberto.jpg" alt='Image 1'/>
                         </div>
                         <CardBody>
                             <CardTitle>Roberto Llop Cardenal</CardTitle>
@@ -33,7 +33,7 @@ class Who extends React.Component {
                     </Card>
                     <Card>
                         <div style={{height: '200px', overflow: 'hidden'}}>
-                            <CardImg top width='100%' src="./../public/paula.jpg" alt='Image 1'/>
+                            <CardImg top width='100%' src="/InubeBackEnd/public/paula.jpg" alt='Image 1'/>
                         </div>
                         <CardBody>
                             <CardTitle> Paula  Otero  Colmenar</CardTitle>
@@ -44,7 +44,7 @@ class Who extends React.Component {
                     </Card>
                     <Card>
                         <div style={{height: '200px', overflow: 'hidden'}}>
-                            <CardImg top width='100%' src="./../public/cris.png" alt='Image 1'/>
+                            <CardImg top width='100%' src="/InubeBackEnd/public/cris.png" alt='Image 1'/>
                         </div>
                         <CardBody>
                             <CardTitle>Cristina Sánchez Enciso</CardTitle>
@@ -54,7 +54,7 @@ class Who extends React.Component {
                     </Card>
                     <Card>
                         <div style={{height: '200px', overflow: 'hidden'}}>
-                            <CardImg top width='100%' src="./../public/marcos.png" alt='Image 1'/>
+                            <CardImg top width='100%' src="/InubeBackEnd/public/marcos.png" alt='Image 1'/>
                         </div>
                         <CardBody>
                             <CardTitle>Marcos Luna Garrido</CardTitle>

@@ -13,10 +13,10 @@ export default class Dashboard extends React.Component {
         this.toggle = this.toggle.bind(this);
         this.state = {
             dropdownOpen: false,
-            Graphic_number:4
         };
 
     }
+    
     toggle() {
         this.setState({
             dropdownOpen: !this.state.dropdownOpen

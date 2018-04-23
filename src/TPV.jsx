@@ -51,7 +51,12 @@ export default class TPV extends React.Component {
     }
 
     render() {
-        let tpvs = this.props.tpvs.map((tpv, index) => <div key={index} style={{marginBottom: '5px'}}> <strong>TPV</strong><br/><strong style={{paddingLeft: '5px'}}>ID: </strong> {tpv.tpvId} <br/><strong style={{paddingLeft: '5px'}}>IBAN: </strong> {tpv.iban} <br/> <Button style={{marginTop: '5px'}} color="danger" onClick={() => {this.deleteTPV(this.props.index, index)}}> Eliminar </Button> <br/><br/> </div>);
+        let tpvs = this.props.tpvs.map(
+            (tpv, index) => <div key={index} style={{marginBottom: '5px'}}> 
+                            <strong>TPV</strong><br/>
+                            <strong style={{paddingLeft: '5px'}}>ID: </strong> {tpv.tpvId} <br/>
+                            <strong style={{paddingLeft: '5px'}}>IBAN: </strong> {tpv.iban} <br/> 
+                            <Button style={{marginTop: '5px'}} color="danger" onClick={() => {this.deleteTPV(this.props.index, index)}}> Eliminar </Button> <br/><br/> </div>);
         return(
             <div style={{width: '100%', margin: '10px'}}>
                 <Button style={{width: '100%', borderColor: 'grey', textAlign: 'left'}} color="white" onClick={this.toggle}> {this.props.businessName} </Button>

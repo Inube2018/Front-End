@@ -27,6 +27,11 @@ class Navigator extends React.Component {
         this.onDismissLogIn = this.onDismissLogIn.bind(this);
         this.getBusiness = this.getBusiness.bind(this);
         this.changePassword = this.changePassword.bind(this);
+        this.onDismissAlert = this.onDismissAlert.bind(this);
+    }
+
+    onDismissAlert() {
+        this.props.onDismissAlert();
     }
 
     changePassword(oldPassword, newPassword) {
@@ -118,14 +123,20 @@ class Navigator extends React.Component {
                         <TabPane tabId="3">
                             <Row>
                                 <Col sm="12" style={{display: 'flex', justifyContent: 'center'}}>
-                                    <LogIn logInHandler={this.logInHandler} logInFailed={this.props.logInFailed} onDismissLogIn={this.onDismissLogIn}/>
+                                    <LogIn logInHandler={this.logInHandler} 
+                                            logInFailed={this.props.logInFailed} 
+                                            onDismissLogIn={this.onDismissLogIn}/>
                                 </Col>
                             </Row>
                         </TabPane>
                         <TabPane tabId="4">
                             <Row>
                                 <Col sm="12">
-                                    <Registration registrationHandler={this.registrationHandler}/>
+                                    <Registration registrationHandler={this.registrationHandler}
+                                                    alert={this.props.alert}
+                                                    alertType={this.props.alertType}
+                                                    alertMessage={this.props.alertMessage}
+                                                    onDismissAlert={this.onDismissAlert}/>
                                 </Col>
                             </Row>
                         </TabPane>
@@ -163,7 +174,18 @@ class Navigator extends React.Component {
                     <TabPane tabId="1">
                         <Row>
                             <Col sm="12">
-                                <AccountSection changePassword={this.changePassword} userInfo={this.props.userInfo} acceptBusinessChanges={this.acceptBusinessChanges} addBusiness={this.addBusiness} changeLoginInfo={this.changeLoginInfo} addTPV={this.addTPV} deleteTPV={this.deleteTPV} getBusiness={this.getBusiness}/>
+                                <AccountSection alert={this.props.alert} 
+                                                alertType={this.props.alertType} 
+                                                alertMessage={this.props.alertMessage}
+                                                onDismissAlert={this.onDismissAlert}
+                                                changePassword={this.changePassword} 
+                                                userInfo={this.props.userInfo} 
+                                                acceptBusinessChanges={this.acceptBusinessChanges} 
+                                                addBusiness={this.addBusiness} 
+                                                changeLoginInfo={this.changeLoginInfo} 
+                                                addTPV={this.addTPV} 
+                                                deleteTPV={this.deleteTPV} 
+                                                getBusiness={this.getBusiness}/>
                             </Col>
                         </Row>
                     </TabPane>

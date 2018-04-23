@@ -77,10 +77,10 @@ export default class Graphic extends React.Component {
 
             ]
         }
-        this.download = this.download.bind(this);
+        this.componentDidMount = this.componentDidMount.bind(this);
     }
 
-    download() {
+    componentDidMount() {
         let req = new XMLHttpRequest();
         req.onreadystatechange = function () {
             if (req.readyState == 4 && req.status == 200) {
@@ -100,7 +100,39 @@ export default class Graphic extends React.Component {
                 <MetricsGraphics
                     title={this.state.title[Math.floor(Math.random()*this.state.title.length)]}
                     description={this.state.description[Math.floor(Math.random()*this.state.description.length)]}
-                    data={ [{'date':new Date(this.state.date[Math.floor(Math.random()*this.state.date.length)]),'value':this.state.value[Math.floor(Math.random()*this.state.value.length)]},{'date':new Date(this.state.date[Math.floor(Math.random()*this.state.date.length)]),'value':this.state.value[Math.floor(Math.random()*this.state.value.length)]}, {'date':new Date(this.state.date[Math.floor(Math.random()*this.state.date.length)]),'value':this.state.value[Math.floor(Math.random()*this.state.value.length)]},{'date':new Date(this.state.date[Math.floor(Math.random()*this.state.date.length)]),'value':this.state.value[Math.floor(Math.random()*this.state.value.length)]},{'date':new Date(this.state.date[Math.floor(Math.random()*this.state.date.length)]),'value':this.state.value[Math.floor(Math.random()*this.state.value.length)]},{'date':new Date(this.state.date[Math.floor(Math.random()*this.state.date.length)]),'value':this.state.value[Math.floor(Math.random()*this.state.value.length)]},{'date':new Date(this.state.date[Math.floor(Math.random()*this.state.date.length)]),'value':this.state.value[Math.floor(Math.random()*this.state.value.length)]},{'date':new Date(this.state.date[Math.floor(Math.random()*this.state.date.length)]),'value':this.state.value[Math.floor(Math.random()*this.state.value.length)]}] }
+                    data={ [
+                            {
+                                'date':new Date(this.state.date[Math.floor(Math.random()*this.state.date.length)]),
+                                'value':this.state.value[Math.floor(Math.random()*this.state.value.length)]
+                            },
+                            {
+                                'date':new Date(this.state.date[Math.floor(Math.random()*this.state.date.length)]),
+                                'value':this.state.value[Math.floor(Math.random()*this.state.value.length)]
+                            }, 
+                            {
+                                'date':new Date(this.state.date[Math.floor(Math.random()*this.state.date.length)]),
+                                'value':this.state.value[Math.floor(Math.random()*this.state.value.length)]
+                            },
+                            {
+                                'date':new Date(this.state.date[Math.floor(Math.random()*this.state.date.length)]),
+                                'value':this.state.value[Math.floor(Math.random()*this.state.value.length)]
+                            },
+                            {
+                                'date':new Date(this.state.date[Math.floor(Math.random()*this.state.date.length)]),
+                                'value':this.state.value[Math.floor(Math.random()*this.state.value.length)]
+                            },
+                            {
+                                'date':new Date(this.state.date[Math.floor(Math.random()*this.state.date.length)]),
+                                'value':this.state.value[Math.floor(Math.random()*this.state.value.length)]
+                            },
+                            {
+                                'date':new Date(this.state.date[Math.floor(Math.random()*this.state.date.length)]),
+                                'value':this.state.value[Math.floor(Math.random()*this.state.value.length)]
+                            },
+                            {
+                                'date':new Date(this.state.date[Math.floor(Math.random()*this.state.date.length)]),
+                                'value':this.state.value[Math.floor(Math.random()*this.state.value.length)]
+                            }] }
                     width={480}
                     height={250}
                     x_accessor="date"

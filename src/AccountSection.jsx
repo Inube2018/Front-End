@@ -21,12 +21,20 @@ export default class AccountSecrtions extends React.Component {
         this.deleteTPV = this.deleteTPV.bind(this);
         this.getBusiness = this.getBusiness.bind(this);
         this.changePassword = this.changePassword.bind(this);
+        this.onDismissAlert = this.onDismissAlert.bind(this);
+    }
+
+    onDismissAlert() {
+        this.props.onDismissAlert();
     }
 
     changePassword() {
         let newPassword = document.getElementById('passwordEdit').value;
         let newPasswordRepeat = document.getElementById('passwordRepeatEdit').value;
         let oldPassword = document.getElementById('actualPassword').value;
+        document.getElementById('passwordRepeatEdit').value = '';
+        document.getElementById('passwordEdit').value = '';
+        document.getElementById('actualPassword').value = '';
         if ((newPassword.length === 0) || (newPasswordRepeat.length === 0) || (oldPassword.length === 0)) {
             this.setState({
                 alert: !this.state.alert,
@@ -44,10 +52,10 @@ export default class AccountSecrtions extends React.Component {
         }
     }
 
-    getBusiness() {
+    getBusiness(sect) {
         this.props.getBusiness();
         this.setState({
-            section: 2,
+            section: sect,
         });
     }
 
@@ -75,11 +83,6 @@ export default class AccountSecrtions extends React.Component {
     }
     
     acceptChanges(editData, index) {
-        //let business = this.props.userInfo.business;
-        //business[index].businessName = editData[0];
-        //business[index].businessZipCode = editData[1];
-        //business[index].businessType = editData[2];
-        //business[index].businessPrice = editData[3];
         this.props.acceptBusinessChanges(editData, index);
     }
 
@@ -128,11 +131,15 @@ export default class AccountSecrtions extends React.Component {
 
     render() {
         let alert = <Alert color={this.state.alertType} isOpen={this.state.alert} toggle={() => {this.setState({alert: !this.state.alert})}} style={{width: '100%', height: '50px'}}> {this.state.alertMessage}</Alert>;
+        let alertBack = <Alert color={this.props.alertType} isOpen={this.props.alert} toggle={() => {this.props.onDismissAlert()}} style={{width: '100%', height: '50px'}}> {this.props.alertMessage}</Alert>;
         let negocios = this.props.userInfo.business.map((business, index) => <NegocioSection index={index} business={business} acceptChanges={this.acceptChanges} key={index}/>);
         let tpvs = this.props.userInfo.business.map((business, index) => <TPV key={index} tpvs={business.tpvs} businessName={business.businessName} index={index} addTPV={this.addTPV} deleteTPV={this.deleteTPV}/>);
         let editSection = <div> Hola </div>;
         if (this.state.section === 0) {
             editSection = <div>
+                <div>
+                    {alertBack}
+                </div>
                 <Form>
                     <FormGroup row>
                         <Label for="userNameEdit" sm={9}>Nombre de usuario</Label>
@@ -155,6 +162,9 @@ export default class AccountSecrtions extends React.Component {
             </div>
         } else if (this.state.section === 1) {
             editSection = <div>
+                <div>
+                    {alertBack}
+                </div>
                 <Form>
                     <FormGroup row>
                         <Label for="passwordEdit" sm={5}>Contraseña actual</Label>
@@ -182,7 +192,10 @@ export default class AccountSecrtions extends React.Component {
                 </Form>
             </div>
         } else if (this.state.section === 2) {
-             editSection = <div>
+            editSection = <div>
+                <div>
+                    {alertBack}
+                </div>
                 <Row><Button style={{marginLeft: '3px'}} onClick={() => this.addBusiness()}>Añadir negocio</Button></Row>
                 <Row>{negocios}</Row>
                 <Row>
@@ -230,6 +243,9 @@ export default class AccountSecrtions extends React.Component {
              </div>
         } else if (this.state.section === 3) {
             editSection = <div>
+                <div>
+                    {alertBack}
+                </div>
                 <Row>{tpvs}</Row>
             </div>
         }
@@ -242,8 +258,8 @@ export default class AccountSecrtions extends React.Component {
                                 <ListGroup>
                                     <ListGroupItem active={ this.state.section === 0 } tag="button" action onClick={() => this.toggleSection(0)}>Perfil de usuario</ListGroupItem>
                                     <ListGroupItem active={ this.state.section === 1 } tag="button" action onClick={() => this.toggleSection(1)}>Contraseña</ListGroupItem>
-                                    <ListGroupItem active={ this.state.section === 2 } tag="button" action onClick={this.getBusiness}>Mis Negocios</ListGroupItem>
-                                    <ListGroupItem active={ this.state.section === 3 } tag="button" action onClick={() => this.toggleSection(3)}>Mis TPVs</ListGroupItem>
+                                    <ListGroupItem active={ this.state.section === 2 } tag="button" action onClick={() => this.getBusiness(2)}>Mis Negocios</ListGroupItem>
+                                    <ListGroupItem active={ this.state.section === 3 } tag="button" action onClick={() => this.getBusiness(3)}>Mis TPVs</ListGroupItem>
                                 </ListGroup>
                             </div>
                         </Col>

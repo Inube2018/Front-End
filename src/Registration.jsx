@@ -80,11 +80,13 @@ class Registration extends React.Component {
 
     render() {
         let alert = <Alert color={this.state.alertType} isOpen={this.state.alert} toggle={this.onDismiss} style={{width: '100%', height: '50px'}}>{this.state.alertText}</Alert>;
+        let alertBack = <Alert color={this.props.alertType} isOpen={this.props.alert} toggle={() => {this.props.onDismissAlert()}} style={{width: '100%', height: '50px'}}> {this.props.alertMessage}</Alert>;
         return (
             <div style={{height: '90%', width: '90%', display: 'flex', justifyContent: 'center', margin: '5%', marginTop: '1%', flexDirection: 'column', alignItems: 'center'}}>
                 <div style={{width: '40%', display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
                     <h3 style={{display: 'flex', justifyContent: 'center', marginBottom: '15px'}}>Registro</h3>
                     {alert}
+                    {alertBack}
                 </div>
                 <Form>
                     <FormGroup row>
