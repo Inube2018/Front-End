@@ -33,6 +33,7 @@ export default class Graphic extends React.Component {
                     'value': 350
                 }
             ],
+            dataAux: [],
             title:[
                 'Downloads',
                 'Selling',
@@ -50,6 +51,26 @@ export default class Graphic extends React.Component {
             ]
         }
         this.componentDidMount = this.componentDidMount.bind(this);
+        this.onFilter = this.onFilter.bind(this);
+    }
+
+    onFilter(fechaDesde, fechaHasta) {
+
+        let dataAux = this.state.dataAux;
+        let newData = [];
+
+        for (let i = 0; i < dataAux.length; i++) {
+
+            var date = Date.parse(dataAux[i].date);
+
+            if(fechaDesde < date && date < fechaHasta ){
+                newData.push({'date': new Date(dataAux[i].date), 'value': dataAux[i].quantity});
+            }
+        }
+        this.setState({
+            data: newData,
+
+        });
     }
 
     componentDidMount() {
@@ -65,6 +86,7 @@ export default class Graphic extends React.Component {
                 console.log(data);
                 this.setState({
                     data: data,
+                    dataAux: JSON.parse(req.response),
                 });
             }
         }.bind(this);
@@ -91,7 +113,7 @@ export default class Graphic extends React.Component {
                     x_accessor="date"
                     y_accessor="value"
                 />
-                <Filter id={this.props.id}/>
+                <Filter id={this.props.id} onFilter={this.onFilter}/>
 
             </div>
         );
