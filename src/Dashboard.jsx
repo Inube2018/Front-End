@@ -16,7 +16,7 @@ export default class Dashboard extends React.Component {
         };
 
     }
-    
+
     toggle() {
         this.setState({
             dropdownOpen: !this.state.dropdownOpen
@@ -49,18 +49,18 @@ export default class Dashboard extends React.Component {
                             </Row>
                             <Row>
                                 <Col md='6'>
-                                    <Graphic id='grafico-1'/>
+                                    <Graphic id='grafico-1' userInfo={this.props.userInfo}/>
                                 </Col>
                                 <Col md='6'>
-                                    <Graphic id='grafico-2'/>
+                                    <Graphic id='grafico-2' userInfo={this.props.userInfo}/>
                                 </Col>
                             </Row>
                             <Row>
                                 <Col md='6'>
-                                    <Graphic id='grafico-3'/>
+                                    <Graphic id='grafico-3' userInfo={this.props.userInfo}/>
                                 </Col>
                                 <Col md='6'>
-                                    <Graphic id='grafico-4'/>
+                                    <Graphic id='grafico-4' userInfo={this.props.userInfo}/>
                                 </Col>
                             </Row>
                         </Col>

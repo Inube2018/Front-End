@@ -167,7 +167,7 @@ class Navigator extends React.Component {
                     <TabPane tabId="0">
                         <Row>
                             <Col md="12" >
-                                <Dashboard/>
+                                <Dashboard userInfo={this.props.userInfo}/>
                             </Col>
                         </Row>
                     </TabPane>
