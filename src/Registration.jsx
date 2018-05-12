@@ -24,11 +24,12 @@ class Registration extends React.Component {
     }
 
     registrationHandler() {
-        let userName = document.getElementById('userName').value;
-        let email = document.getElementById('emailReg').value;
+        //let userName = document.getElementById('userName').value;
+        //let email = document.getElementById('emailReg').value;
+        let mid = document.getElementById('userMid').value;
         let password = document.getElementById('passwordReg').value;
         let passwordRepeat = document.getElementById('passwordRepeat').value;
-        if (userName === '') {
+        /*if (userName === '') {
             this.setState({
                 alert: !this.state.alert,
                 alertType: 'danger',
@@ -39,6 +40,12 @@ class Registration extends React.Component {
                 alert: !this.state.alert,
                 alertType: 'danger',
                 alertText: 'El email no puede estar vacío',
+            });*/
+        if (mid === '') {
+            this.setState({
+                alert: !this.state.alert,
+                alertType: 'danger',
+                alertText: 'Debe introducir un MID',
             });
         } else if (password === '') {
             this.setState({
@@ -59,9 +66,11 @@ class Registration extends React.Component {
                 alertText: 'Debe aceptar las condiciones de uso',
             });
         } else {
-            let regData = [userName, email, password];
-            document.getElementById('userName').value = '';
-            document.getElementById('emailReg').value = '';
+            //let regData = [userName, email, password];
+            //document.getElementById('userName').value = '';
+            //document.getElementById('emailReg').value = '';
+            let regData = [mid, password];
+            document.getElementById('userMid').value = '';
             document.getElementById('passwordReg').value = '';
             document.getElementById('passwordRepeat').value = '';
             this.props.registrationHandler(0, regData);
@@ -89,7 +98,7 @@ class Registration extends React.Component {
                     {alertBack}
                 </div>
                 <Form>
-                    <FormGroup row>
+                    {/*<FormGroup row>
                         <Label for="userName" sm={9}>Nombre de usuario</Label>
                         <Col sm={12}>
                             <Input type="email" id="userName"/>
@@ -99,6 +108,12 @@ class Registration extends React.Component {
                         <Label for="email" sm={5}>Email</Label>
                         <Col sm={12}>
                             <Input type="email" id="emailReg" placeholder="example@email.com"/>
+                        </Col>
+                    </FormGroup>*/}
+                    <FormGroup row>
+                        <Label for="mid" sm={9}>MID</Label>
+                        <Col sm={12}>
+                            <Input type="text" id="userMid"/>
                         </Col>
                     </FormGroup>
                     <FormGroup row>

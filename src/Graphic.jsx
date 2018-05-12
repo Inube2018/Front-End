@@ -110,8 +110,10 @@ export default class Graphic extends React.Component {
                     width={480}
                     height={250}
                     max_y={800}
-                    x_accessor="date"
-                    y_accessor="value"
+                    x_accessor='date'
+                    y_accessor='value'
+                    chart_type='point'
+                    area={false}
                 />
                 <Filter id={this.props.id} onFilter={this.onFilter}/>
 

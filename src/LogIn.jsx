@@ -27,7 +27,7 @@ class LogIn extends React.Component {
                     <h3 style={{display: 'flex', justifyContent: 'center'}}>Log In</h3>
                     {alert}
                     <FormGroup row>
-                        <Label for="email" sm={5}>Email</Label>
+                        <Label for="email" sm={5}>MID</Label>
                         <Col sm={12}>
                             <Input type="email" id="email" placeholder="example@email.com"/>
                         </Col>

@@ -41,8 +41,8 @@ export default class NegocioSection extends React.Component {
         if (!this.state.editEnabled) {
             return (
                 <div style={{width: '100%', margin: '10px'}}>
-                    <Button style={{width: '100%', borderColor: 'grey', textAlign: 'left'}} color="white" onClick={this.toggle}> {this.props.business.businessName} </Button>
-                    <Collapse isOpen={this.state.collapse}>
+                    {/*<Button style={{width: '100%', borderColor: 'grey', textAlign: 'left'}} color="white" onClick={this.toggle}> {this.props.business.businessName} </Button>
+                    <Collapse isOpen={true}>*/}
                         <Card>
                             <CardBody>
                                 <Container>
@@ -60,14 +60,14 @@ export default class NegocioSection extends React.Component {
                                 </Container>
                             </CardBody>
                         </Card>
-                    </Collapse>
+                    {/*</Collapse>*/}
                 </div>
             )
         } else {
             return (
                 <div style={{width: '100%', margin: '10px'}}>
-                    <Button style={{width: '100%', borderColor: 'grey', textAlign: 'left'}} color="white" onClick={this.toggle}> {this.props.business.businessName} </Button>
-                    <Collapse isOpen={this.state.collapse}>
+                    {/*<Button style={{width: '100%', borderColor: 'grey', textAlign: 'left'}} color="white" onClick={this.toggle}> {this.props.business.businessName} </Button>
+                    <Collapse isOpen={true}>*/}
                         <Card>
                             <CardBody>
                                 <Container>
@@ -90,7 +90,7 @@ export default class NegocioSection extends React.Component {
                                 </Container>
                             </CardBody>
                         </Card>
-                    </Collapse>
+                    {/*</Collapse>*/}
                 </div>
             )
 

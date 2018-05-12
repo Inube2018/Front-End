@@ -7,7 +7,8 @@ export default class AccountSecrtions extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            section: 0,
+            //section: 0,
+            section: 1,
             addBusiness: false,
             alert: false,
             alertType: '',
@@ -134,7 +135,7 @@ export default class AccountSecrtions extends React.Component {
         let alertBack = <Alert color={this.props.alertType} isOpen={this.props.alert} toggle={() => {this.props.onDismissAlert()}} style={{width: '100%', height: '50px'}}> {this.props.alertMessage}</Alert>;
         let negocios = this.props.userInfo.business.map((business, index) => <NegocioSection index={index} business={business} acceptChanges={this.acceptChanges} key={index}/>);
         let tpvs = this.props.userInfo.business.map((business, index) => <TPV key={index} tpvs={business.tpvs} businessName={business.businessName} index={index} addTPV={this.addTPV} deleteTPV={this.deleteTPV}/>);
-        let editSection = <div> Hola </div>;
+        let editSection = <div></div>;
         if (this.state.section === 0) {
             editSection = <div>
                 <div>
@@ -196,9 +197,9 @@ export default class AccountSecrtions extends React.Component {
                 <div>
                     {alertBack}
                 </div>
-                <Row><Button style={{marginLeft: '3px'}} onClick={() => this.addBusiness()}>Añadir negocio</Button></Row>
+                {/*<Row><Button style={{marginLeft: '3px'}} onClick={() => this.addBusiness()}>Añadir negocio</Button></Row>*/}
                 <Row>{negocios}</Row>
-                <Row>
+                {/*<Row>
                     <Modal isOpen={this.state.addBusiness} toggle={() => {this.setState({addBusiness: !this.state.addBusiness})}}>
                         <ModalHeader toggle={() => {this.setState({addBusiness: !this.state.addBusiness})}}> Nuevo negocio </ModalHeader>
                         <ModalBody>
@@ -239,7 +240,7 @@ export default class AccountSecrtions extends React.Component {
                             <Button onClick={() => {this.addBusiness()}}> Aceptar </Button>
                         </ModalFooter>
                     </Modal>
-                </Row>
+                </Row>*/}
              </div>
         } else if (this.state.section === 3) {
             editSection = <div>
@@ -256,10 +257,10 @@ export default class AccountSecrtions extends React.Component {
                         <Col md='3'>
                             <div>
                                 <ListGroup>
-                                    <ListGroupItem active={ this.state.section === 0 } tag="button" action onClick={() => this.toggleSection(0)}>Perfil de usuario</ListGroupItem>
+                                    {/*<ListGroupItem active={ this.state.section === 0 } tag="button" action onClick={() => this.toggleSection(0)}>Perfil de usuario</ListGroupItem>*/}
                                     <ListGroupItem active={ this.state.section === 1 } tag="button" action onClick={() => this.toggleSection(1)}>Contraseña</ListGroupItem>
                                     <ListGroupItem active={ this.state.section === 2 } tag="button" action onClick={() => this.getBusiness(2)}>Mis Negocios</ListGroupItem>
-                                    <ListGroupItem active={ this.state.section === 3 } tag="button" action onClick={() => this.getBusiness(3)}>Mis TPVs</ListGroupItem>
+                                    {/*<ListGroupItem active={ this.state.section === 3 } tag="button" action onClick={() => this.getBusiness(3)}>Mis TPVs</ListGroupItem>*/}
                                 </ListGroup>
                             </div>
                         </Col>

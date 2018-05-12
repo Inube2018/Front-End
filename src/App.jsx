@@ -23,8 +23,9 @@ class App extends React.Component {
             editStep: 0,
             userInfo: {
                 userId: 0,
-                userName: 'admin',
-                userEmail: 'admin@email.com',
+                //userName: 'admin',
+                //userEmail: 'admin@email.com',
+                userMid: 'mid',
                 business: [
                     {
                         businessId: 0,
@@ -45,7 +46,7 @@ class App extends React.Component {
                             }
                         ]
                     },
-                    {
+                    /*{
                         businessId: 0,
                         businessName: 'cafetería 1',
                         businessZipCode: '67890',
@@ -63,7 +64,7 @@ class App extends React.Component {
                                 tpvId: '',
                             }
                         ]
-                    },
+                    },*/
                 ],
             }
         };
@@ -370,8 +371,9 @@ class App extends React.Component {
                         if (jsonResponse.login === 'ok') {
                             let userInfo = this.state.userInfo;
                             userInfo.userId = jsonResponse.user.id;
-                            userInfo.userName = jsonResponse.user.name;
-                            userInfo.userEmail = jsonResponse.user.mail;
+                            //userInfo.userName = jsonResponse.user.name;
+                            //userInfo.userEmail = jsonResponse.user.mail;
+                            userInfo.userMid = jsonResponse.user.mid;
                             this.setState({
                                 isLogged: !this.state.isLogged,
                                 logInFailed: false,
@@ -400,8 +402,9 @@ class App extends React.Component {
                     let jsonResponse = JSON.parse(req.response); 
                     let userInfo = this.state.userInfo;
                     userInfo.userId = jsonResponse.id;
-                    userInfo.userName = regData[0];
-                    userInfo.userEmail = regData[1];
+                    //userInfo.userName = regData[0];
+                    //userInfo.userEmail = regData[1];
+                    userInfo.userMid = regData[0];
                     this.setState({
                         isLogged: true,
                         activeTab: '0',
@@ -412,7 +415,8 @@ class App extends React.Component {
         }.bind(this);
         req.open('POST', 'http://localhost:8080/InubeBackEnd/RegistrationServlet', true);
         req.setRequestHeader('Content-type', 'application/json');
-        let body = '{\"name\": '+regData[0]+', \"mail\": '+regData[1]+', \"password\": '+regData[2]+'}';
+        //let body = '{\"name\": '+regData[0]+', \"mail\": '+regData[1]+', \"password\": '+regData[2]+'}';
+        let body = '{\"mid\": '+regData[0]+', \"password\": '+regData[1]+'}';
         req.send(body);
     }
 
