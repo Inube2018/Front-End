@@ -70,9 +70,9 @@ class Registration extends React.Component {
             //document.getElementById('userName').value = '';
             //document.getElementById('emailReg').value = '';
             let regData = [mid, password];
-            document.getElementById('userMid').value = '';
-            document.getElementById('passwordReg').value = '';
-            document.getElementById('passwordRepeat').value = '';
+            //document.getElementById('userMid').value = '';
+            //document.getElementById('passwordReg').value = '';
+            //document.getElementById('passwordRepeat').value = '';
             this.props.registrationHandler(0, regData);
         }
     }

@@ -22,29 +22,29 @@ class App extends React.Component {
             alertMessage: '',
             editStep: 0,
             userInfo: {
-                userId: 0,
+                //userId: 0,
                 //userName: 'admin',
                 //userEmail: 'admin@email.com',
                 userMid: 'mid',
-                business: [
+                business: //[
                     {
-                        businessId: 0,
+                        //businessId: 0,
                         businessName: 'restaurante 1',
                         businessZipCode: '12345',
-                        businessType: 'Restaurante',
-                        businessPrice: '10',
-                        tpvs: [
-                            {
-                                id: '1234567890',
-                                iban: 'ES1234567890123456789000',
-                                tpvId: '',
-                            },
-                            {
-                                id: '0987654321',
-                                iban: 'ES0987654321098765432111',
-                                tpvId: '',
-                            }
-                        ]
+                        //businessType: 'Restaurante',
+                        //businessPrice: '10',
+                        //tpvs: [
+                        //     {
+                        //         id: '1234567890',
+                        //         iban: 'ES1234567890123456789000',
+                        //         tpvId: '',
+                        //     },
+                        //     {
+                        //         id: '0987654321',
+                        //         iban: 'ES0987654321098765432111',
+                        //         tpvId: '',
+                        //     }
+                        // ]
                     },
                     /*{
                         businessId: 0,
@@ -65,7 +65,7 @@ class App extends React.Component {
                             }
                         ]
                     },*/
-                ],
+                //],
             }
         };
         this.toggleTab = this.toggleTab.bind(this);
@@ -370,10 +370,12 @@ class App extends React.Component {
                         let jsonResponse = JSON.parse(req.response);
                         if (jsonResponse.login === 'ok') {
                             let userInfo = this.state.userInfo;
-                            userInfo.userId = jsonResponse.user.id;
+                            //userInfo.userId = jsonResponse.user.id;
                             //userInfo.userName = jsonResponse.user.name;
                             //userInfo.userEmail = jsonResponse.user.mail;
                             userInfo.userMid = jsonResponse.user.mid;
+                            userInfo.business.businessName = jsonResponse.user.restaurantName;
+                            userInfo.business.businessZipCode = jsonResponse.user.restaurantZipCode;
                             this.setState({
                                 isLogged: !this.state.isLogged,
                                 logInFailed: false,
@@ -385,7 +387,7 @@ class App extends React.Component {
                 }
             }.bind(this);
             req.open('GET', 'http://localhost:8080/InubeBackEnd/LoginServlet', true);
-            req.setRequestHeader("user", email);
+            req.setRequestHeader("mid", email);
             req.setRequestHeader("password", password);
             req.send(null);
         }
@@ -396,15 +398,21 @@ class App extends React.Component {
         req.onreadystatechange = function() {
             if (req.readyState == 4 && req.status == 200) {
                 console.log(req.response);
-                if (req.response === 'ko') {
+                if (JSON.parse(req.response).registration === 'ko') {
                     //Alerta de que el registro ha fallado
                 } else {
                     let jsonResponse = JSON.parse(req.response); 
                     let userInfo = this.state.userInfo;
-                    userInfo.userId = jsonResponse.id;
+                    userInfo.userMid = jsonResponse.user.mid;
+                    userInfo.business.businessName = jsonResponse.user.restaurantName;
+                    userInfo.business.businessZipCode = jsonResponse.user.restaurantZipCode;
+                    //userInfo.userId = jsonResponse.id;
                     //userInfo.userName = regData[0];
                     //userInfo.userEmail = regData[1];
-                    userInfo.userMid = regData[0];
+                    //userInfo.userMid = regData[0];
+                    document.getElementById('userMid').value = '';
+                    document.getElementById('passwordReg').value = '';
+                    document.getElementById('passwordRepeat').value = '';
                     this.setState({
                         isLogged: true,
                         activeTab: '0',

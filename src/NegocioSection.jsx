@@ -8,34 +8,34 @@ export default class NegocioSection extends React.Component {
             collapse: false,
             editEnabled: false,
         };
-        this.toggle = this.toggle.bind(this);
-        this.editHandler = this.editHandler.bind(this);
-        this.acceptChanges = this.acceptChanges.bind(this);
+        // this.toggle = this.toggle.bind(this);
+        //this.editHandler = this.editHandler.bind(this);
+        //this.acceptChanges = this.acceptChanges.bind(this);
     }
 
-    toggle() {
-        this.setState({
-            collapse: !this.state.collapse,
-        });
-    }
+    // toggle() {
+    //     this.setState({
+    //         collapse: !this.state.collapse,
+    //     });
+    // }
 
-    editHandler() {
-        this.setState({
-            editEnabled: !this.state.editEnabled,
-        });
-    }
+    // editHandler() {
+    //     this.setState({
+    //         editEnabled: !this.state.editEnabled,
+    //     });
+    // }
 
-    acceptChanges() {
-        let nombre = document.getElementById('nameEdit').value === '' ? document.getElementById('nameEdit').placeholder : document.getElementById('nameEdit').value;
-        let zipCode = document.getElementById('zipCodeEdit').value === '' ? document.getElementById('zipCodeEdit').placeholder : document.getElementById('zipCodeEdit').value;
-        let businessTypeEdit = document.getElementById('businessTypeEdit').value === 'Eliga una opción' ? this.props.business.businessType : document.getElementById('businessTypeEdit').value;
-        let averageSellEdit = document.getElementById('averageSellEdit').value === '' ? document.getElementById('averageSellEdit').placeholder : document.getElementById('averageSellEdit').value;
-        let editData = [nombre, zipCode, businessTypeEdit, averageSellEdit]; 
-        this.setState({
-            editEnabled: !this.state.editEnabled,
-        });
-        this.props.acceptChanges(editData, this.props.index);
-    }
+    // acceptChanges() {
+    //     let nombre = document.getElementById('nameEdit').value === '' ? document.getElementById('nameEdit').placeholder : document.getElementById('nameEdit').value;
+    //     let zipCode = document.getElementById('zipCodeEdit').value === '' ? document.getElementById('zipCodeEdit').placeholder : document.getElementById('zipCodeEdit').value;
+    //     let businessTypeEdit = document.getElementById('businessTypeEdit').value === 'Eliga una opción' ? this.props.business.businessType : document.getElementById('businessTypeEdit').value;
+    //     let averageSellEdit = document.getElementById('averageSellEdit').value === '' ? document.getElementById('averageSellEdit').placeholder : document.getElementById('averageSellEdit').value;
+    //     let editData = [nombre, zipCode, businessTypeEdit, averageSellEdit]; 
+    //     this.setState({
+    //         editEnabled: !this.state.editEnabled,
+    //     });
+    //     this.props.acceptChanges(editData, this.props.index);
+    // }
 
     render() {
         if (!this.state.editEnabled) {
@@ -47,14 +47,14 @@ export default class NegocioSection extends React.Component {
                             <CardBody>
                                 <Container>
                                     <Row>
-                                        <Col md='10'>
+                                        <Col md='12'>
                                             <strong>Nombre: </strong> {this.props.business.businessName} <br/>
                                             <strong>Código Postal: </strong> {this.props.business.businessZipCode} <br/>
-                                            <strong>Tipo de Negocio: </strong> {this.props.business.businessType} <br/>
+                                            {/*<strong>Tipo de Negocio: </strong> {this.props.business.businessType} <br/>
                                             <strong>Precio medio: </strong> {this.props.business.businessPrice}
                                         </Col>
                                         <Col md='2'>
-                                            <Button onClick={() => this.editHandler()}> Editar </Button>
+                                            <Button onClick={() => this.editHandler()}> Editar </Button>*/}
                                         </Col>
                                     </Row>
                                 </Container>
@@ -67,7 +67,7 @@ export default class NegocioSection extends React.Component {
             return (
                 <div style={{width: '100%', margin: '10px'}}>
                     {/*<Button style={{width: '100%', borderColor: 'grey', textAlign: 'left'}} color="white" onClick={this.toggle}> {this.props.business.businessName} </Button>
-                    <Collapse isOpen={true}>*/}
+                    <Collapse isOpen={true}>
                         <Card>
                             <CardBody>
                                 <Container>

@@ -73,7 +73,9 @@ export default class Filter extends React.Component {
         if (!this.state.isLogged) {
             return (
                 <div>
-                    <Button color="primary" size="lg" className='filter' onClick={this.onPress}><FontAwesome name='filter'/> Filtro <FontAwesome name={this.state.arrow}/></Button>
+                    <Button color="info" size="lg" className='filter' onClick={this.onPress}>
+                        <FontAwesome name='filter'/> Filtro <FontAwesome name={this.state.arrow}/>
+                    </Button>
                     <div id={this.props.id}>
                         <Row>
                             <Col md='6'>
@@ -83,7 +85,7 @@ export default class Filter extends React.Component {
                                 <DatePicker selected={this.state.startDateMax}  onChange={this.handleLogMax} />
                             </Col>
                         </Row>
-                        <Button color="success" size="lg" className='filter' onClick={this.onFilter}>Filtrar</Button>
+                        <Button color="info" size="lg" className='filter' onClick={this.onFilter}>Filtrar</Button>
                     </div>
                 </div>
             );

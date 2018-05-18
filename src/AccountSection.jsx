@@ -133,8 +133,8 @@ export default class AccountSecrtions extends React.Component {
     render() {
         let alert = <Alert color={this.state.alertType} isOpen={this.state.alert} toggle={() => {this.setState({alert: !this.state.alert})}} style={{width: '100%', height: '50px'}}> {this.state.alertMessage}</Alert>;
         let alertBack = <Alert color={this.props.alertType} isOpen={this.props.alert} toggle={() => {this.props.onDismissAlert()}} style={{width: '100%', height: '50px'}}> {this.props.alertMessage}</Alert>;
-        let negocios = this.props.userInfo.business.map((business, index) => <NegocioSection index={index} business={business} acceptChanges={this.acceptChanges} key={index}/>);
-        let tpvs = this.props.userInfo.business.map((business, index) => <TPV key={index} tpvs={business.tpvs} businessName={business.businessName} index={index} addTPV={this.addTPV} deleteTPV={this.deleteTPV}/>);
+        let negocios = <NegocioSection business={this.props.userInfo.business} acceptChanges={this.acceptChanges}/>;
+        //let tpvs = this.props.userInfo.business.map((business, index) => <TPV key={index} tpvs={business.tpvs} businessName={business.businessName} index={index} addTPV={this.addTPV} deleteTPV={this.deleteTPV}/>);
         let editSection = <div></div>;
         if (this.state.section === 0) {
             editSection = <div>
