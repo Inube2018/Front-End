@@ -48,14 +48,324 @@ export default class Dashboard extends React.Component {
                     'Mayo 2018': 450
                 }
             },
-            data2: {},
-            data1: {},
+            data1: {
+                'Enero 2018': 350
+            ,
+                'Febrero 2018': 400
+            ,
+                'Marzo 2018': 380
+            ,
+                'Abril 2018': 420
+            ,
+                'Mayo 2018': 450
+            },
+            dataAux1: {
+                'Enero 2018': 350
+            ,
+                'Febrero 2018': 400
+            ,
+                'Marzo 2018': 380
+            ,
+                'Abril 2018': 420
+            ,
+                'Mayo 2018': 450
+            },
+            data2: {
+                '01-01-2018': 10,
+                '02-01-2018': 9,
+                '03-01-2018': 13,
+                '04-01-2018': 16,
+                '05-01-2018': 13,
+                '06-01-2018': 18,
+                '07-01-2018': 13,
+                '08-01-2018': 20,
+                '09-01-2018': 12,
+                '10-01-2018': 10,
+                '11-01-2018': 18,
+                '12-01-2018': 19,
+                '13-01-2018': 20,
+                '14-01-2018': 25,
+                '15-01-2018': 27,
+                '16-01-2018': 12,
+                '17-01-2018': 11,
+                '18-01-2018': 10,
+                '19-01-2018': 7,
+                '20-01-2018': 15,
+                '21-01-2018': 18,
+                '22-01-2018': 12,
+                '23-01-2018': 19,
+                '24-01-2018': 11,
+                '25-01-2018': 14,
+                '26-01-2018': 16,
+                '27-01-2018': 11,
+                '28-01-2018': 21,
+                '29-01-2018': 14,
+                '30-01-2018': 18,
+                '31-01-2018': 11,
+                '01-02-2018': 13,
+                '02-02-2018': 17,
+                '03-02-2018': 11,
+                '04-02-2018': 17,
+                '05-02-2018': 14,
+                '06-02-2018': 18,
+                '07-02-2018': 15,
+                '08-02-2018': 19,
+                '09-02-2018': 30,
+                '10-02-2018': 6,
+                '11-02-2018': 35,
+                '12-02-2018': 14,
+                '13-02-2018': 18,
+                '14-02-2018': 12,
+                '15-02-2018': 11,
+                '16-02-2018': 19,
+                '17-02-2018': 10,
+                '18-02-2018': 5,
+                '19-02-2018': 16,
+                '20-02-2018': 18,
+                '21-02-2018': 14,
+                '22-02-2018': 16,
+                '23-02-2018': 15,
+                '24-02-2018': 12,
+                '25-02-2018': 19,
+                '26-02-2018': 15,
+                '27-02-2018': 14,
+                '28-02-2018': 17,
+                '01-03-2018': 13,
+                '02-03-2018': 12,
+                '03-03-2018': 11,
+                '04-03-2018': 17,
+                '05-03-2018': 14,
+                '06-03-2018': 13,
+                '07-03-2018': 15,
+                '08-03-2018': 19,
+                '09-03-2018': 12,
+                '10-03-2018': 17,
+                '11-03-2018': 18,
+                '12-03-2018': 13,
+                '13-03-2018': 20,
+                '14-03-2018': 23,
+                '15-03-2018': 24,
+                '16-03-2018': 25,
+                '17-03-2018': 28,
+                '18-03-2018': 22,
+                '19-03-2018': 23,
+                '20-03-2018': 21,
+                '21-03-2018': 20,
+                '22-03-2018': 23,
+                '23-03-2018': 10,
+                '24-03-2018': 22,
+                '25-03-2018': 17,
+                '26-03-2018': 8,
+                '27-03-2018': 27,
+                '28-03-2018': 23,
+                '29-03-2018': 26,
+                '30-03-2018': 28,
+                '31-03-2018': 29,
+                '01-04-2018': 22,
+                '02-04-2018': 23,
+                '03-04-2018': 27,
+                '04-04-2018': 21,
+                '05-04-2018': 20,
+                '06-04-2018': 10,
+                '07-04-2018': 10,
+                '08-04-2018': 10,
+                '09-04-2018': 14,
+                '10-04-2018': 10,
+                '11-04-2018': 15,
+                '12-04-2018': 10,
+                '13-04-2018': 18,
+                '14-04-2018': 19,
+                '15-04-2018': 13,
+                '16-04-2018': 14,
+                '17-04-2018': 17,
+                '18-04-2018': 10,
+                '19-04-2018': 19,
+                '20-04-2018': 23,
+                '21-04-2018': 10,
+                '22-04-2018': 16,
+                '23-04-2018': 10,
+                '24-04-2018': 18,
+                '25-04-2018': 10,
+                '26-04-2018': 14,
+                '27-04-2018': 16,
+                '28-04-2018': 15,
+                '29-04-2018': 12,
+                '30-04-2018': 11,
+                '01-05-2018': 18,
+                '02-05-2018': 15,
+                '03-05-2018': 19,
+                '04-05-2018': 16,
+                '05-05-2018': 14,
+                '06-05-2018': 13,
+                '07-05-2018': 18,
+                '08-05-2018': 19,
+                '09-05-2018': 20,
+                '10-05-2018': 14,
+                '11-05-2018': 13,
+                '12-05-2018': 12,
+                '13-05-2018': 11,
+                '14-05-2018': 10,
+                '15-05-2018': 18,
+                '16-05-2018': 15,
+                '17-05-2018': 16,
+                '18-05-2018': 17,
+                '19-05-2018': 13,
+                '20-05-2018': 10,
+            },
+            dataAux2: {
+                '01-01-2018': 10,
+                '02-01-2018': 9,
+                '03-01-2018': 13,
+                '04-01-2018': 16,
+                '05-01-2018': 13,
+                '06-01-2018': 18,
+                '07-01-2018': 13,
+                '08-01-2018': 20,
+                '09-01-2018': 12,
+                '10-01-2018': 10,
+                '11-01-2018': 18,
+                '12-01-2018': 19,
+                '13-01-2018': 20,
+                '14-01-2018': 25,
+                '15-01-2018': 27,
+                '16-01-2018': 12,
+                '17-01-2018': 11,
+                '18-01-2018': 10,
+                '19-01-2018': 7,
+                '20-01-2018': 15,
+                '21-01-2018': 18,
+                '22-01-2018': 12,
+                '23-01-2018': 19,
+                '24-01-2018': 11,
+                '25-01-2018': 14,
+                '26-01-2018': 16,
+                '27-01-2018': 11,
+                '28-01-2018': 21,
+                '29-01-2018': 14,
+                '30-01-2018': 18,
+                '31-01-2018': 11,
+                '01-02-2018': 13,
+                '02-02-2018': 17,
+                '03-02-2018': 11,
+                '04-02-2018': 17,
+                '05-02-2018': 14,
+                '06-02-2018': 18,
+                '07-02-2018': 15,
+                '08-02-2018': 19,
+                '09-02-2018': 30,
+                '10-02-2018': 6,
+                '11-02-2018': 35,
+                '12-02-2018': 14,
+                '13-02-2018': 18,
+                '14-02-2018': 12,
+                '15-02-2018': 11,
+                '16-02-2018': 19,
+                '17-02-2018': 10,
+                '18-02-2018': 5,
+                '19-02-2018': 16,
+                '20-02-2018': 18,
+                '21-02-2018': 14,
+                '22-02-2018': 16,
+                '23-02-2018': 15,
+                '24-02-2018': 12,
+                '25-02-2018': 19,
+                '26-02-2018': 15,
+                '27-02-2018': 14,
+                '28-02-2018': 17,
+                '01-03-2018': 13,
+                '02-03-2018': 12,
+                '03-03-2018': 11,
+                '04-03-2018': 17,
+                '05-03-2018': 14,
+                '06-03-2018': 13,
+                '07-03-2018': 15,
+                '08-03-2018': 19,
+                '09-03-2018': 12,
+                '10-03-2018': 17,
+                '11-03-2018': 18,
+                '12-03-2018': 13,
+                '13-03-2018': 20,
+                '14-03-2018': 23,
+                '15-03-2018': 24,
+                '16-03-2018': 25,
+                '17-03-2018': 28,
+                '18-03-2018': 22,
+                '19-03-2018': 23,
+                '20-03-2018': 21,
+                '21-03-2018': 20,
+                '22-03-2018': 23,
+                '23-03-2018': 10,
+                '24-03-2018': 22,
+                '25-03-2018': 17,
+                '26-03-2018': 8,
+                '27-03-2018': 27,
+                '28-03-2018': 23,
+                '29-03-2018': 26,
+                '30-03-2018': 28,
+                '31-03-2018': 29,
+                '01-04-2018': 22,
+                '02-04-2018': 23,
+                '03-04-2018': 27,
+                '04-04-2018': 21,
+                '05-04-2018': 20,
+                '06-04-2018': 10,
+                '07-04-2018': 10,
+                '08-04-2018': 10,
+                '09-04-2018': 14,
+                '10-04-2018': 10,
+                '11-04-2018': 15,
+                '12-04-2018': 10,
+                '13-04-2018': 18,
+                '14-04-2018': 19,
+                '15-04-2018': 13,
+                '16-04-2018': 14,
+                '17-04-2018': 17,
+                '18-04-2018': 10,
+                '19-04-2018': 19,
+                '20-04-2018': 23,
+                '21-04-2018': 10,
+                '22-04-2018': 16,
+                '23-04-2018': 10,
+                '24-04-2018': 18,
+                '25-04-2018': 10,
+                '26-04-2018': 14,
+                '27-04-2018': 16,
+                '28-04-2018': 15,
+                '29-04-2018': 12,
+                '30-04-2018': 11,
+                '01-05-2018': 18,
+                '02-05-2018': 15,
+                '03-05-2018': 19,
+                '04-05-2018': 16,
+                '05-05-2018': 14,
+                '06-05-2018': 13,
+                '07-05-2018': 18,
+                '08-05-2018': 19,
+                '09-05-2018': 20,
+                '10-05-2018': 14,
+                '11-05-2018': 13,
+                '12-05-2018': 12,
+                '13-05-2018': 11,
+                '14-05-2018': 10,
+                '15-05-2018': 18,
+                '16-05-2018': 15,
+                '17-05-2018': 16,
+                '18-05-2018': 17,
+                '19-05-2018': 13,
+                '20-05-2018': 10,
+            },
             data3: {},
+            dataAux3: {},
             data4: {},
+            dataAux4: {},
             data5: {},
+            dataAux5: {},
             data6: {},
+            dataAux6: {},
             data7: {},
+            dataAux7: {},
             data8: {},
+            dataAux8: {},
             dataAux: {},
         };
         this.toggleSection = this.toggleSection.bind(this);
@@ -69,22 +379,314 @@ export default class Dashboard extends React.Component {
         this.props.bePremium();
     }
 
-    onFilter(fechaDesde, fechaHasta) {
-
-        let dataAux = this.state.dataAux;
-        let newData = [];
-
-        for (let i = 0; i < dataAux.length; i++) {
-
-            var date = Date.parse(dataAux[i].date);
-
-            if(fechaDesde < date && date < fechaHasta ){
-                newData.push({'date': new Date(dataAux[i].date), 'value': dataAux[i].quantity});
-            }
+    onFilter(fechaDesde, fechaHasta, graph) {
+        console.log(graph);
+        let dateDesde = new Date();
+        let dateHasta = new Date();
+        let monthDesde;
+        let monthHasta;
+        let newData = {};
+        let auxDate;
+        switch (graph) {
+            case "graph1":
+                let dataAux1 = this.state.dataAux1;
+                dateDesde.setTime(fechaDesde);
+                dateHasta.setTime(fechaHasta);
+                monthDesde = dateDesde.getMonth()+1;
+                monthHasta = dateHasta.getMonth()+1;
+                newData = {};
+                for (var key in dataAux1) {
+                    switch (key.split(" ")[0]) {
+                        case "Enero":
+                            if ((monthDesde <= 1) && (monthHasta >= 1)) {
+                                newData[key] = dataAux1[key];
+                            }
+                            break;
+                        case "Febrero":
+                            if ((monthDesde <= 2) && (monthHasta >= 2)) {
+                                newData[key] = dataAux1[key];
+                            }
+                            break;
+                        case "Marzo":
+                            if ((monthDesde <= 3) && (monthHasta >= 3)) {
+                                newData[key] = dataAux1[key];
+                            }
+                            break;
+                        case "Abril":
+                            if ((monthDesde <= 4) && (monthHasta >= 4)) {
+                                newData[key] = dataAux1[key];
+                            }
+                            break;
+                        case "Mayo":
+                            if ((monthDesde <= 5) && (monthHasta >= 5)) {
+                                newData[key] = dataAux1[key];
+                            }
+                            break;
+                    }
+                }
+                this.setState({
+                    data1: newData,
+                });
+                break;
+            case "graph2":
+                let dataAux2 = this.state.dataAux2;
+                dateDesde.setTime(fechaDesde);
+                dateHasta.setTime(fechaHasta);
+                newData = {};
+                auxDate = new Date();
+                for (let key in dataAux2) {
+                    auxDate.setDate(key.split("-")[0]);
+                    auxDate.setMonth(key.split("-")[1]-1);
+                    auxDate.setFullYear(key.split("-")[2]);
+                    console.log((fechaDesde <= auxDate.getTime()) && (fechaHasta >= auxDate.getTime()));
+                    if ((fechaDesde <= auxDate.getTime()) && (fechaHasta >= auxDate.getTime())) {
+                        newData[key] = dataAux2[key];
+                    }
+                }
+                console.log(newData);
+                this.setState({
+                    data2: newData,
+                });
+                break;
+            case "graph3":
+                let dataAux3 = this.state.dataAux3;
+                dateDesde.setTime(fechaDesde);
+                dateHasta.setTime(fechaHasta);
+                monthDesde = dateDesde.getMonth()+1;
+                monthHasta = dateHasta.getMonth()+1;
+                newData = {};
+                for (var key in dataAux3) {
+                    switch (key.split(" ")[0]) {
+                        case "Enero":
+                            if ((monthDesde <= 1) && (monthHasta >= 1)) {
+                                newData[key] = dataAux3[key];
+                            }
+                            break;
+                        case "Febrero":
+                            if ((monthDesde <= 2) && (monthHasta >= 2)) {
+                                newData[key] = dataAux3[key];
+                            }
+                            break;
+                        case "Marzo":
+                            if ((monthDesde <= 3) && (monthHasta >= 3)) {
+                                newData[key] = dataAux3[key];
+                            }
+                            break;
+                        case "Abril":
+                            if ((monthDesde <= 4) && (monthHasta >= 4)) {
+                                newData[key] = dataAux3[key];
+                            }
+                            break;
+                        case "Mayo":
+                            if ((monthDesde <= 5) && (monthHasta >= 5)) {
+                                newData[key] = dataAux3[key];
+                            }
+                            break;
+                    }
+                }
+                this.setState({
+                    data3: newData,
+                });
+                break;
+            case "graph4":
+                let dataAux4 = this.state.dataAux4;
+                dateDesde.setTime(fechaDesde);
+                dateHasta.setTime(fechaHasta);
+                newData = {};
+                auxDate = new Date();
+                for (let key in dataAux4) {
+                    auxDate.setDate(key.split("-")[0]);
+                    auxDate.setMonth(key.split("-")[1]-1);
+                    auxDate.setFullYear(key.split("-")[2]);
+                    console.log((fechaDesde <= auxDate.getTime()) && (fechaHasta >= auxDate.getTime()));
+                    if ((fechaDesde <= auxDate.getTime()) && (fechaHasta >= auxDate.getTime())) {
+                        newData[key] = dataAux4[key];
+                    }
+                }
+                console.log(newData);
+                this.setState({
+                    data4: newData,
+                });
+                break;
+            case "graph5":
+                //let dataAux5 = this.state.dataAux5;
+                break;
+            case "graph6":
+                let dataAux5 = this.state.dataAux5;
+                dateDesde.setTime(fechaDesde);
+                dateHasta.setTime(fechaHasta);
+                monthDesde = dateDesde.getMonth()+1;
+                monthHasta = dateHasta.getMonth()+1;
+                newData = [{
+                        'name': 'Propio',
+                        'stack': 'Propio',
+                        'data': {},
+                    },
+                    {
+                        'name': 'Sector',
+                        'stack': 'Sector',
+                        'data': {},
+                    }                    
+                ];
+                for (var key in dataAux5[0].data) {
+                    switch (key.split(" ")[0]) {
+                        case "Enero":
+                            if ((monthDesde <= 1) && (monthHasta >= 1)) {
+                                newData[0].data[key] = dataAux5[0].data[key];
+                                newData[1].data[key] = dataAux5[1].data[key];
+                            }
+                            break;
+                        case "Febrero":
+                            if ((monthDesde <= 2) && (monthHasta >= 2)) {
+                                newData[0].data[key] = dataAux5[0].data[key];
+                                newData[1].data[key] = dataAux5[1].data[key];
+                            }
+                            break;
+                        case "Marzo":
+                            if ((monthDesde <= 3) && (monthHasta >= 3)) {
+                                newData[0].data[key] = dataAux5[0].data[key];
+                                newData[1].data[key] = dataAux5[1].data[key];
+                            }
+                            break;
+                        case "Abril":
+                            if ((monthDesde <= 4) && (monthHasta >= 4)) {
+                                newData[0].data[key] = dataAux5[0].data[key];
+                                newData[1].data[key] = dataAux5[1].data[key];
+                            }
+                            break;
+                        case "Mayo":
+                            if ((monthDesde <= 5) && (monthHasta >= 5)) {
+                                newData[0].data[key] = dataAux5[0].data[key];
+                                newData[1].data[key] = dataAux5[1].data[key];
+                            }
+                            break;
+                    }
+                }
+                this.setState({
+                    data5: newData,
+                });
+                break;
+            case "graph7":
+                let dataAux6 = this.state.dataAux6;
+                dateDesde.setTime(fechaDesde);
+                dateHasta.setTime(fechaHasta);
+                newData = [
+                    {
+                        'name': 'Propio',
+                        'stack': 'Propio',
+                        'data': {},
+                    },
+                    {
+                        'name': 'Sector',
+                        'stack': 'Sector',
+                        'data': {},
+                    }                    
+                ];
+                auxDate = new Date();
+                for (let key in dataAux6[0].data) {
+                    auxDate.setDate(key.split("-")[0]);
+                    auxDate.setMonth(key.split("-")[1]-1);
+                    auxDate.setFullYear(key.split("-")[2]);
+                    console.log((fechaDesde <= auxDate.getTime()) && (fechaHasta >= auxDate.getTime()));
+                    if ((fechaDesde <= auxDate.getTime()) && (fechaHasta >= auxDate.getTime())) {
+                        newData[0].data[key] = dataAux6[0].data[key];
+                        newData[1].data[key] = dataAux6[1].data[key];
+                    }
+                }
+                console.log(newData);
+                this.setState({
+                    data6: newData,
+                });
+                break;
+            case "graph8":
+                let dataAux7 = this.state.dataAux7;
+                dateDesde.setTime(fechaDesde);
+                dateHasta.setTime(fechaHasta);
+                monthDesde = dateDesde.getMonth()+1;
+                monthHasta = dateHasta.getMonth()+1;
+                newData = [
+                    {
+                        'name': 'Propio',
+                        'stack': 'Propio',
+                        'data': {},
+                    },
+                    {
+                        'name': 'Sector',
+                        'stack': 'Sector',
+                        'data': {},
+                    }                    
+                ];
+                for (var key in dataAux7[0].data) {
+                    switch (key.split(" ")[0]) {
+                        case "Enero":
+                            if ((monthDesde <= 1) && (monthHasta >= 1)) {
+                                newData[0].data[key] = dataAux7[0].data[key];
+                                newData[1].data[key] = dataAux7[1].data[key];
+                            }
+                            break;
+                        case "Febrero":
+                            if ((monthDesde <= 2) && (monthHasta >= 2)) {
+                                newData[0].data[key] = dataAux7[0].data[key];
+                                newData[1].data[key] = dataAux7[1].data[key];
+                            }
+                            break;
+                        case "Marzo":
+                            if ((monthDesde <= 3) && (monthHasta >= 3)) {
+                                newData[0].data[key] = dataAux7[0].data[key];
+                                newData[1].data[key] = dataAux7[1].data[key];
+                            }
+                            break;
+                        case "Abril":
+                            if ((monthDesde <= 4) && (monthHasta >= 4)) {
+                                newData[0].data[key] = dataAux7[0].data[key];
+                                newData[1].data[key] = dataAux7[1].data[key];
+                            }
+                            break;
+                        case "Mayo":
+                            if ((monthDesde <= 5) && (monthHasta >= 5)) {
+                                newData[0].data[key] = dataAux7[0].data[key];
+                                newData[1].data[key] = dataAux7[1].data[key];
+                            }
+                            break;
+                    }
+                }
+                this.setState({
+                    data7: newData,
+                });
+                break;
+            case "graph9":
+                let dataAux8 = this.state.dataAux8;
+                dateDesde.setTime(fechaDesde);
+                dateHasta.setTime(fechaHasta);
+                newData = [
+                    {
+                        'name': 'Propio',
+                        'stack': 'Propio',
+                        'data': {},
+                    },
+                    {
+                        'name': 'Sector',
+                        'stack': 'Sector',
+                        'data': {},
+                    }                    
+                ];
+                auxDate = new Date();
+                for (let key in dataAux8[0].data) {
+                    auxDate.setDate(key.split("-")[0]);
+                    auxDate.setMonth(key.split("-")[1]-1);
+                    auxDate.setFullYear(key.split("-")[2]);
+                    console.log((fechaDesde <= auxDate.getTime()) && (fechaHasta >= auxDate.getTime()));
+                    if ((fechaDesde <= auxDate.getTime()) && (fechaHasta >= auxDate.getTime())) {
+                        newData[0].data[key] = dataAux8[0].data[key];
+                        newData[1].data[key] = dataAux8[1].data[key];
+                    }
+                }
+                console.log(newData);
+                this.setState({
+                    data8: newData,
+                });
+                break;              
         }
-        this.setState({
-            data: newData,
-        });
     }
 
     componentDidMount() {
@@ -96,6 +698,7 @@ export default class Dashboard extends React.Component {
                     let jsonResponse = JSON.parse(req.response);
                     this.setState({
                         data1: jsonResponse,
+                        dataAux1: jsonResponse,
                     });
                 }
             }.bind(this);
@@ -119,6 +722,7 @@ export default class Dashboard extends React.Component {
                         let jsonResponse = JSON.parse(req.response);
                         this.setState({
                             data5: jsonResponse,
+                            dataAux5: jsonResponse,
                         });
                     }
                 }.bind(this);
@@ -143,6 +747,7 @@ export default class Dashboard extends React.Component {
                         let jsonResponse = JSON.parse(req.response);
                         this.setState({
                             data6: jsonResponse,
+                            dataAux6: jsonResponse,
                         });
                     }
                 }.bind(this);
@@ -167,6 +772,7 @@ export default class Dashboard extends React.Component {
                         let jsonResponse = JSON.parse(req.response);
                         this.setState({
                             data7: jsonResponse,
+                            dataAux7: jsonResponse,
                         });
                     }
                 }.bind(this);
@@ -191,6 +797,7 @@ export default class Dashboard extends React.Component {
                         let jsonResponse = JSON.parse(req.response);
                         this.setState({
                             data8: jsonResponse,
+                            dataAux8: jsonResponse,
                         });
                     }
                 }.bind(this);
@@ -220,6 +827,7 @@ export default class Dashboard extends React.Component {
                         let jsonResponse = JSON.parse(req.response);
                         this.setState({
                             data1: jsonResponse,
+                            dataAux1: jsonResponse,
                         });
                     }
                 }.bind(this);
@@ -240,6 +848,7 @@ export default class Dashboard extends React.Component {
                         let jsonResponse = JSON.parse(req.response);
                         this.setState({
                             data2: jsonResponse,
+                            dataAux2: jsonResponse,
                         });
                     }
                 }.bind(this);
@@ -260,6 +869,7 @@ export default class Dashboard extends React.Component {
                         let jsonResponse = JSON.parse(req.response);
                         this.setState({
                             data3: jsonResponse,
+                            dataAux3: jsonResponse,
                         });
                     }
                 }.bind(this);
@@ -280,6 +890,7 @@ export default class Dashboard extends React.Component {
                         let jsonResponse = JSON.parse(req.response);
                         this.setState({
                             data4: jsonResponse,
+                            dataAux4: jsonResponse,
                         });
                     }
                 }.bind(this);
@@ -320,6 +931,7 @@ export default class Dashboard extends React.Component {
                         let jsonResponse = JSON.parse(req.response);
                         this.setState({
                             data5: jsonResponse,
+                            dataAux5: jsonResponse,
                         });
                     }
                 }.bind(this);
@@ -341,6 +953,7 @@ export default class Dashboard extends React.Component {
                         let jsonResponse = JSON.parse(req.response);
                         this.setState({
                             data6: jsonResponse,
+                            dataAux6: jsonResponse,
                         });
                     }
                 }.bind(this);
@@ -362,6 +975,7 @@ export default class Dashboard extends React.Component {
                         let jsonResponse = JSON.parse(req.response);
                         this.setState({
                             data7: jsonResponse,
+                            dataAux7: jsonResponse,
                         });
                     }
                 }.bind(this);
@@ -383,6 +997,7 @@ export default class Dashboard extends React.Component {
                         let jsonResponse = JSON.parse(req.response);
                         this.setState({
                             data8: jsonResponse,
+                            dataAux8: jsonResponse,
                         });
                     }
                 }.bind(this);
@@ -589,49 +1204,6 @@ export default class Dashboard extends React.Component {
                 </Container>
             </div>
         );
-        // return (
-        //         <Container fluid className='dashboard' style={{marginTop: '1%', marginBottom: '2%'}}>
-        //             <Row>
-        //                 <Col md='2'>
-        //                     <GraphicTypes />
-        //                 </Col>
-        //                 <Col md='10'>
-        //                     <Row style={{marginBottom: '15px'}}>
-        //                         <Col md='9'/>
-        //                         <Col md='3'>
-        //                             <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-        //                                 <DropdownToggle caret color="warning">
-        //                                     Configuración de dashboard
-        //                                 </DropdownToggle>
-        //                                 <DropdownMenu>
-        //                                     <DropdownItem header>EN CONSTRUCCIÓN</DropdownItem>
-        //                                     <DropdownItem>1</DropdownItem>
-        //                                     <DropdownItem divider/>
-        //                                     <DropdownItem>2</DropdownItem>
-        //                                 </DropdownMenu>
-        //                             </ButtonDropdown>
-        //                         </Col>
-        //                     </Row>
-        //                     <Row>
-        //                         <Col md='6'>
-        //                             <Graphic id='grafico-1' userInfo={this.props.userInfo}/>
-        //                         </Col>
-        //                         <Col md='6'>
-        //                             <Graphic id='grafico-2' userInfo={this.props.userInfo}/>
-        //                         </Col>
-        //                     </Row>
-        //                     <Row>
-        //                         <Col md='6'>
-        //                             <Graphic id='grafico-3' userInfo={this.props.userInfo}/>
-        //                         </Col>
-        //                         <Col md='6'>
-        //                             <Graphic id='grafico-4' userInfo={this.props.userInfo}/>
-        //                         </Col>
-        //                     </Row>
-        //                 </Col>
-        //             </Row>
-        //         </Container>
-        // );
     }
 }
 

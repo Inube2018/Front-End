@@ -393,10 +393,6 @@ class App extends React.Component {
                     userInfo.business.businessName = jsonResponse.user.restaurantName;
                     userInfo.business.businessZipCode = jsonResponse.user.restaurantZipCode;
                     userInfo.isPremium = jsonResponse.user.isPremium;
-                    //userInfo.userId = jsonResponse.id;
-                    //userInfo.userName = regData[0];
-                    //userInfo.userEmail = regData[1];
-                    //userInfo.userMid = regData[0];
                     document.getElementById('userMid').value = '';
                     document.getElementById('passwordReg').value = '';
                     document.getElementById('passwordRepeat').value = '';
