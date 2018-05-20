@@ -18,7 +18,8 @@ export default class Dashboard extends React.Component {
         this.state = {
             dropdownOpen: false,
             section: 0,
-            dataPie: 
+            dataPie1: {
+                data1:
                 {
                     //'date': new Date(),
                     'Enero 2018': 350
@@ -38,58 +39,83 @@ export default class Dashboard extends React.Component {
                 
                     //'date': new Date(),
                     'Mayo 2018': 450
+                },
+                data2: {
+                    //'date': new Date(),
+                    'Enero 2018': 350
+                ,
+                
+                    //'date': new Date(),
+                    'Febrero 2018': 400
+                ,
+                
+                    //'date': new Date(),
+                    'Marzo 2018': 380
+                ,
+                
+                    //'date': new Date(),
+                    'Abril 2018': 420
+                ,
+                
+                    //'date': new Date(),
+                    'Mayo 2018': 450
                 }
-            ,
-            data: [
-                    {
-                        name: "Prueba1",
-                        data: {
-                            //'date': new Date(),
-                            'Enero 2018': 350
-                        ,
+            },
+            data2: {},
+            data1: {},
+            data3: {},
+            data4: {},
+            data5: {},
+            // [
+            //         {
+            //             name: "Prueba1",
+            //             data: {
+            //                 //'date': new Date(),
+            //                 'Enero 2018': 350
+            //             ,
                         
-                            //'date': new Date(),
-                            'Febrero 2018': 400
-                        ,
+            //                 //'date': new Date(),
+            //                 'Febrero 2018': 400
+            //             ,
                         
-                            //'date': new Date(),
-                            'Marzo 2018': 380
-                        ,
+            //                 //'date': new Date(),
+            //                 'Marzo 2018': 380
+            //             ,
                         
-                            //'date': new Date(),
-                            'Abril 2018': 420
-                        ,
+            //                 //'date': new Date(),
+            //                 'Abril 2018': 420
+            //             ,
                         
-                            //'date': new Date(),
-                            'Mayo 2018': 450
-                        },
-                        stack: "Prueba1",
-                    },
-                    {
-                        name: "Prueba2",
-                        data: {
-                            //'date': new Date(),
-                            'Enero 2018': 390
-                        ,
+            //                 //'date': new Date(),
+            //                 'Mayo 2018': 450
+            //             },
+            //             stack: "Prueba1",
+            //         },
+            //         {
+            //             name: "Prueba2",
+            //             data: {
+            //                 //'date': new Date(),
+            //                 'Enero 2018': 390
+            //             ,
                         
-                            //'date': new Date(),
-                            'Febrero 2018': 450
-                        ,
+            //                 //'date': new Date(),
+            //                 'Febrero 2018': 450
+            //             ,
                         
-                            //'date': new Date(),
-                            'Marzo 2018': 360
-                        ,
+            //                 //'date': new Date(),
+            //                 'Marzo 2018': 360
+            //             ,
                         
-                            //'date': new Date(),
-                            'Abril 2018': 400
-                        ,
+            //                 //'date': new Date(),
+            //                 'Abril 2018': 400
+            //             ,
                         
-                            //'date': new Date(),
-                            'Mayo 2018': 420
-                        },
-                        stack: "Prueba2",
-                    }
-                ],
+            //                 //'date': new Date(),
+            //                 'Mayo 2018': 420
+            //             },
+            //             stack: "Prueba2",
+            //         }
+            //     ],
             dataAux: {},
             //dataAux: JSON.parse(req.response),
         };
@@ -117,54 +143,147 @@ export default class Dashboard extends React.Component {
     }
 
     componentDidMount() {
-        var req = new XMLHttpRequest();
-        req.onreadystatechange = function() {
-            if (req.readyState == 4 && req.status == 200) {
-                console.log(req.response);
-                let jsonResponse = JSON.parse(req.response);
-                this.setState({
-                    data: jsonResponse,
-                });
-            }
-        }.bind(this);
-        req.open('GET', 'http://localhost:8080/InubeBackEnd/Graphic1Servlet', true);
-        console.log(this.props.userInfo);
-        req.setRequestHeader("mid", this.props.userInfo.userMid);
-        req.send(null);
+        if (this.state.section == 0) {
+            var req = new XMLHttpRequest();
+            req.onreadystatechange = function() {
+                if (req.readyState == 4 && req.status == 200) {
+                    console.log(req.response);
+                    let jsonResponse = JSON.parse(req.response);
+                    this.setState({
+                        data1: jsonResponse,
+                    });
+                }
+            }.bind(this);
+            req.open('GET', 'http://localhost:8080/InubeBackEnd/Graphic1Servlet', true);
+            console.log(this.props.userInfo);
+            req.setRequestHeader("mid", this.props.userInfo.userMid);
+            req.send(null);
+        }
     }
 
     toggleSection(section) {
         switch (section) {
             case 0:
                 //Realizar petición de datos
+                var req = new XMLHttpRequest();
+                req.onreadystatechange = function() {
+                    if (req.readyState == 4 && req.status == 200) {
+                        console.log(req.response);
+                        let jsonResponse = JSON.parse(req.response);
+                        this.setState({
+                            data1: jsonResponse,
+                        });
+                    }
+                }.bind(this);
+                req.open('GET', 'http://localhost:8080/InubeBackEnd/Graphic1Servlet', true);
+                console.log(this.props.userInfo);
+                req.setRequestHeader("mid", this.props.userInfo.userMid);
+                req.send(null);
                 this.setState({
                     section: section,
                 });
+                break;
             case 1:
                 //Realizar petición de datos
+                var req = new XMLHttpRequest();
+                req.onreadystatechange = function() {
+                    if (req.readyState == 4 && req.status == 200) {
+                        console.log(req.response);
+                        let jsonResponse = JSON.parse(req.response);
+                        this.setState({
+                            data2: jsonResponse,
+                        });
+                    }
+                }.bind(this);
+                req.open('GET', 'http://localhost:8080/InubeBackEnd/Graphic2Servlet', true);
+                console.log(this.props.userInfo);
+                req.setRequestHeader("mid", this.props.userInfo.userMid);
+                req.send(null);
                 this.setState({
                     section: section,
                 });
+                break;
             case 2:
                 //Realizar petición de datos
+                var req = new XMLHttpRequest();
+                req.onreadystatechange = function() {
+                    if (req.readyState == 4 && req.status == 200) {
+                        console.log(req.response);
+                        let jsonResponse = JSON.parse(req.response);
+                        this.setState({
+                            data3: jsonResponse,
+                        });
+                    }
+                }.bind(this);
+                req.open('GET', 'http://localhost:8080/InubeBackEnd/Graphic3Servlet', true);
+                console.log(this.props.userInfo);
+                req.setRequestHeader("mid", this.props.userInfo.userMid);
+                req.send(null);
                 this.setState({
                     section: section,
                 });
+                break;
             case 3:
                 //Realizar petición de datos
+                var req = new XMLHttpRequest();
+                req.onreadystatechange = function() {
+                    if (req.readyState == 4 && req.status == 200) {
+                        console.log(req.response);
+                        let jsonResponse = JSON.parse(req.response);
+                        this.setState({
+                            data4: jsonResponse,
+                        });
+                    }
+                }.bind(this);
+                req.open('GET', 'http://localhost:8080/InubeBackEnd/Graphic4Servlet', true);
+                console.log(this.props.userInfo);
+                req.setRequestHeader("mid", this.props.userInfo.userMid);
+                req.send(null);
                 this.setState({
                     section: section,
                 });
+                break;
             case 4:
-                //Realizar petición de datos
+                //Realizar petición de datosconsole.log("GRAPIC4");
+                var req = new XMLHttpRequest();
+                req.onreadystatechange = function() {
+                    if (req.readyState == 4 && req.status == 200) {
+                        console.log(req.response);
+                        let jsonResponse = JSON.parse(req.response);
+                        this.setState({
+                            dataPie1: jsonResponse,
+                        });
+                    }
+                }.bind(this);
+                req.open('GET', 'http://localhost:8080/InubeBackEnd/Graphic5Servlet', true);
+                console.log(this.props.userInfo);
+                req.setRequestHeader("mid", this.props.userInfo.userMid);
+                req.send(null);
                 this.setState({
                     section: section,
                 });
+                break;
             case 5:
                 //Realizar petición de datos
+                var req = new XMLHttpRequest();
+                req.onreadystatechange = function() {
+                    if (req.readyState == 4 && req.status == 200) {
+                        console.log(req.response);
+                        let jsonResponse = JSON.parse(req.response);
+                        this.setState({
+                            data5: jsonResponse,
+                        });
+                    }
+                }.bind(this);
+                req.open('GET', 'http://localhost:8080/InubeBackEnd/Graphic6Servlet', true);
+                console.log(this.props.userInfo);
+                req.setRequestHeader("mid", this.props.userInfo.userMid);
+                req.setRequestHeader("zip", this.props.userInfo.business.businessZipCode);
+                req.send(null);
                 this.setState({
                     section: section,
                 });
+                break;
             case 6:
                 //Realizar petición de datos
                 this.setState({
@@ -204,42 +323,44 @@ export default class Dashboard extends React.Component {
             graphSection = 
                 <div>
                     <Label> Número de transacciones por mes </Label>
-                    <ColumnChart data={this.state.data} />
+                    <ColumnChart data={this.state.data1} />
                     <Filter id={"graph1"} onFilter={this.onFilter}/>
                 </div>
         } else if (this.state.section === 1) {
             graphSection = 
                 <div>
                     <Label> Número de transacciones por día </Label>
-                    <LineChart data={this.state.data} />
+                    <LineChart data={this.state.data2} />
                     <Filter id={"graph2"} onFilter={this.onFilter}/>
                 </div>
         } else if (this.state.section === 2) {
             graphSection = 
                 <div>
                     <Label> Ingresos por mes </Label>
-                    <ColumnChart data={this.state.data} />
+                    <ColumnChart data={this.state.data3} />
                     <Filter id={"graph3"} onFilter={this.onFilter}/>
                 </div>
         } else if (this.state.section === 3) {
             graphSection = 
                 <div>
                     <Label> Ingresos por día </Label>
-                    <LineChart data={this.state.data} />
+                    <LineChart data={this.state.data4} />
                     <Filter id={"graph4"} onFilter={this.onFilter}/>
                 </div>
         } else if (this.state.section === 4) {
             graphSection = 
                 <div>
-                    <Label> Distribución por servicio de comida </Label>
-                    <PieChart data={this.state.dataPie} />
-                    <Filter id={"graph5"} onFilter={this.onFilter}/>
+                    <Label> Distribución por servicio de comida (Cantidad) </Label>
+                    <PieChart data={this.state.dataPie1.data1} />
+                    <br/>
+                    <Label> Distribución por servicio de comida (Ingresos) </Label>
+                    <PieChart data={this.state.dataPie1.data2} />
                 </div>
         } else if (this.state.section === 5) {
             graphSection = 
                 <div>
                     <Label> Comparativa número de transacciones por mes </Label>
-                    <ColumnChart data={this.state.data} />
+                    <ColumnChart data={this.state.data5} />
                     <Filter id={"graph6"} onFilter={this.onFilter}/>
                 </div>
         } else if (this.state.section === 6) {
