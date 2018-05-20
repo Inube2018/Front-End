@@ -28,6 +28,7 @@ class Navigator extends React.Component {
         this.getBusiness = this.getBusiness.bind(this);
         this.changePassword = this.changePassword.bind(this);
         this.onDismissAlert = this.onDismissAlert.bind(this);
+        this.bePremium = this.bePremium.bind(this);
     }
 
     onDismissAlert() {
@@ -167,7 +168,7 @@ class Navigator extends React.Component {
                     <TabPane tabId="0">
                         <Row>
                             <Col md="12" >
-                                <Dashboard userInfo={this.props.userInfo}/>
+                                <Dashboard userInfo={this.props.userInfo} bePremium={this.bePremium}/>
                             </Col>
                         </Row>
                     </TabPane>
@@ -231,6 +232,10 @@ class Navigator extends React.Component {
 
     logOutHandler(logOut) {
         this.props.logOutHandler(logOut);
+    }
+
+    bePremium() {
+        this.props.bePremium();
     }
 
 }

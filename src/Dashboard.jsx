@@ -1,10 +1,11 @@
 import React from 'react';
-import { Container, Row, Col, ListGroup, ListGroupItem, Label } from 'reactstrap';
+import { Input, Button, Container, Row, Col, ListGroup, ListGroupItem, Label } from 'reactstrap';
 //import Graphic from './Graphic.jsx';
 //import GraphicTypes from './GraphicTypes.jsx';
 import ReactChartkick, { ColumnChart, LineChart, PieChart } from 'react-chartkick'
 import Chart from 'chart.js'
 import Filter from './Filter.jsx';
+import { runInThisContext } from 'vm';
 
 ReactChartkick.addAdapter(Chart)
 
@@ -17,47 +18,33 @@ export default class Dashboard extends React.Component {
         super(props);
         this.state = {
             dropdownOpen: false,
+            zip5: this.props.userInfo.business.businessZipCode,
+            zip6: this.props.userInfo.business.businessZipCode,
+            zip7: this.props.userInfo.business.businessZipCode,
+            zip8: this.props.userInfo.business.businessZipCode,
             section: 0,
             dataPie1: {
                 data1:
                 {
-                    //'date': new Date(),
                     'Enero 2018': 350
                 ,
-                
-                    //'date': new Date(),
                     'Febrero 2018': 400
                 ,
-                
-                    //'date': new Date(),
                     'Marzo 2018': 380
                 ,
-                
-                    //'date': new Date(),
                     'Abril 2018': 420
                 ,
-                
-                    //'date': new Date(),
                     'Mayo 2018': 450
                 },
                 data2: {
-                    //'date': new Date(),
                     'Enero 2018': 350
                 ,
-                
-                    //'date': new Date(),
                     'Febrero 2018': 400
                 ,
-                
-                    //'date': new Date(),
                     'Marzo 2018': 380
                 ,
-                
-                    //'date': new Date(),
                     'Abril 2018': 420
                 ,
-                
-                    //'date': new Date(),
                     'Mayo 2018': 450
                 }
             },
@@ -66,62 +53,20 @@ export default class Dashboard extends React.Component {
             data3: {},
             data4: {},
             data5: {},
-            // [
-            //         {
-            //             name: "Prueba1",
-            //             data: {
-            //                 //'date': new Date(),
-            //                 'Enero 2018': 350
-            //             ,
-                        
-            //                 //'date': new Date(),
-            //                 'Febrero 2018': 400
-            //             ,
-                        
-            //                 //'date': new Date(),
-            //                 'Marzo 2018': 380
-            //             ,
-                        
-            //                 //'date': new Date(),
-            //                 'Abril 2018': 420
-            //             ,
-                        
-            //                 //'date': new Date(),
-            //                 'Mayo 2018': 450
-            //             },
-            //             stack: "Prueba1",
-            //         },
-            //         {
-            //             name: "Prueba2",
-            //             data: {
-            //                 //'date': new Date(),
-            //                 'Enero 2018': 390
-            //             ,
-                        
-            //                 //'date': new Date(),
-            //                 'Febrero 2018': 450
-            //             ,
-                        
-            //                 //'date': new Date(),
-            //                 'Marzo 2018': 360
-            //             ,
-                        
-            //                 //'date': new Date(),
-            //                 'Abril 2018': 400
-            //             ,
-                        
-            //                 //'date': new Date(),
-            //                 'Mayo 2018': 420
-            //             },
-            //             stack: "Prueba2",
-            //         }
-            //     ],
+            data6: {},
+            data7: {},
+            data8: {},
             dataAux: {},
-            //dataAux: JSON.parse(req.response),
         };
         this.toggleSection = this.toggleSection.bind(this);
         this.onFilter = this.onFilter.bind(this);
         this.componentDidMount = this.componentDidMount.bind(this);
+        this.getData = this.getData.bind(this);
+        this.bePremium = this.bePremium.bind(this);
+    }
+
+    bePremium() {
+        this.props.bePremium();
     }
 
     onFilter(fechaDesde, fechaHasta) {
@@ -158,6 +103,109 @@ export default class Dashboard extends React.Component {
             console.log(this.props.userInfo);
             req.setRequestHeader("mid", this.props.userInfo.userMid);
             req.send(null);
+        }
+    }
+
+    getData(section) {
+        console.log(section);
+        let zip;
+        switch (section) {
+            case 5:
+                //Realizar petición de datos
+                var req = new XMLHttpRequest();
+                req.onreadystatechange = function() {
+                    if (req.readyState == 4 && req.status == 200) {
+                        console.log(req.response);
+                        let jsonResponse = JSON.parse(req.response);
+                        this.setState({
+                            data5: jsonResponse,
+                        });
+                    }
+                }.bind(this);
+                req.open('GET', 'http://localhost:8080/InubeBackEnd/Graphic6Servlet', true);
+                console.log(this.props.userInfo);
+                req.setRequestHeader("mid", this.props.userInfo.userMid);
+                zip = document.getElementById("zipCode5").value;
+                document.getElementById("zipCode5").value = '';
+                req.setRequestHeader("zip", zip);
+                req.send(null);
+                this.setState({
+                    section: section,
+                    zip5: zip,
+                });
+                break;
+            case 6:
+                //Realizar petición de datos
+                var req = new XMLHttpRequest();
+                req.onreadystatechange = function() {
+                    if (req.readyState == 4 && req.status == 200) {
+                        console.log(req.response);
+                        let jsonResponse = JSON.parse(req.response);
+                        this.setState({
+                            data6: jsonResponse,
+                        });
+                    }
+                }.bind(this);
+                req.open('GET', 'http://localhost:8080/InubeBackEnd/Graphic7Servlet', true);
+                console.log(this.props.userInfo);
+                req.setRequestHeader("mid", this.props.userInfo.userMid);
+                zip = document.getElementById("zipCode6").value;
+                document.getElementById("zipCode6").value = '';
+                req.setRequestHeader("zip", zip);
+                req.send(null);
+                this.setState({
+                    section: section,
+                    zip6: zip,
+                });
+                break;
+            case 7:
+                //Realizar petición de datos
+                var req = new XMLHttpRequest();
+                req.onreadystatechange = function() {
+                    if (req.readyState == 4 && req.status == 200) {
+                        console.log(req.response);
+                        let jsonResponse = JSON.parse(req.response);
+                        this.setState({
+                            data7: jsonResponse,
+                        });
+                    }
+                }.bind(this);
+                req.open('GET', 'http://localhost:8080/InubeBackEnd/Graphic8Servlet', true);
+                console.log(this.props.userInfo);
+                req.setRequestHeader("mid", this.props.userInfo.userMid);
+                zip = document.getElementById("zipCode7").value;
+                document.getElementById("zipCode7").value = '';
+                req.setRequestHeader("zip", zip);
+                req.send(null);
+                this.setState({
+                    section: section,
+                    zip7: zip,
+                });
+                break;
+            case 8:
+                //Realizar petición de datos
+                var req = new XMLHttpRequest();
+                req.onreadystatechange = function() {
+                    if (req.readyState == 4 && req.status == 200) {
+                        console.log(req.response);
+                        let jsonResponse = JSON.parse(req.response);
+                        this.setState({
+                            data8: jsonResponse,
+                        });
+                    }
+                }.bind(this);
+                req.open('GET', 'http://localhost:8080/InubeBackEnd/Graphic9Servlet', true);
+                console.log(this.props.userInfo);
+                req.setRequestHeader("mid", this.props.userInfo.userMid);
+                zip = document.getElementById("zipCode8").value;
+                document.getElementById("zipCode8").value = '';
+                req.setRequestHeader("zip", zip);
+                req.send(null);
+                this.setState({
+                    section: section,
+                    zip8: zip,
+                });
+                break;
         }
     }
 
@@ -286,34 +334,67 @@ export default class Dashboard extends React.Component {
                 break;
             case 6:
                 //Realizar petición de datos
+                var req = new XMLHttpRequest();
+                req.onreadystatechange = function() {
+                    if (req.readyState == 4 && req.status == 200) {
+                        console.log(req.response);
+                        let jsonResponse = JSON.parse(req.response);
+                        this.setState({
+                            data6: jsonResponse,
+                        });
+                    }
+                }.bind(this);
+                req.open('GET', 'http://localhost:8080/InubeBackEnd/Graphic7Servlet', true);
+                console.log(this.props.userInfo);
+                req.setRequestHeader("mid", this.props.userInfo.userMid);
+                req.setRequestHeader("zip", this.props.userInfo.business.businessZipCode);
+                req.send(null);
                 this.setState({
                     section: section,
                 });
+                break;
             case 7:
                 //Realizar petición de datos
+                var req = new XMLHttpRequest();
+                req.onreadystatechange = function() {
+                    if (req.readyState == 4 && req.status == 200) {
+                        console.log(req.response);
+                        let jsonResponse = JSON.parse(req.response);
+                        this.setState({
+                            data7: jsonResponse,
+                        });
+                    }
+                }.bind(this);
+                req.open('GET', 'http://localhost:8080/InubeBackEnd/Graphic8Servlet', true);
+                console.log(this.props.userInfo);
+                req.setRequestHeader("mid", this.props.userInfo.userMid);
+                req.setRequestHeader("zip", this.props.userInfo.business.businessZipCode);
+                req.send(null);
                 this.setState({
                     section: section,
                 });
+                break;
             case 8:
                 //Realizar petición de datos
+                var req = new XMLHttpRequest();
+                req.onreadystatechange = function() {
+                    if (req.readyState == 4 && req.status == 200) {
+                        console.log(req.response);
+                        let jsonResponse = JSON.parse(req.response);
+                        this.setState({
+                            data8: jsonResponse,
+                        });
+                    }
+                }.bind(this);
+                req.open('GET', 'http://localhost:8080/InubeBackEnd/Graphic9Servlet', true);
+                console.log(this.props.userInfo);
+                req.setRequestHeader("mid", this.props.userInfo.userMid);
+                req.setRequestHeader("zip", this.props.userInfo.business.businessZipCode);
+                req.send(null);
                 this.setState({
                     section: section,
                 });
-            case 9:
-                //Realizar petición de datos
-                this.setState({
-                    section: section,
-                });
-            case 10:
-                //Realizar petición de datos
-                this.setState({
-                    section: section,
-                });
-            case 11:
-                //Realizar petición de datos
-                this.setState({
-                    section: section,
-                });
+                break;
         }
     }
 
@@ -322,68 +403,163 @@ export default class Dashboard extends React.Component {
         if (this.state.section === 0) {
             graphSection = 
                 <div>
+                    <Col md="12">
                     <Label> Número de transacciones por mes </Label>
                     <ColumnChart data={this.state.data1} />
                     <Filter id={"graph1"} onFilter={this.onFilter}/>
+                    </Col>
                 </div>
         } else if (this.state.section === 1) {
             graphSection = 
                 <div>
+                    <Col md="12">
                     <Label> Número de transacciones por día </Label>
                     <LineChart data={this.state.data2} />
                     <Filter id={"graph2"} onFilter={this.onFilter}/>
+                    </Col>
                 </div>
         } else if (this.state.section === 2) {
             graphSection = 
                 <div>
+                    <Col md="12">
                     <Label> Ingresos por mes </Label>
                     <ColumnChart data={this.state.data3} />
                     <Filter id={"graph3"} onFilter={this.onFilter}/>
+                    </Col>
                 </div>
         } else if (this.state.section === 3) {
             graphSection = 
                 <div>
+                    <Col md="12">
                     <Label> Ingresos por día </Label>
                     <LineChart data={this.state.data4} />
                     <Filter id={"graph4"} onFilter={this.onFilter}/>
+                    </Col>
                 </div>
         } else if (this.state.section === 4) {
             graphSection = 
                 <div>
+                    <Col md="12">
                     <Label> Distribución por servicio de comida (Cantidad) </Label>
                     <PieChart data={this.state.dataPie1.data1} />
                     <br/>
                     <Label> Distribución por servicio de comida (Ingresos) </Label>
                     <PieChart data={this.state.dataPie1.data2} />
+                    </Col>
                 </div>
         } else if (this.state.section === 5) {
-            graphSection = 
-                <div>
-                    <Label> Comparativa número de transacciones por mes </Label>
-                    <ColumnChart data={this.state.data5} />
-                    <Filter id={"graph6"} onFilter={this.onFilter}/>
-                </div>
+            if (this.props.userInfo.isPremium) {
+                graphSection = 
+                    <div>
+                        <Label> Comparativa número de transacciones por mes </Label>
+                        <Row>
+                            <Col md="9">
+                                <ColumnChart data={this.state.data5} />
+                                <Filter id={"graph6"} onFilter={this.onFilter}/>
+                            </Col>
+                            <Col md="3">
+                                <Label>Código postal</Label>
+                                <Input type="text" placeholder={this.state.zip5} id="zipCode5"/>
+                                <br/>
+                                <Button color="info" onClick={() => {this.getData(5)}}> Actualizar gráfica </Button>
+                            </Col>
+                        </Row>
+                        
+                    </div>
+            } else {
+                graphSection = 
+                    <div> 
+                        <Col md="12">
+                            <Label>Para ver esta gráfica hay que ser premium</Label>
+                            <br/>
+                            <Button onClick={this.bePremium} color="info">Quiero ser premium</Button>
+                        </Col>
+                    </div>
+            }
         } else if (this.state.section === 6) {
-            graphSection = 
+            if (this.props.userInfo.isPremium) {
+                graphSection = 
                 <div>
                     <Label> Comparativa número de transacciones por día </Label>
-                    <LineChart data={this.state.data} />
-                    <Filter id={"graph7"} onFilter={this.onFilter}/>
+                    <Row>
+                        <Col md="9">
+                            <LineChart data={this.state.data6} />
+                            <Filter id={"graph7"} onFilter={this.onFilter}/>
+                        </Col>
+                        <Col md="3">
+                            <Label>Código postal</Label>
+                            <Input type="text" placeholder={this.state.zip6} id="zipCode6"/>
+                            <br/>
+                            <Button color="info" onClick={() => {this.getData(6)}}> Actualizar gráfica </Button>
+                        </Col>
+                    </Row>
                 </div>
+            } else {
+                graphSection = 
+                    <div> 
+                        <Col md="12">
+                            <Label>Para ver esta gráfica hay que ser premium</Label>
+                            <br/>
+                            <Button onClick={this.bePremium} color="info">Quiero ser premium</Button>
+                        </Col>
+                    </div>
+            }
         } else if (this.state.section === 7) {
-            graphSection = 
-                <div>
-                    <Label> Comparativa de ingresos por mes </Label>
-                    <ColumnChart data={this.state.data} />
-                    <Filter id={"graph8"} onFilter={this.onFilter}/>
-                </div>
+            if (this.props.userInfo.isPremium) {
+                graphSection = 
+                    <div>
+                        <Label> Comparativa de ingresos por mes </Label>
+                        <Row>
+                            <Col md="9">
+                                <ColumnChart data={this.state.data7} />
+                                <Filter id={"graph8"} onFilter={this.onFilter}/>
+                            </Col>
+                            <Col md="3">
+                                <Label>Código postal</Label>
+                                <Input type="text" placeholder={this.state.zip7} id="zipCode7"/>
+                                <br/>
+                                <Button color="info" onClick={() => {this.getData(7)}}> Actualizar gráfica </Button>
+                            </Col>
+                        </Row>
+                    </div>
+            } else {
+                graphSection = 
+                    <div> 
+                        <Col md="12">
+                            <Label>Para ver esta gráfica hay que ser premium</Label>
+                            <br/>
+                            <Button onClick={this.bePremium} color="info">Quiero ser premium</Button>
+                        </Col>
+                    </div>
+            }
         } else if (this.state.section === 8) {
-            graphSection = 
-                <div>
-                    <Label> Comparativa de ingresos por día </Label>
-                    <LineChart data={this.state.data} />
-                    <Filter id={"graph9"} onFilter={this.onFilter}/>
-                </div>
+            if (this.props.userInfo.isPremium) {
+                graphSection = 
+                    <div>
+                        <Label> Comparativa de ingresos por día </Label>
+                        <Row>
+                            <Col md="9">
+                                <LineChart data={this.state.data8} />
+                                <Filter id={"graph9"} onFilter={this.onFilter}/>
+                            </Col>
+                            <Col md="3">
+                                <Label>Código postal</Label>
+                                <Input type="text" placeholder={this.state.zip8} id="zipCode8"/>
+                                <br/>
+                                <Button color="info" onClick={() => {this.getData(8)}}> Actualizar gráfica </Button>
+                            </Col>
+                        </Row>
+                    </div>
+            } else {
+                graphSection = 
+                    <div> 
+                        <Col md="12">
+                            <Label>Para ver esta gráfica hay que ser premium</Label>
+                            <br/>
+                            <Button onClick={this.bePremium} color="info">Quiero ser premium</Button>
+                        </Col>
+                    </div>
+            }
         } 
         return (
             <div>

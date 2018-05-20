@@ -22,50 +22,13 @@ class App extends React.Component {
             alertMessage: '',
             editStep: 0,
             userInfo: {
-                //userId: 0,
-                //userName: 'admin',
-                //userEmail: 'admin@email.com',
                 userMid: 'mid',
-                business: //[
+                isPremium: false,
+                business: 
                     {
-                        //businessId: 0,
                         businessName: 'restaurante 1',
                         businessZipCode: '12345',
-                        //businessType: 'Restaurante',
-                        //businessPrice: '10',
-                        //tpvs: [
-                        //     {
-                        //         id: '1234567890',
-                        //         iban: 'ES1234567890123456789000',
-                        //         tpvId: '',
-                        //     },
-                        //     {
-                        //         id: '0987654321',
-                        //         iban: 'ES0987654321098765432111',
-                        //         tpvId: '',
-                        //     }
-                        // ]
                     },
-                    /*{
-                        businessId: 0,
-                        businessName: 'cafetería 1',
-                        businessZipCode: '67890',
-                        businessType: 'Cafetería',
-                        businessPrice: '5',
-                        tpvs: [
-                            {
-                                id: '2468013579',
-                                iban: 'ES1234567890098765432123',
-                                tpvId: '',
-                            },
-                            {
-                                id: '1357924680',
-                                iban: 'ES0987654321123456789098',
-                                tpvId: '',
-                            }
-                        ]
-                    },*/
-                //],
             }
         };
         this.toggleTab = this.toggleTab.bind(this);
@@ -83,6 +46,7 @@ class App extends React.Component {
         this.getBusiness = this.getBusiness.bind(this);
         this.changePassword = this.changePassword.bind(this);
         this.onDismissAlert = this.onDismissAlert.bind(this);
+        this.bePremium = this.bePremium.bind(this);
     }
 
     render() {
@@ -111,10 +75,31 @@ class App extends React.Component {
                             onDismissAlert={this.onDismissAlert}
                             alert={this.state.alert}
                             alertType={this.state.alertType}
-                            alertMessage={this.state.alertMessage}/>
+                            alertMessage={this.state.alertMessage}
+                            bePremium={this.bePremium}/>
                 <Footer/>
             </div>
         );
+    }
+
+    bePremium() {
+        var req = new XMLHttpRequest();
+        req.onreadystatechange = function () {
+            if (req.readyState == 4 && req.status == 200) {
+                let jsonResponse = JSON.parse(req.response);
+                var userInfo = this.state.userInfo;
+                userInfo.userMid = jsonResponse.user.mid;
+                userInfo.business.businessName = jsonResponse.user.restaurantName;
+                userInfo.business.businessZipCode = jsonResponse.user.restaurantZipCode;
+                userInfo.isPremium = jsonResponse.user.isPremium;
+                this.setState({
+                    userInfo: userInfo,
+                });
+            }
+        }.bind(this);
+        req.open('GET', 'http://localhost:8080/InubeBackEnd/GoPremiumServlet', true);
+        req.setRequestHeader("mid", this.state.userInfo.userMid);
+        req.send(null);
     }
 
     onDismissAlert() {
@@ -376,6 +361,7 @@ class App extends React.Component {
                             userInfo.userMid = jsonResponse.user.mid;
                             userInfo.business.businessName = jsonResponse.user.restaurantName;
                             userInfo.business.businessZipCode = jsonResponse.user.restaurantZipCode;
+                            userInfo.isPremium = jsonResponse.user.isPremium;
                             this.setState({
                                 isLogged: !this.state.isLogged,
                                 logInFailed: false,
@@ -406,6 +392,7 @@ class App extends React.Component {
                     userInfo.userMid = jsonResponse.user.mid;
                     userInfo.business.businessName = jsonResponse.user.restaurantName;
                     userInfo.business.businessZipCode = jsonResponse.user.restaurantZipCode;
+                    userInfo.isPremium = jsonResponse.user.isPremium;
                     //userInfo.userId = jsonResponse.id;
                     //userInfo.userName = regData[0];
                     //userInfo.userEmail = regData[1];
