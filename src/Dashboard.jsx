@@ -1219,18 +1219,18 @@ export default class Dashboard extends React.Component {
                 <Container style={{marginLeft: '0px', marginRight: '0px', marginTop: '15px', marginBottom: '15px'}}>
                     <Row>
                         <Col md='3'>
-                            <div overflow="scroll" marginBottom="20px">
+                            <div style={{overflow: "scroll", marginBottom: "20px"}}>
                                 <ListGroup>
-                                    <ListGroupItem color="info" active={this.state.section === 0} tag="button" action onClick={() => this.toggleSection(0)}>Número de transacciones por mes</ListGroupItem>
-                                    <ListGroupItem color="info" active={this.state.section === 1} tag="button" action onClick={() => this.toggleSection(1)}>Número de transacciones por día</ListGroupItem>
-                                    <ListGroupItem color="info" active={this.state.section === 2} tag="button" action onClick={() => this.toggleSection(2)}>Ingresos por mes</ListGroupItem>
-                                    <ListGroupItem color="info" active={this.state.section === 3} tag="button" action onClick={() => this.toggleSection(3)}>Ingresos por día</ListGroupItem>
-                                    <ListGroupItem color="info" active={this.state.section === 4} tag="button" action onClick={() => this.toggleSection(4)}>Distribución por servicio de comida</ListGroupItem>
-                                    <ListGroupItem color="info" active={this.state.section === 9} taf="button" action onClick={() => this.toggleSection(9)}>Comparativa de clientes</ListGroupItem>
-                                    <ListGroupItem color="warning" active={this.state.section === 5} tag="button" action onClick={() => this.toggleSection(5)}>Comparativa número de transacciones por mes</ListGroupItem>
-                                    <ListGroupItem color="warning" active={this.state.section === 6} tag="button" action onClick={() => this.toggleSection(6)}>Comparativa número de transacciones por día</ListGroupItem>
-                                    <ListGroupItem color="warning" active={this.state.section === 7} tag="button" action onClick={() => this.toggleSection(7)}>Comparativa de ingresos por mes</ListGroupItem>
-                                    <ListGroupItem color="warning" active={this.state.section === 8} tag="button" action onClick={() => this.toggleSection(8)}>Comparativa de ingresos por día</ListGroupItem>
+                                    <ListGroupItem style={{zIndex: '90'}} color="info" active={this.state.section === 0} tag="button" action onClick={() => this.toggleSection(0)}>Número de transacciones por mes</ListGroupItem>
+                                    <ListGroupItem style={{zIndex: '90'}} color="info" active={this.state.section === 1} tag="button" action onClick={() => this.toggleSection(1)}>Número de transacciones por día</ListGroupItem>
+                                    <ListGroupItem style={{zIndex: '90'}} color="info" active={this.state.section === 2} tag="button" action onClick={() => this.toggleSection(2)}>Ingresos por mes</ListGroupItem>
+                                    <ListGroupItem style={{zIndex: '90'}} color="info" active={this.state.section === 3} tag="button" action onClick={() => this.toggleSection(3)}>Ingresos por día</ListGroupItem>
+                                    <ListGroupItem style={{zIndex: '90'}} color="info" active={this.state.section === 4} tag="button" action onClick={() => this.toggleSection(4)}>Distribución por servicio de comida</ListGroupItem>
+                                    <ListGroupItem style={{zIndex: '90'}} color="info" active={this.state.section === 9} taf="button" action onClick={() => this.toggleSection(9)}>Comparativa de clientes</ListGroupItem>
+                                    <ListGroupItem style={{zIndex: '90'}} color="warning" active={this.state.section === 5} tag="button" action onClick={() => this.toggleSection(5)}>Comparativa número de transacciones por mes</ListGroupItem>
+                                    <ListGroupItem style={{zIndex: '90'}} color="warning" active={this.state.section === 6} tag="button" action onClick={() => this.toggleSection(6)}>Comparativa número de transacciones por día</ListGroupItem>
+                                    <ListGroupItem style={{zIndex: '90'}} color="warning" active={this.state.section === 7} tag="button" action onClick={() => this.toggleSection(7)}>Comparativa de ingresos por mes</ListGroupItem>
+                                    <ListGroupItem style={{zIndex: '90'}} color="warning" active={this.state.section === 8} tag="button" action onClick={() => this.toggleSection(8)}>Comparativa de ingresos por día</ListGroupItem>
                                 </ListGroup>
                             </div>
                         </Col>

@@ -186,7 +186,8 @@ class Navigator extends React.Component {
                                                 changeLoginInfo={this.changeLoginInfo} 
                                                 addTPV={this.addTPV} 
                                                 deleteTPV={this.deleteTPV} 
-                                                getBusiness={this.getBusiness}/>
+                                                getBusiness={this.getBusiness}
+                                                bePremium={this.bePremium}/>
                             </Col>
                         </Row>
                     </TabPane>

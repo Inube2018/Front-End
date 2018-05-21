@@ -30,7 +30,7 @@ export default class Footer extends React.Component {
         return (
             <div>
                 <div id='phantom'></div>
-                <Container fluid id='footer'>
+                <Container style={{zIndex: '99'}} fluid id='footer'>
                     <Row>
                         <Col md='6'>
                             <FontAwesome name='cloud' /> INUBE <FontAwesome name='copyright' />  Design with <FontAwesome name='heart' /> by group 02
@@ -99,7 +99,7 @@ export default class Footer extends React.Component {
                                                 </a>
                                                 <br />
                                                 <span href="http://purl.org/dc/dcmitype/Dataset" >Inube - Un proyecto de ISST</span> by
-                                                <a href="https://github.com/Inube2018/Front-End"  > Jaime Hurtado, Roberto Llop,  Marcos Luna, Cristina Sanchez y Paula Otero</a>
+                                                <a href="https://github.com/Inube2018/Front-End" > Jaime Hurtado de Mendoza, Roberto Llop,  Marcos Luna, Cristina Sanchez y Paula Otero</a>
                                                 is licensed under a <a  href="http://creativecommons.org/licenses/by-nc-sa/4.0/"> Creative Commons Reconocimiento-NoComercial-CompartirIgual
                                                 4.0 Internacional License</a>.<br /> Creado a partir de la obra en <a  href="https://github.com/Inube2018/Front-End" >
                                                  https://github.com/Inube2018/Front-End</a>.

@@ -23,6 +23,11 @@ export default class AccountSecrtions extends React.Component {
         this.getBusiness = this.getBusiness.bind(this);
         this.changePassword = this.changePassword.bind(this);
         this.onDismissAlert = this.onDismissAlert.bind(this);
+        this.bePremium = this.bePremium.bind(this);
+    }
+
+    bePremium() {
+        this.props.bePremium();
     }
 
     onDismissAlert() {
@@ -133,7 +138,7 @@ export default class AccountSecrtions extends React.Component {
     render() {
         let alert = <Alert color={this.state.alertType} isOpen={this.state.alert} toggle={() => {this.setState({alert: !this.state.alert})}} style={{width: '100%', height: '50px'}}> {this.state.alertMessage}</Alert>;
         let alertBack = <Alert color={this.props.alertType} isOpen={this.props.alert} toggle={() => {this.props.onDismissAlert()}} style={{width: '100%', height: '50px'}}> {this.props.alertMessage}</Alert>;
-        let negocios = <NegocioSection business={this.props.userInfo.business} acceptChanges={this.acceptChanges}/>;
+        let negocios = <NegocioSection bePremium={this.bePremium} userInfo={this.props.userInfo} acceptChanges={this.acceptChanges}/>;
         //let tpvs = this.props.userInfo.business.map((business, index) => <TPV key={index} tpvs={business.tpvs} businessName={business.businessName} index={index} addTPV={this.addTPV} deleteTPV={this.deleteTPV}/>);
         let editSection = <div></div>;
         if (this.state.section === 0) {
@@ -258,8 +263,8 @@ export default class AccountSecrtions extends React.Component {
                             <div>
                                 <ListGroup>
                                     {/*<ListGroupItem active={ this.state.section === 0 } tag="button" action onClick={() => this.toggleSection(0)}>Perfil de usuario</ListGroupItem>*/}
-                                    <ListGroupItem active={ this.state.section === 1 } tag="button" action onClick={() => this.toggleSection(1)}>Contraseña</ListGroupItem>
-                                    <ListGroupItem active={ this.state.section === 2 } tag="button" action onClick={() => this.getBusiness(2)}>Mis Negocios</ListGroupItem>
+                                    <ListGroupItem color="info" active={ this.state.section === 1 } tag="button" action onClick={() => this.toggleSection(1)}>Contraseña</ListGroupItem>
+                                    <ListGroupItem color="info" active={ this.state.section === 2 } tag="button" action onClick={() => this.getBusiness(2)}>Mi Cuenta</ListGroupItem>
                                     {/*<ListGroupItem active={ this.state.section === 3 } tag="button" action onClick={() => this.getBusiness(3)}>Mis TPVs</ListGroupItem>*/}
                                 </ListGroup>
                             </div>

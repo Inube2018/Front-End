@@ -8,6 +8,7 @@ export default class NegocioSection extends React.Component {
             collapse: false,
             editEnabled: false,
         };
+        this.bePremium = this.bePremium.bind(this);
         // this.toggle = this.toggle.bind(this);
         //this.editHandler = this.editHandler.bind(this);
         //this.acceptChanges = this.acceptChanges.bind(this);
@@ -37,6 +38,10 @@ export default class NegocioSection extends React.Component {
     //     this.props.acceptChanges(editData, this.props.index);
     // }
 
+    bePremium() {
+        this.props.bePremium();
+    }
+
     render() {
         if (!this.state.editEnabled) {
             return (
@@ -48,8 +53,10 @@ export default class NegocioSection extends React.Component {
                                 <Container>
                                     <Row>
                                         <Col md='12'>
-                                            <strong>Nombre: </strong> {this.props.business.businessName} <br/>
-                                            <strong>Código Postal: </strong> {this.props.business.businessZipCode} <br/>
+                                            <div style={{margin: '10px'}}><strong>MID: </strong> {this.props.userInfo.userMid} <br/></div>
+                                            <div style={{margin: '10px'}}><strong>Nombre: </strong> {this.props.userInfo.business.businessName} <br/></div>
+                                            <div style={{margin: '10px', marginBottom: '6px'}}><strong>Código Postal: </strong> {this.props.userInfo.business.businessZipCode} <br/></div>
+                                            <div style={{margin: '10px', marginTop: '0px'}}><strong>Plan premium: </strong> {this.props.userInfo.isPremium ? <p style={{display: 'inline'}}>Su cuenta es premium</p> : <p style={{display: 'inline'}}>Su cuenta no es premium <Button onClick={this.bePremium} style={{marginLeft: '10px', marginTop: '0px'}} color="info">Quiero ser premium</Button></p>}</div>
                                             {/*<strong>Tipo de Negocio: </strong> {this.props.business.businessType} <br/>
                                             <strong>Precio medio: </strong> {this.props.business.businessPrice}
                                         </Col>
