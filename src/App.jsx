@@ -23,7 +23,7 @@ class App extends React.Component {
             editStep: 0,
             userInfo: {
                 userMid: 'mid',
-                isPremium: true,
+                isPremium: false,
                 business:
                     {
                         businessName: 'restaurante 1',
@@ -139,20 +139,20 @@ class App extends React.Component {
     }
 
     getBusiness() {
-        var req = new XMLHttpRequest();
-        req.onreadystatechange = function () {
-            if (req.readyState == 4 && req.status == 200) {
-                console.log(req.response);
-                let userInfo = this.state.userInfo;
-                userInfo.business = JSON.parse(req.response);
-                this.setState({
-                    userInfo: userInfo,
-                })
-            }
-        }.bind(this);
-        req.open('GET', 'http://localhost:8080/InubeBackEnd/BusinessByUserServlet', true);
-        req.setRequestHeader('userId', this.state.userInfo.userId);
-        req.send(null);
+        // var req = new XMLHttpRequest();
+        // req.onreadystatechange = function () {
+        //     if (req.readyState == 4 && req.status == 200) {
+        //         console.log(req.response);
+        //         let userInfo = this.state.userInfo;
+        //         userInfo.business = JSON.parse(req.response);
+        //         this.setState({
+        //             userInfo: userInfo,
+        //         })
+        //     }
+        // }.bind(this);
+        // req.open('GET', 'http://localhost:8080/InubeBackEnd/BusinessByUserServlet', true);
+        // req.setRequestHeader('userId', this.state.userInfo.userId);
+        // req.send(null);
     }
 
     onDismissLogIn() {

@@ -1097,7 +1097,7 @@ export default class Dashboard extends React.Component {
             graphSection =
                 <div className="graphic-1">
                     <Col md="12" className="graphic-1-img">
-                    <Label> Número de transacciones por mes </Label>
+                    <Label><strong> Número de transacciones por mes </strong></Label>
                     <ColumnChart data={this.state.data1} />
                     <br/>
                     <Filter id={"graph1"} onFilter={this.onFilter}/>
@@ -1107,7 +1107,7 @@ export default class Dashboard extends React.Component {
             graphSection =
                 <div>
                     <Col md="12">
-                    <Label> Número de transacciones por día </Label>
+                    <Label><strong> Número de transacciones por día </strong></Label>
                     <LineChart data={this.state.data2} />
                     <br/>
                     <Filter id={"graph2"} onFilter={this.onFilter}/>
@@ -1117,7 +1117,7 @@ export default class Dashboard extends React.Component {
             graphSection =
                 <div>
                     <Col md="12">
-                    <Label> Ingresos por mes </Label>
+                    <Label><strong> Ingresos por mes </strong></Label>
                     <ColumnChart data={this.state.data3} />
                     <br/>
                     <Filter id={"graph3"} onFilter={this.onFilter}/>
@@ -1127,7 +1127,7 @@ export default class Dashboard extends React.Component {
             graphSection =
                 <div>
                     <Col md="12">
-                    <Label> Ingresos por día </Label>
+                    <Label><strong> Ingresos por día </strong></Label>
                     <LineChart data={this.state.data4} />
                     <br/>
                     <Filter id={"graph4"} onFilter={this.onFilter}/>
@@ -1137,10 +1137,10 @@ export default class Dashboard extends React.Component {
             graphSection =
                 <div>
                     <Col md="12">
-                        <Label> Distribución por servicio de comida (Cantidad) </Label>
+                        <Label style={{width: '100%', textAlign: 'center'}}><strong> Distribución por servicio de comida (Cantidad) </strong> </Label>
                         <PieChart data={this.state.dataPie1.data1} />
                         <br/>
-                        <Label> Distribución por servicio de comida (Ingresos) </Label>
+                        <Label style={{width: '100%', textAlign: 'center'}}><strong> Distribución por servicio de comida (Ingresos) </strong> </Label>
                         <PieChart data={this.state.dataPie1.data2} />
                     </Col>
                 </div>
@@ -1148,7 +1148,7 @@ export default class Dashboard extends React.Component {
             if (this.props.userInfo.isPremium) {
                 graphSection =
                     <div>
-                        <Label> Comparativa número de transacciones por mes </Label>
+                        <Label><strong> Comparativa número de transacciones por mes </strong></Label>
                         <Row>
                             <Col md="9">
                                 <ColumnChart data={this.state.data5} />
@@ -1172,7 +1172,7 @@ export default class Dashboard extends React.Component {
             if (this.props.userInfo.isPremium) {
                 graphSection =
                 <div>
-                    <Label> Comparativa número de transacciones por día </Label>
+                    <Label><strong> Comparativa número de transacciones por día </strong></Label>
                     <Row>
                         <Col md="9">
                             <LineChart data={this.state.data6} />
@@ -1194,7 +1194,7 @@ export default class Dashboard extends React.Component {
             if (this.props.userInfo.isPremium) {
                 graphSection =
                     <div>
-                        <Label> Comparativa de ingresos por mes </Label>
+                        <Label><strong> Comparativa de ingresos por mes </strong></Label>
                         <Row>
                             <Col md="9">
                                 <ColumnChart data={this.state.data7} />
@@ -1216,7 +1216,7 @@ export default class Dashboard extends React.Component {
             if (this.props.userInfo.isPremium) {
                 graphSection =
                     <div>
-                        <Label> Comparativa de ingresos por día </Label>
+                        <Label><strong> Comparativa de ingresos por día </strong></Label>
                         <Row>
                             <Col md="9">
                                 <LineChart data={this.state.data8} />
@@ -1238,12 +1238,12 @@ export default class Dashboard extends React.Component {
             graphSection =
                 <div>
                     <Row>
-                        <Label>Comparativa de tipo de cliente</Label>
+                        <Label style={{width: '100%', textAlign: 'center'}}><strong>Comparativa de tipo de cliente</strong></Label>
                         <br/>
                         <PieChart data={this.state.dataPie2.data1} />
                     </Row>
                     <Row>
-                        <Label>Comparativa de ingresos por tipo de cliente</Label>
+                        <Label style={{width: '100%', textAlign: 'center'}}><strong>Comparativa de ingresos por tipo de cliente</strong></Label>
                         <br/>
                         <PieChart data={this.state.dataPie2.data2} />
                     </Row>
@@ -1255,7 +1255,7 @@ export default class Dashboard extends React.Component {
                     <Row>
 
                         <Col md='2'>
-                            <div style={{overflow: "scroll", marginBottom: "20px"}}>
+                            <div style={{marginBottom: "20px"}}>
                                 <ListGroup>
                                     <ListGroupItem style={{zIndex: '90'}} color="info" active={this.state.section === 0} tag="button" action onClick={() => this.toggleSection(0)}>Número de transacciones por mes</ListGroupItem>
                                     <ListGroupItem style={{zIndex: '90'}} color="info" active={this.state.section === 1} tag="button" action onClick={() => this.toggleSection(1)}>Número de transacciones por día</ListGroupItem>

@@ -78,7 +78,8 @@ class Home extends React.Component {
     });
 
         return (
-            <Container fluid>
+            <div style={{marginTop: '15px'}}>
+            <Container fluid style={{marginTop: '15px'}}>
                 <Row>
                     <Carousel activeIndex={activeIndex} next={this.next} previous={this.previous}>
                         <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
@@ -94,6 +95,7 @@ class Home extends React.Component {
                     </Col>
         </Row>*/}
             </Container>
+            </div>
         );
     }
 }

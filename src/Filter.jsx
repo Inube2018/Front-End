@@ -132,13 +132,13 @@ export default class Filter extends React.Component {
     render() {
         let filtro = <div></div>;
         if (this.props.id === "graph1") { //MES
-            filtro = <div style={{width: '37%'}}>
+            filtro = <div style={{width: '45%'}}>
                 <Button color="info" size="lg" className='filter' onClick={this.onPress}>
                     <FontAwesome name='filter'/> Filtro <FontAwesome name={this.state.arrow}/>
                 </Button>
                 <div id={this.props.id} className={"backgroundFilter"} style={{backgroundColor: '#cce5ff', borderColor: '#17a2b8', marginTop: '10px'}}>
                     <Row>
-                        <p style={{marginLeft: '30px', marginTop: '25px', marginBottom: '0px'}}>Eliga dos fechas entre las que filtrar</p>
+                        <p style={{width: '100%', marginLeft: '30px', marginTop: '25px', marginBottom: '0px'}}>Eliga dos fechas entre las que filtrar</p>
                         <Col md='5'>
                             <br/>
                             <DatePicker className={"datePicker"} includeDates={[moment(new Date("January 1, 2018")), moment(new Date("February 1, 2018")), moment(new Date("March 1, 2018")), moment(new Date("April 1, 2018")), moment(new Date("May 1, 2018")), moment(new Date("June 1, 2018")), moment(new Date("July 1, 2018")), moment(new Date("August 1, 2018")), moment(new Date("September 1, 2018")), moment(new Date("October 1, 2018")), moment(new Date("November 1, 2018")), moment(new Date("December 1, 2018"))]} dateFormat="DD/MM/YYYY" selected={this.state.startDateMin === null ? moment(new Date().setDate(1)) : this.state.startDateMin}  onChange={this.handleMin} />
@@ -152,13 +152,13 @@ export default class Filter extends React.Component {
                 </div>
             </div>;
         } else if (this.props.id === "graph2") { //DIA
-            filtro = <div style={{width: '37%'}}>
+            filtro = <div style={{width: '45%'}}>
                 <Button color="info" size="lg" className='filter' onClick={this.onPress}>
                     <FontAwesome name='filter'/> Filtro <FontAwesome name={this.state.arrow}/>
                 </Button>
                 <div id={this.props.id} className={"backgroundFilter"} style={{backgroundColor: '#cce5ff', borderColor: '#17a2b8', marginTop: '10px'}}>
                     <Row>
-                        <p style={{marginLeft: '30px', marginTop: '25px', marginBottom: '0px'}}>Eliga dos fechas entre las que filtrar</p>
+                        <p style={{width: '100%', marginLeft: '30px', marginTop: '25px', marginBottom: '0px'}}>Eliga dos fechas entre las que filtrar</p>
                         <Col md='5'>
                             <br/>
                             <DatePicker className={"datePicker"} dateFormat="DD/MM/YYYY" selected={this.state.startDateMin === null ? moment() : this.state.startDateMin}  onChange={this.handleMin} />
@@ -172,13 +172,13 @@ export default class Filter extends React.Component {
                 </div>
             </div>;
         } else if (this.props.id === "graph3") { //MES
-            filtro = <div style={{width: '37%'}}>
+            filtro = <div style={{width: '45%'}}>
                 <Button color="info" size="lg" className='filter' onClick={this.onPress}>
                     <FontAwesome name='filter'/> Filtro <FontAwesome name={this.state.arrow}/>
                 </Button>
                 <div id={this.props.id} className={"backgroundFilter"} style={{backgroundColor: '#cce5ff', borderColor: '#17a2b8', marginTop: '10px'}}>
                     <Row>
-                        <p style={{marginLeft: '30px', marginTop: '25px', marginBottom: '0px'}}>Eliga dos fechas entre las que filtrar</p>
+                        <p style={{width: '100%', marginLeft: '30px', marginTop: '25px', marginBottom: '0px'}}>Eliga dos fechas entre las que filtrar</p>
                         <Col md='5'>
                             <br/>
                             <DatePicker className={"datePicker"} includeDates={[moment(new Date("January 1, 2018")), moment(new Date("February 1, 2018")), moment(new Date("March 1, 2018")), moment(new Date("April 1, 2018")), moment(new Date("May 1, 2018")), moment(new Date("June 1, 2018")), moment(new Date("July 1, 2018")), moment(new Date("August 1, 2018")), moment(new Date("September 1, 2018")), moment(new Date("October 1, 2018")), moment(new Date("November 1, 2018")), moment(new Date("December 1, 2018"))]} dateFormat="DD/MM/YYYY" selected={this.state.startDateMin === null ? moment(new Date().setDate(1)) : this.state.startDateMin}  onChange={this.handleMin} />
@@ -192,13 +192,13 @@ export default class Filter extends React.Component {
                 </div>
             </div>;
         } else if (this.props.id === "graph4") { //DIA
-            filtro = <div style={{width: '37%'}}>
+            filtro = <div style={{width: '45%'}}>
                 <Button color="info" size="lg" className='filter' onClick={this.onPress}>
                     <FontAwesome name='filter'/> Filtro <FontAwesome name={this.state.arrow}/>
                 </Button>
                 <div id={this.props.id} className={"backgroundFilter"} style={{backgroundColor: '#cce5ff', borderColor: '#17a2b8', marginTop: '10px'}}>
                     <Row>
-                        <p style={{marginLeft: '30px', marginTop: '25px', marginBottom: '0px'}}>Eliga dos fechas entre las que filtrar</p>
+                        <p style={{width: '100%', marginLeft: '30px', marginTop: '25px', marginBottom: '0px'}}>Eliga dos fechas entre las que filtrar</p>
                         <Col md='5'>
                             <br/>
                             <DatePicker className={"datePicker"} dateFormat="DD/MM/YYYY" selected={this.state.startDateMin === null ? moment() : this.state.startDateMin}  onChange={this.handleMin} />
@@ -212,13 +212,13 @@ export default class Filter extends React.Component {
                 </div>
             </div>;
         } else if (this.props.id === "graph5") { //TURNOS
-            filtro = <div style={{width: '50%'}}>
+            filtro = <div style={{width: '60%'}}>
                 <Button color="info" size="lg" className='filter' onClick={this.onPress}>
                     <FontAwesome name='filter'/> Filtro <FontAwesome name={this.state.arrow}/>
                 </Button>
                 <div id={this.props.id} className={"backgroundFilter"} style={{backgroundColor: '#cce5ff', borderColor: '#17a2b8', marginTop: '10px'}}>
                     <Row>
-                        <p style={{marginLeft: '30px', marginTop: '25px', marginBottom: '0px'}}>Eliga dos fechas entre las que filtrar</p>
+                        <p style={{width: '100%', marginLeft: '30px', marginTop: '25px', marginBottom: '0px'}}>Eliga dos fechas entre las que filtrar</p>
                         <Col md='5'>
                             <br/>
                             <DatePicker className={"datePicker"} includeDates={[moment(new Date("January 1, 2018")), moment(new Date("February 1, 2018")), moment(new Date("March 1, 2018")), moment(new Date("April 1, 2018")), moment(new Date("May 1, 2018")), moment(new Date("June 1, 2018")), moment(new Date("July 1, 2018")), moment(new Date("August 1, 2018")), moment(new Date("September 1, 2018")), moment(new Date("October 1, 2018")), moment(new Date("November 1, 2018")), moment(new Date("December 1, 2018"))]} dateFormat="DD/MM/YYYY" selected={this.state.startDateMin === null ? moment(new Date().setDate(1)) : this.state.startDateMin}  onChange={this.handleMin} />
@@ -232,13 +232,13 @@ export default class Filter extends React.Component {
                 </div>
             </div>;
         } else if (this.props.id === "graph6") { //MES
-            filtro = <div style={{width: '50%'}}>
+            filtro = <div style={{width: '60%'}}>
                 <Button color="info" size="lg" className='filter' onClick={this.onPress}>
                     <FontAwesome name='filter'/> Filtro <FontAwesome name={this.state.arrow}/>
                 </Button>
                 <div id={this.props.id} className={"backgroundFilter"} style={{backgroundColor: '#cce5ff', borderColor: '#17a2b8', marginTop: '10px'}}>
                     <Row>
-                        <p style={{marginLeft: '30px', marginTop: '25px', marginBottom: '0px'}}>Eliga dos fechas entre las que filtrar</p>
+                        <p style={{width: '100%', marginLeft: '30px', marginTop: '25px', marginBottom: '0px'}}>Eliga dos fechas entre las que filtrar</p>
                         <Col md='5'>
                             <br/>
                             <DatePicker className={"datePicker"} includeDates={[moment(new Date("January 1, 2018")), moment(new Date("February 1, 2018")), moment(new Date("March 1, 2018")), moment(new Date("April 1, 2018")), moment(new Date("May 1, 2018")), moment(new Date("June 1, 2018")), moment(new Date("July 1, 2018")), moment(new Date("August 1, 2018")), moment(new Date("September 1, 2018")), moment(new Date("October 1, 2018")), moment(new Date("November 1, 2018")), moment(new Date("December 1, 2018"))]} dateFormat="DD/MM/YYYY" selected={this.state.startDateMin === null ? moment(new Date().setDate(1)) : this.state.startDateMin}  onChange={this.handleMin} />
@@ -252,13 +252,13 @@ export default class Filter extends React.Component {
                 </div>
             </div>;
         } else if (this.props.id === "graph7") { //DIA
-            filtro = <div style={{width: '50%'}}>
+            filtro = <div style={{width: '60%'}}>
                 <Button color="info" size="lg" className='filter' onClick={this.onPress}>
                     <FontAwesome name='filter'/> Filtro <FontAwesome name={this.state.arrow}/>
                 </Button>
                 <div id={this.props.id} className={"backgroundFilter"} style={{backgroundColor: '#cce5ff', borderColor: '#17a2b8', marginTop: '10px'}}>
                     <Row>
-                        <p style={{marginLeft: '30px', marginTop: '25px', marginBottom: '0px'}}>Eliga dos fechas entre las que filtrar</p>
+                        <p style={{width: '100%', marginLeft: '30px', marginTop: '25px', marginBottom: '0px'}}>Eliga dos fechas entre las que filtrar</p>
                         <Col md='5'>
                             <br/>
                             <DatePicker className={"datePicker"} dateFormat="DD/MM/YYYY" selected={this.state.startDateMin === null ? moment() : this.state.startDateMin}  onChange={this.handleMin} />
@@ -272,13 +272,13 @@ export default class Filter extends React.Component {
                 </div>
             </div>;
         } else if (this.props.id === "graph8") { //MES
-            filtro = <div style={{width: '50%'}}>
+            filtro = <div style={{width: '60%'}}>
                 <Button color="info" size="lg" className='filter' onClick={this.onPress}>
                     <FontAwesome name='filter'/> Filtro <FontAwesome name={this.state.arrow}/>
                 </Button>
                 <div id={this.props.id} className={"backgroundFilter"} style={{backgroundColor: '#cce5ff', borderColor: '#17a2b8', marginTop: '10px'}}>
                     <Row>
-                        <p style={{marginLeft: '30px', marginTop: '25px', marginBottom: '0px'}}>Eliga dos fechas entre las que filtrar</p>
+                        <p style={{width: '100%', marginLeft: '30px', marginTop: '25px', marginBottom: '0px'}}>Eliga dos fechas entre las que filtrar</p>
                         <Col md='5'>
                             <br/>
                             <DatePicker className={"datePicker"} includeDates={[moment(new Date("January 1, 2018")), moment(new Date("February 1, 2018")), moment(new Date("March 1, 2018")), moment(new Date("April 1, 2018")), moment(new Date("May 1, 2018")), moment(new Date("June 1, 2018")), moment(new Date("July 1, 2018")), moment(new Date("August 1, 2018")), moment(new Date("September 1, 2018")), moment(new Date("October 1, 2018")), moment(new Date("November 1, 2018")), moment(new Date("December 1, 2018"))]} dateFormat="DD/MM/YYYY" selected={this.state.startDateMin === null ? moment(new Date().setDate(1)) : this.state.startDateMin}  onChange={this.handleMin} />
@@ -292,13 +292,13 @@ export default class Filter extends React.Component {
                 </div>
             </div>;
         } else if (this.props.id === "graph9") { //DIA
-            filtro = <div style={{width: '37%'}}>
+            filtro = <div style={{width: '60%'}}>
                 <Button color="info" size="lg" className='filter' onClick={this.onPress}>
                     <FontAwesome name='filter'/> Filtro <FontAwesome name={this.state.arrow}/>
                 </Button>
                 <div id={this.props.id} className={"backgroundFilter"} style={{backgroundColor: '#cce5ff', borderColor: '#17a2b8', marginTop: '10px'}}>
                     <Row>
-                        <p style={{marginLeft: '30px', marginTop: '25px', marginBottom: '0px'}}>Eliga dos fechas entre las que filtrar</p>
+                        <p style={{width: '100%', marginLeft: '30px', marginTop: '25px', marginBottom: '0px'}}>Eliga dos fechas entre las que filtrar</p>
                         <Col md='5'>
                             <br/>
                             <DatePicker className={"datePicker"} dateFormat="DD/MM/YYYY" selected={this.state.startDateMin === null ? moment() : this.state.startDateMin}  onChange={this.handleMin} />
