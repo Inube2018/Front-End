@@ -23,7 +23,7 @@ class App extends React.Component {
             editStep: 0,
             userInfo: {
                 userMid: 'mid',
-                isPremium: false,
+                isPremium: true,
                 business:
                     {
                         businessName: 'restaurante 1',

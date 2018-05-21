@@ -1159,11 +1159,11 @@ export default class Dashboard extends React.Component {
                                 <br/>
                                 <Filter id={"graph6"} onFilter={this.onFilter}/>
                             </Col>
-                            <Col md="3">
-                                <Label>Código postal</Label>
+                            <Col md="3" className={"zipCode"}>
+                                <Label style={{marginTop: '5px'}}>Código postal</Label>
                                 <Input type="text" placeholder={this.state.zip5} id="zipCode5"/>
                                 <br/>
-                                <Button color="info" onClick={() => {this.getData(5)}}> Actualizar gráfica </Button>
+                                <Button style={{margin: '10px'}} color="info" onClick={() => {this.getData(5)}}> Actualizar gráfica </Button>
                             </Col>
                         </Row>
 
@@ -1183,11 +1183,11 @@ export default class Dashboard extends React.Component {
                             <br/>
                             <Filter id={"graph7"} onFilter={this.onFilter}/>
                         </Col>
-                        <Col md="3">
-                            <Label>Código postal</Label>
+                        <Col md="3" className={"zipCode"}>
+                            <Label style={{marginTop: '5px'}}>Código postal</Label>
                             <Input type="text" placeholder={this.state.zip6} id="zipCode6"/>
                             <br/>
-                            <Button color="info" onClick={() => {this.getData(6)}}> Actualizar gráfica </Button>
+                            <Button style={{margin: '10px'}} color="info" onClick={() => {this.getData(6)}}> Actualizar gráfica </Button>
                         </Col>
                     </Row>
                 </div>
@@ -1205,11 +1205,11 @@ export default class Dashboard extends React.Component {
                                 <br/>
                                 <Filter id={"graph8"} onFilter={this.onFilter}/>
                             </Col>
-                            <Col md="3">
-                                <Label>Código postal</Label>
+                            <Col md="3" className={"zipCode"}>
+                                <Label style={{marginTop: '5px'}}>Código postal</Label>
                                 <Input type="text" placeholder={this.state.zip7} id="zipCode7"/>
                                 <br/>
-                                <Button color="info" onClick={() => {this.getData(7)}}> Actualizar gráfica </Button>
+                                <Button style={{margin: '10px'}} color="info" onClick={() => {this.getData(7)}}> Actualizar gráfica </Button>
                             </Col>
                         </Row>
                     </div>
@@ -1227,11 +1227,11 @@ export default class Dashboard extends React.Component {
                                 <br/>
                                 <Filter id={"graph9"} onFilter={this.onFilter}/>
                             </Col>
-                            <Col md="3">
-                                <Label>Código postal</Label>
+                            <Col md="3" className={"zipCode"}>
+                                <Label style={{marginTop: '5px'}}>Código postal</Label>
                                 <Input type="text" placeholder={this.state.zip8} id="zipCode8"/>
                                 <br/>
-                                <Button color="info" onClick={() => {this.getData(8)}}> Actualizar gráfica </Button>
+                                <Button style={{margin: '10px'}} color="info" onClick={() => {this.getData(8)}}> Actualizar gráfica </Button>
                             </Col>
                         </Row>
                     </div>
