@@ -56,12 +56,12 @@ class Faq extends React.Component {
     toggle9() {
         this.setState({ collapse9: !this.state.collapse9 });
     }
-    
-   
+
+
     render() {
       return (
-        <div style={{height: '100%', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'left',  marginTop: '5px'}}>
-            
+        <div className="faq" style={{height: '100%', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'left',  marginTop: '5px'}}>
+
            {/*<Button color="white" onClick={this.toggle1} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold", borderColor: 'grey', borderWidth: '1px', marginLeft: '5px', marginRight: '5px' }}>¿A qué tipo de contenido tengo acceso como usuario premium?</Button>
             <Collapse isOpen={this.state.collapse1}>
                 <Card>
@@ -75,7 +75,7 @@ class Faq extends React.Component {
             <Collapse isOpen={this.state.collapse1}>
                 <Card>
                 <CardBody>
-                Trabajando mano a mano con los restaurantes desarrollamos herramientas y servicios capaces de resolver necesidades en cuanto a la gestión de restaurantes. Ya seas una cervecería, una pequeña cafetería o un negocio de alta cocina, ofrecemos soluciones ideales para tu establecimiento. 
+                Trabajando mano a mano con los restaurantes desarrollamos herramientas y servicios capaces de resolver necesidades en cuanto a la gestión de restaurantes. Ya seas una cervecería, una pequeña cafetería o un negocio de alta cocina, ofrecemos soluciones ideales para tu establecimiento.
 iNube es la plataforma que genera conocimiento que facilita la toma de decisiones, haciendo posible el análisis de fortalezas y debilidades y el establecimiento de estrategias. Una de las ventajas que ofrece iNube es la personalización de tus comparativas a través de todos los filtros que propone. ¡Te ayudaremos a sacar el máximo partido a tu negocio!
 
                 </CardBody>
@@ -92,7 +92,7 @@ Una vez estes registrado, recibirás un correo electrónico indicando que el reg
                 </CardBody>
                 </Card>
             </Collapse>
-            
+
             <Button color="white" onClick={this.toggle3} style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: "bold" ,borderColor: 'grey', borderWidth: '1px', marginLeft: '5px', marginRight: '5px'  }}>¿Con qué bancos trabajais?</Button>
             <Collapse isOpen={this.state.collapse3}>
                 <Card>

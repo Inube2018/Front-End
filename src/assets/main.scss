@@ -111,3 +111,14 @@
   border-radius: 10px;
   height: 100%;
 }
+ul.nav-tabs{
+  background-color:#8FCCD7;
+}
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link{
+  background-color:#17a2b8;
+  color: white;
+}
+div.faq button.btn{
+  background-color: #8FCCD7;
+  color: black;
+}
