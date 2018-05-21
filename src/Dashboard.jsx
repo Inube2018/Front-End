@@ -1099,8 +1099,8 @@ export default class Dashboard extends React.Component {
         let graphSection = <div></div>;
         if (this.state.section === 0) {
             graphSection =
-                <div>
-                    <Col md="12">
+                <div className="graphic-1">
+                    <Col md="12" className="graphic-1-img">
                     <Label> Número de transacciones por mes </Label>
                     <ColumnChart data={this.state.data1} />
                     <Filter id={"graph1"} onFilter={this.onFilter}/>
@@ -1247,7 +1247,7 @@ export default class Dashboard extends React.Component {
             <div>
                 <Container style={{marginLeft: '0px', marginRight: '0px', marginTop: '15px', marginBottom: '15px'}}>
                     <Row>
-                        <Col md='3'>
+                        <Col md='2'>
                             <div style={{overflow: "scroll", marginBottom: "20px"}}>
                                 <ListGroup>
                                     <ListGroupItem style={{zIndex: '90'}} color="info" active={this.state.section === 0} tag="button" action onClick={() => this.toggleSection(0)}>Número de transacciones por mes</ListGroupItem>
@@ -1263,7 +1263,7 @@ export default class Dashboard extends React.Component {
                                 </ListGroup>
                             </div>
                         </Col>
-                        <Col md ='9'>
+                        <Col md ='10'>
                             <div>
                                 {graphSection}
                             </div>

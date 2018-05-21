@@ -2,6 +2,9 @@
 #brand-name{
   background-color: aliceblue;
 }
+.container {
+  max-width: 100% !important;
+}
 /*Tamaño del dashboard*/
 .dashboard{
   max-width: 100%;
@@ -83,3 +86,12 @@
   border: none;
   margin-bottom: 5px;
 }
+.graphic-1{
+
+  //background:black;
+}
+.graphic-1-img{
+  //opacity:0.5;
+  //background: url("http://cdn3.spiegel.de/images/image-994882-860_poster_16x9-uxye-994882.jpg");
+}
+

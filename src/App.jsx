@@ -24,59 +24,59 @@ class App extends React.Component {
             userInfo: {
                 userMid: 'mid',
                 isPremium: false,
-                business: 
+                business:
                     {
                         businessName: 'restaurante 1',
                         businessZipCode: '12345',
                     },
             }
         };
-        this.toggleTab = this.toggleTab.bind(this);
-        this.logInHandler = this.logInHandler.bind(this);
-        this.registrationHandler = this.registrationHandler.bind(this);
-        this.stepEditHandler = this.stepEditHandler.bind(this);
+        this.toggleTab             = this.toggleTab.bind(this);
+        this.logInHandler          = this.logInHandler.bind(this);
+        this.registrationHandler   = this.registrationHandler.bind(this);
+        this.stepEditHandler       = this.stepEditHandler.bind(this);
         this.stepEditSaltarHandler = this.stepEditSaltarHandler.bind(this);
-        this.logOutHandler = this.logOutHandler.bind(this);
+        this.logOutHandler         = this.logOutHandler.bind(this);
         this.acceptBusinessChanges = this.acceptBusinessChanges.bind(this);
-        this.addBusiness = this.addBusiness.bind(this);
-        this.changeLoginInfo = this.changeLoginInfo.bind(this);
-        this.addTPV = this.addTPV.bind(this);
-        this.deleteTPV = this.deleteTPV.bind(this);
-        this.onDismissLogIn = this.onDismissLogIn.bind(this);
-        this.getBusiness = this.getBusiness.bind(this);
-        this.changePassword = this.changePassword.bind(this);
-        this.onDismissAlert = this.onDismissAlert.bind(this);
-        this.bePremium = this.bePremium.bind(this);
+        this.addBusiness           = this.addBusiness.bind(this);
+        this.changeLoginInfo       = this.changeLoginInfo.bind(this);
+        this.addTPV                = this.addTPV.bind(this);
+        this.deleteTPV             = this.deleteTPV.bind(this);
+        this.onDismissLogIn        = this.onDismissLogIn.bind(this);
+        this.getBusiness           = this.getBusiness.bind(this);
+        this.changePassword        = this.changePassword.bind(this);
+        this.onDismissAlert        = this.onDismissAlert.bind(this);
+        this.bePremium             = this.bePremium.bind(this);
     }
 
     render() {
         return (
             <div style={{height: '100%'}}>
-                <h1 className="text-info" style={{textAlign: 'center', marginTop: '1%'}}><FontAwesome name='cloud' /> iNube</h1>
-                <Navigator changePassword={this.changePassword} 
-                            getBusiness={this.getBusiness} 
-                            onDismissLogIn={this.onDismissLogIn} 
-                            logOutHandler={this.logOutHandler} 
-                            isLogged={this.state.isLogged} 
-                            logInFailed={this.state.logInFailed} 
-                            toggleTab={this.toggleTab} 
-                            logInHandler={this.logInHandler} 
-                            registrationHandler={this.registrationHandler} 
-                            editStep={this.state.editStep} 
-                            stepEditHandler={this.stepEditHandler} 
-                            stepEditSaltarHandler={this.stepEditSaltarHandler} 
-                            activeTab={this.state.activeTab} 
-                            userInfo={this.state.userInfo} 
-                            acceptBusinessChanges={this.acceptBusinessChanges} 
-                            addBusiness={this.addBusiness} 
-                            changeLoginInfo={this.changeLoginInfo} 
-                            addTPV={this.addTPV} 
-                            deleteTPV={this.deleteTPV}
-                            onDismissAlert={this.onDismissAlert}
-                            alert={this.state.alert}
-                            alertType={this.state.alertType}
-                            alertMessage={this.state.alertMessage}
-                            bePremium={this.bePremium}/>
+                <h1 className="text-info" style = {{textAlign: 'center', marginTop: '1%'}}><FontAwesome name='cloud' /> iNube</h1>
+                <Navigator changePassword         = {this.changePassword}
+                            getBusiness           = {this.getBusiness}
+                            onDismissLogIn        = {this.onDismissLogIn}
+                            logOutHandler         = {this.logOutHandler}
+                            isLogged              = {this.state.isLogged}
+                            logInFailed           = {this.state.logInFailed}
+                            toggleTab             = {this.toggleTab}
+                            logInHandler          = {this.logInHandler}
+                            registrationHandler   = {this.registrationHandler}
+                            editStep              = {this.state.editStep}
+                            stepEditHandler       = {this.stepEditHandler}
+                            stepEditSaltarHandler = {this.stepEditSaltarHandler}
+                            activeTab             = {this.state.activeTab}
+                            userInfo              = {this.state.userInfo}
+                            acceptBusinessChanges = {this.acceptBusinessChanges}
+                            addBusiness           = {this.addBusiness}
+                            changeLoginInfo       = {this.changeLoginInfo}
+                            addTPV                = {this.addTPV}
+                            deleteTPV             = {this.deleteTPV}
+                            onDismissAlert        = {this.onDismissAlert}
+                            alert                 = {this.state.alert}
+                            alertType             = {this.state.alertType}
+                            alertMessage          = {this.state.alertMessage}
+                            bePremium             = {this.bePremium}/>
                 <Footer/>
             </div>
         );
@@ -86,12 +86,12 @@ class App extends React.Component {
         var req = new XMLHttpRequest();
         req.onreadystatechange = function () {
             if (req.readyState == 4 && req.status == 200) {
-                let jsonResponse = JSON.parse(req.response);
-                var userInfo = this.state.userInfo;
-                userInfo.userMid = jsonResponse.user.mid;
-                userInfo.business.businessName = jsonResponse.user.restaurantName;
+                let jsonResponse                  = JSON.parse(req.response);
+                var userInfo                      = this.state.userInfo;
+                userInfo.userMid                  = jsonResponse.user.mid;
+                userInfo.business.businessName    = jsonResponse.user.restaurantName;
                 userInfo.business.businessZipCode = jsonResponse.user.restaurantZipCode;
-                userInfo.isPremium = jsonResponse.user.isPremium;
+                userInfo.isPremium                = jsonResponse.user.isPremium;
                 this.setState({
                     userInfo: userInfo,
                 });
@@ -190,7 +190,7 @@ class App extends React.Component {
 
     addTPV(index, TPVdata) {
         let userInfo = this.state.userInfo;
-        var req = new XMLHttpRequest();
+        var req      = new XMLHttpRequest();
         req.onreadystatechange = function () {
             if (req.readyState == 4 && req.status == 200) {
                 console.log(req.response);
@@ -216,7 +216,7 @@ class App extends React.Component {
 
     addBusiness(business) {
         let userInfo = this.state.userInfo;
-        var req = new XMLHttpRequest();
+        var req      = new XMLHttpRequest();
         req.onreadystatechange = function () {
             if (req.readyState == 4 && req.status == 200) {
                 console.log(req.response);
@@ -242,15 +242,17 @@ class App extends React.Component {
     }
 
     acceptBusinessChanges(editData, index) {
-        let userInfo = this.state.userInfo;
-        let business = userInfo.business;
-        let businessId = business[index].businessId;
-        business[index].businessName = editData[0];
-        business[index].businessZipCode = editData[1];
-        business[index].businessType = editData[2];
-        business[index].businessPrice = editData[3];
+        let userInfo      = this.state.userInfo;
+        let business      = userInfo.business;
+        let businessId    = business[index].businessId;
         userInfo.business = business;
-        var req = new XMLHttpRequest();
+        var req           = new XMLHttpRequest();
+
+        business[index].businessName    = editData[0];
+        business[index].businessZipCode = editData[1];
+        business[index].businessType    = editData[2];
+        business[index].businessPrice   = editData[3];
+
         req.onreadystatechange = function () {
             if (req.readyState == 4 && req.status == 200) {
                 console.log(req.response);
@@ -387,7 +389,7 @@ class App extends React.Component {
                 if (JSON.parse(req.response).registration === 'ko') {
                     //Alerta de que el registro ha fallado
                 } else {
-                    let jsonResponse = JSON.parse(req.response); 
+                    let jsonResponse = JSON.parse(req.response);
                     let userInfo = this.state.userInfo;
                     userInfo.userMid = jsonResponse.user.mid;
                     userInfo.business.businessName = jsonResponse.user.restaurantName;
