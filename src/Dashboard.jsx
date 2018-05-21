@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Button, Container, Row, Col, ListGroup, ListGroupItem, Label } from 'reactstrap';
+import { Input, Button, Container, Row, Col, ListGroup, ListGroupItem, Label, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 //import Graphic from './Graphic.jsx';
 //import GraphicTypes from './GraphicTypes.jsx';
 import ReactChartkick, { ColumnChart, LineChart, PieChart } from 'react-chartkick'
@@ -18,6 +18,7 @@ export default class Dashboard extends React.Component {
         super(props);
         this.state = {
             dropdownOpen: false,
+            modalPremium: false,
             zip5: this.props.userInfo.business.businessZipCode,
             zip6: this.props.userInfo.business.businessZipCode,
             zip7: this.props.userInfo.business.businessZipCode,
@@ -45,7 +46,7 @@ export default class Dashboard extends React.Component {
                 }
             },
             dataPie2: {
-                data1: 
+                data1:
                 {
                     'Clientes habituales': 10,
                     'Clientes ocasionales': 50
@@ -376,15 +377,25 @@ export default class Dashboard extends React.Component {
             dataAux8: {},
             dataAux: {},
         };
-        this.toggleSection = this.toggleSection.bind(this);
-        this.onFilter = this.onFilter.bind(this);
-        this.componentDidMount = this.componentDidMount.bind(this);
-        this.getData = this.getData.bind(this);
-        this.bePremium = this.bePremium.bind(this);
+        this.toggleSection      = this.toggleSection.bind(this);
+        this.onFilter           = this.onFilter.bind(this);
+        this.componentDidMount  = this.componentDidMount.bind(this);
+        this.getData            = this.getData.bind(this);
+        this.bePremium          = this.bePremium.bind(this);
+        this.togglemodalPremium = this.togglemodalPremium.bind(this);
+    }
+    togglemodalPremium() {
+        this.setState({
+            modalPremium: !this.state.modalPremium
+        });
     }
 
     bePremium() {
+
         this.props.bePremium();
+        this.setState({
+            modalPremium: !this.state.modalPremium
+        });
     }
 
     onFilter(fechaDesde, fechaHasta, graph) {
@@ -544,7 +555,7 @@ export default class Dashboard extends React.Component {
                         'name': 'Sector',
                         'stack': 'Sector',
                         'data': {},
-                    }                    
+                    }
                 ];
                 for (var key in dataAux5[0].data) {
                     switch (key.split(" ")[0]) {
@@ -598,7 +609,7 @@ export default class Dashboard extends React.Component {
                         'name': 'Sector',
                         'stack': 'Sector',
                         'data': {},
-                    }                    
+                    }
                 ];
                 auxDate = new Date();
                 for (let key in dataAux6[0].data) {
@@ -637,7 +648,7 @@ export default class Dashboard extends React.Component {
                         'name': 'Sector',
                         'stack': 'Sector',
                         'data': {},
-                    }                    
+                    }
                 ];
                 for (var key in dataAux7[0].data) {
                     switch (key.split(" ")[0]) {
@@ -691,7 +702,7 @@ export default class Dashboard extends React.Component {
                         'name': 'Sector',
                         'stack': 'Sector',
                         'data': {},
-                    }                    
+                    }
                 ];
                 auxDate = new Date();
                 for (let key in dataAux8[0].data) {
@@ -713,7 +724,7 @@ export default class Dashboard extends React.Component {
                 this.setState({
                     data8: newData,
                 });
-                break;              
+                break;
         }
     }
 
@@ -1060,9 +1071,34 @@ export default class Dashboard extends React.Component {
     }
 
     render() {
+        let modalPremium = <div>
+            <Col md="12">
+                <Label>Para ver esta gráfica hay que ser premium</Label>
+                <br/>
+                <Button color="info" onClick={this.togglemodalPremium}> Quiero ser premium</Button>
+                <Modal isOpen={this.state.modalPremium} toggle={this.togglemodalPremium} className='premium'>
+                    <ModalHeader toggle={this.togglemodalPremium}> Hazte Premium</ModalHeader>
+                    <ModalBody>
+
+                        <p className='text-center'>VENTAJAS DE HACERSE PREMIUM</p>
+
+                        <p>Al hacerte premium tendrás acceso a nuevas gráficas</p>
+                        <p className='text-center'> PRECIO</p>
+
+                        <p>por solo 50€/mes</p>
+
+
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button color="danger" onClick={this.togglemodalPremium}>Me lo voy a pensar</Button>
+                        <Button color="success" onClick={this.bePremium}>Hazme Premium</Button>
+                    </ModalFooter>
+                </Modal>
+            </Col>
+        </div>;
         let graphSection = <div></div>;
         if (this.state.section === 0) {
-            graphSection = 
+            graphSection =
                 <div>
                     <Col md="12">
                     <Label> Número de transacciones por mes </Label>
@@ -1071,7 +1107,7 @@ export default class Dashboard extends React.Component {
                     </Col>
                 </div>
         } else if (this.state.section === 1) {
-            graphSection = 
+            graphSection =
                 <div>
                     <Col md="12">
                     <Label> Número de transacciones por día </Label>
@@ -1080,7 +1116,7 @@ export default class Dashboard extends React.Component {
                     </Col>
                 </div>
         } else if (this.state.section === 2) {
-            graphSection = 
+            graphSection =
                 <div>
                     <Col md="12">
                     <Label> Ingresos por mes </Label>
@@ -1089,7 +1125,7 @@ export default class Dashboard extends React.Component {
                     </Col>
                 </div>
         } else if (this.state.section === 3) {
-            graphSection = 
+            graphSection =
                 <div>
                     <Col md="12">
                     <Label> Ingresos por día </Label>
@@ -1098,7 +1134,7 @@ export default class Dashboard extends React.Component {
                     </Col>
                 </div>
         } else if (this.state.section === 4) {
-            graphSection = 
+            graphSection =
                 <div>
                     <Col md="12">
                         <Label> Distribución por servicio de comida (Cantidad) </Label>
@@ -1110,7 +1146,7 @@ export default class Dashboard extends React.Component {
                 </div>
         } else if (this.state.section === 5) {
             if (this.props.userInfo.isPremium) {
-                graphSection = 
+                graphSection =
                     <div>
                         <Label> Comparativa número de transacciones por mes </Label>
                         <Row>
@@ -1125,21 +1161,15 @@ export default class Dashboard extends React.Component {
                                 <Button color="info" onClick={() => {this.getData(5)}}> Actualizar gráfica </Button>
                             </Col>
                         </Row>
-                        
+
                     </div>
             } else {
-                graphSection = 
-                    <div> 
-                        <Col md="12">
-                            <Label>Para ver esta gráfica hay que ser premium</Label>
-                            <br/>
-                            <Button onClick={this.bePremium} color="info">Quiero ser premium</Button>
-                        </Col>
-                    </div>
+                graphSection = modalPremium;
+
             }
         } else if (this.state.section === 6) {
             if (this.props.userInfo.isPremium) {
-                graphSection = 
+                graphSection =
                 <div>
                     <Label> Comparativa número de transacciones por día </Label>
                     <Row>
@@ -1156,18 +1186,11 @@ export default class Dashboard extends React.Component {
                     </Row>
                 </div>
             } else {
-                graphSection = 
-                    <div> 
-                        <Col md="12">
-                            <Label>Para ver esta gráfica hay que ser premium</Label>
-                            <br/>
-                            <Button onClick={this.bePremium} color="info">Quiero ser premium</Button>
-                        </Col>
-                    </div>
+                graphSection = modalPremium;
             }
         } else if (this.state.section === 7) {
             if (this.props.userInfo.isPremium) {
-                graphSection = 
+                graphSection =
                     <div>
                         <Label> Comparativa de ingresos por mes </Label>
                         <Row>
@@ -1184,18 +1207,11 @@ export default class Dashboard extends React.Component {
                         </Row>
                     </div>
             } else {
-                graphSection = 
-                    <div> 
-                        <Col md="12">
-                            <Label>Para ver esta gráfica hay que ser premium</Label>
-                            <br/>
-                            <Button onClick={this.bePremium} color="info">Quiero ser premium</Button>
-                        </Col>
-                    </div>
+                graphSection = modalPremium;
             }
         } else if (this.state.section === 8) {
             if (this.props.userInfo.isPremium) {
-                graphSection = 
+                graphSection =
                     <div>
                         <Label> Comparativa de ingresos por día </Label>
                         <Row>
@@ -1212,14 +1228,7 @@ export default class Dashboard extends React.Component {
                         </Row>
                     </div>
             } else {
-                graphSection = 
-                    <div> 
-                        <Col md="12">
-                            <Label>Para ver esta gráfica hay que ser premium</Label>
-                            <br/>
-                            <Button onClick={this.bePremium} color="info">Quiero ser premium</Button>
-                        </Col>
-                    </div>
+                graphSection = modalPremium;
             }
         } else if (this.state.section === 9) {
             graphSection =
@@ -1233,7 +1242,7 @@ export default class Dashboard extends React.Component {
                         <PieChart data={this.state.dataPie2.data2} />
                     </Row>
                 </div>;
-        } 
+        }
         return (
             <div>
                 <Container style={{marginLeft: '0px', marginRight: '0px', marginTop: '15px', marginBottom: '15px'}}>
