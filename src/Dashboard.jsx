@@ -448,7 +448,12 @@ export default class Dashboard extends React.Component {
                     auxDate.setFullYear(key.split("-")[2]);
                     console.log((fechaDesde <= auxDate.getTime()) && (fechaHasta >= auxDate.getTime()));
                     if ((fechaDesde <= auxDate.getTime()) && (fechaHasta >= auxDate.getTime())) {
-                        newData[key] = dataAux2[key];
+                        if ((dateDesde.getMonth() == dateHasta.getMonth()) && ((dateDesde.getDate() <= 12) && (dateHasta.getDate() <= 12))) {
+                            var keyAux = key.split("-");
+                            newData[keyAux[1]+"-"+keyAux[0]+"-"+keyAux[2]] = dataAux2[key];
+                        } else {
+                            newData[key] = dataAux2[key];
+                        }
                     }
                 }
                 console.log(newData);
@@ -506,9 +511,13 @@ export default class Dashboard extends React.Component {
                     auxDate.setDate(key.split("-")[0]);
                     auxDate.setMonth(key.split("-")[1]-1);
                     auxDate.setFullYear(key.split("-")[2]);
-                    console.log((fechaDesde <= auxDate.getTime()) && (fechaHasta >= auxDate.getTime()));
                     if ((fechaDesde <= auxDate.getTime()) && (fechaHasta >= auxDate.getTime())) {
-                        newData[key] = dataAux4[key];
+                        if ((dateDesde.getMonth() == dateHasta.getMonth()) && ((dateDesde.getDate() <= 12) && (dateHasta.getDate() <= 12))) {
+                            var keyAux = key.split("-");
+                            newData[keyAux[1]+"-"+keyAux[0]+"-"+keyAux[2]] = dataAux4[key];
+                        } else {
+                            newData[key] = dataAux4[key];
+                        }
                     }
                 }
                 console.log(newData);
@@ -518,6 +527,7 @@ export default class Dashboard extends React.Component {
                 break;
             case "graph5":
                 //let dataAux5 = this.state.dataAux5;
+                console.log("graph5");
                 break;
             case "graph6":
                 let dataAux5 = this.state.dataAux5;
@@ -593,15 +603,20 @@ export default class Dashboard extends React.Component {
                 auxDate = new Date();
                 for (let key in dataAux6[0].data) {
                     auxDate.setDate(key.split("-")[0]);
-                    auxDate.setMonth(key.split("-")[1]-1);
+                    auxDate.setMonth(parseInt(key.split("-")[1])-1);
                     auxDate.setFullYear(key.split("-")[2]);
                     console.log((fechaDesde <= auxDate.getTime()) && (fechaHasta >= auxDate.getTime()));
                     if ((fechaDesde <= auxDate.getTime()) && (fechaHasta >= auxDate.getTime())) {
-                        newData[0].data[key] = dataAux6[0].data[key];
-                        newData[1].data[key] = dataAux6[1].data[key];
+                        if ((dateDesde.getMonth() == dateHasta.getMonth()) && ((dateDesde.getDate() <= 12) && (dateHasta.getDate() <= 12))) {
+                            var keyAux = key.split("-");
+                            newData[0].data[keyAux[1]+"-"+keyAux[0]+"-"+keyAux[2]] = dataAux6[0].data[key];
+                            newData[1].data[keyAux[1]+"-"+keyAux[0]+"-"+keyAux[2]] = dataAux6[1].data[key];
+                        } else {
+                            newData[0].data[key] = dataAux6[0].data[key];
+                            newData[1].data[key] = dataAux6[1].data[key];
+                        }
                     }
                 }
-                console.log(newData);
                 this.setState({
                     data6: newData,
                 });
@@ -685,11 +700,16 @@ export default class Dashboard extends React.Component {
                     auxDate.setFullYear(key.split("-")[2]);
                     console.log((fechaDesde <= auxDate.getTime()) && (fechaHasta >= auxDate.getTime()));
                     if ((fechaDesde <= auxDate.getTime()) && (fechaHasta >= auxDate.getTime())) {
-                        newData[0].data[key] = dataAux8[0].data[key];
-                        newData[1].data[key] = dataAux8[1].data[key];
+                        if ((dateDesde.getMonth() == dateHasta.getMonth()) && ((dateDesde.getDate() <= 12) && (dateHasta.getDate() <= 12))) {
+                            var keyAux = key.split("-");
+                            newData[0].data[keyAux[1]+"-"+keyAux[0]+"-"+keyAux[2]] = dataAux8[0].data[key];
+                            newData[1].data[keyAux[1]+"-"+keyAux[0]+"-"+keyAux[2]] = dataAux8[1].data[key];
+                        } else {
+                            newData[0].data[key] = dataAux8[0].data[key];
+                            newData[1].data[key] = dataAux8[1].data[key];
+                        }
                     }
                 }
-                console.log(newData);
                 this.setState({
                     data8: newData,
                 });
