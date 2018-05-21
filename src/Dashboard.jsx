@@ -33,8 +33,6 @@ export default class Dashboard extends React.Component {
                     'Marzo 2018': 380
                 ,
                     'Abril 2018': 420
-                ,
-                    'Mayo 2018': 450
                 },
                 data2: {
                     'Enero 2018': 350
@@ -44,9 +42,19 @@ export default class Dashboard extends React.Component {
                     'Marzo 2018': 380
                 ,
                     'Abril 2018': 420
-                ,
-                    'Mayo 2018': 450
                 }
+            },
+            dataPie2: {
+                data1: 
+                {
+                    'Clientes habituales': 10,
+                    'Clientes ocasionales': 50
+                },
+                data2:
+                {
+                    'Clientes habituales': 1000,
+                    'Clientes ocasionales': 3000,
+                },
             },
             data1: {
                 'Enero 2018': 350
@@ -1010,6 +1018,24 @@ export default class Dashboard extends React.Component {
                     section: section,
                 });
                 break;
+            case 9:
+                //Gráfica de fidelidad
+                var req = new XMLHttpRequest();
+                req.onreadystatechange = function() {
+                    if (req.readyState == 4 && req.status == 200) {
+                        let jsonResponse = JSON.parse(req.response);
+                        this.setState({
+                            dataPie2: jsonResponse,
+                        });
+                    }
+                }.bind(this);
+                req.open('GET', 'http://localhost:8080/InubeBackEnd/Graphic10Servlet', true);
+                req.setRequestHeader("mid", this.props.userInfo.userMid);
+                req.send(null);
+                this.setState({
+                    section: section,
+                });
+                break;
         }
     }
 
@@ -1055,11 +1081,11 @@ export default class Dashboard extends React.Component {
             graphSection = 
                 <div>
                     <Col md="12">
-                    <Label> Distribución por servicio de comida (Cantidad) </Label>
-                    <PieChart data={this.state.dataPie1.data1} />
-                    <br/>
-                    <Label> Distribución por servicio de comida (Ingresos) </Label>
-                    <PieChart data={this.state.dataPie1.data2} />
+                        <Label> Distribución por servicio de comida (Cantidad) </Label>
+                        <PieChart data={this.state.dataPie1.data1} />
+                        <br/>
+                        <Label> Distribución por servicio de comida (Ingresos) </Label>
+                        <PieChart data={this.state.dataPie1.data2} />
                     </Col>
                 </div>
         } else if (this.state.section === 5) {
@@ -1175,6 +1201,18 @@ export default class Dashboard extends React.Component {
                         </Col>
                     </div>
             }
+        } else if (this.state.section === 9) {
+            graphSection =
+                <div>
+                    <Row>
+                        <Label>Comparativa clientes</Label>
+                        <PieChart data={this.state.dataPie2.data1} />
+                    </Row>
+                    <Row>
+                        <Label>Comparativa ingresos por tipo de cliente</Label>
+                        <PieChart data={this.state.dataPie2.data2} />
+                    </Row>
+                </div>;
         } 
         return (
             <div>
@@ -1188,6 +1226,7 @@ export default class Dashboard extends React.Component {
                                     <ListGroupItem color="info" active={this.state.section === 2} tag="button" action onClick={() => this.toggleSection(2)}>Ingresos por mes</ListGroupItem>
                                     <ListGroupItem color="info" active={this.state.section === 3} tag="button" action onClick={() => this.toggleSection(3)}>Ingresos por día</ListGroupItem>
                                     <ListGroupItem color="info" active={this.state.section === 4} tag="button" action onClick={() => this.toggleSection(4)}>Distribución por servicio de comida</ListGroupItem>
+                                    <ListGroupItem color="info" active={this.state.section === 9} taf="button" action onClick={() => this.toggleSection(9)}>Comparativa de clientes</ListGroupItem>
                                     <ListGroupItem color="warning" active={this.state.section === 5} tag="button" action onClick={() => this.toggleSection(5)}>Comparativa número de transacciones por mes</ListGroupItem>
                                     <ListGroupItem color="warning" active={this.state.section === 6} tag="button" action onClick={() => this.toggleSection(6)}>Comparativa número de transacciones por día</ListGroupItem>
                                     <ListGroupItem color="warning" active={this.state.section === 7} tag="button" action onClick={() => this.toggleSection(7)}>Comparativa de ingresos por mes</ListGroupItem>

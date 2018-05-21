@@ -110,7 +110,9 @@ export default class Filter extends React.Component {
         } else {
             this.setState({
                 arrow: 'arrow-right',
-                compress_filter: '0'
+                compress_filter: '0',
+                startDateMax: null,
+                startDateMin: null,
             });
             document.getElementById(this.props.id).style.display = 'none';
         }
