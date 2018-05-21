@@ -1,19 +1,25 @@
 import React from 'react';
-import { Collapse, CardBody, Card, Button, Col, Row, Container, Input } from 'reactstrap';
+import { Collapse, CardBody, Card, Button, Col, Row, Container, Input, Modal, ModalHeader, ModalFooter, ModalBody } from 'reactstrap';
 
 export default class NegocioSection extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             collapse: false,
+            modalPremium: false,
             editEnabled: false,
         };
         this.bePremium = this.bePremium.bind(this);
+        this.togglemodalPremium = this.togglemodalPremium.bind(this);
         // this.toggle = this.toggle.bind(this);
         //this.editHandler = this.editHandler.bind(this);
         //this.acceptChanges = this.acceptChanges.bind(this);
     }
-
+    togglemodalPremium() {
+        this.setState({
+            modalPremium: !this.state.modalPremium
+        });
+    }
     // toggle() {
     //     this.setState({
     //         collapse: !this.state.collapse,
@@ -31,7 +37,7 @@ export default class NegocioSection extends React.Component {
     //     let zipCode = document.getElementById('zipCodeEdit').value === '' ? document.getElementById('zipCodeEdit').placeholder : document.getElementById('zipCodeEdit').value;
     //     let businessTypeEdit = document.getElementById('businessTypeEdit').value === 'Eliga una opción' ? this.props.business.businessType : document.getElementById('businessTypeEdit').value;
     //     let averageSellEdit = document.getElementById('averageSellEdit').value === '' ? document.getElementById('averageSellEdit').placeholder : document.getElementById('averageSellEdit').value;
-    //     let editData = [nombre, zipCode, businessTypeEdit, averageSellEdit]; 
+    //     let editData = [nombre, zipCode, businessTypeEdit, averageSellEdit];
     //     this.setState({
     //         editEnabled: !this.state.editEnabled,
     //     });
@@ -39,6 +45,10 @@ export default class NegocioSection extends React.Component {
     // }
 
     bePremium() {
+        console.log("Be premium");
+        this.setState({
+            modalPremium: !this.state.modalPremium
+        });
         this.props.bePremium();
     }
 
@@ -56,7 +66,25 @@ export default class NegocioSection extends React.Component {
                                             <div style={{margin: '10px'}}><strong>MID: </strong> {this.props.userInfo.userMid} <br/></div>
                                             <div style={{margin: '10px'}}><strong>Nombre: </strong> {this.props.userInfo.business.businessName} <br/></div>
                                             <div style={{margin: '10px', marginBottom: '6px'}}><strong>Código Postal: </strong> {this.props.userInfo.business.businessZipCode} <br/></div>
-                                            <div style={{margin: '10px', marginTop: '0px'}}><strong>Plan premium: </strong> {this.props.userInfo.isPremium ? <p style={{display: 'inline'}}>Su cuenta es premium</p> : <p style={{display: 'inline'}}>Su cuenta no es premium <Button onClick={this.bePremium} style={{marginLeft: '10px', marginTop: '0px'}} color="info">Quiero ser premium</Button></p>}</div>
+                                            <div style={{margin: '10px', marginTop: '0px'}}><strong>Plan premium: </strong> {this.props.userInfo.isPremium ? <p style={{display: 'inline'}}>Su cuenta es premium</p> : <p style={{display: 'inline'}}>Su cuenta no es premium <Button onClick={this.togglemodalPremium} style={{marginLeft: '10px', marginTop: '0px'}} color="info">Quiero ser premium</Button>
+                                                <Modal isOpen={this.state.modalPremium} toggle={this.togglemodalPremium} className='premium'>
+                                                <ModalHeader toggle={this.togglemodalPremium}> Hazte Premium</ModalHeader>
+                                                <ModalBody>
+
+                                                <p className='text-center'>VENTAJAS DE HACERSE PREMIUM</p>
+
+                                                <p>Al hacerte premium tendrás acceso a nuevas gráficas</p>
+                                                <p className='text-center'> PRECIO</p>
+
+                                                <p>por solo 50€/mes</p>
+
+
+                                                </ModalBody>
+                                                <ModalFooter>
+                                                <Button color="danger" onClick={this.togglemodalPremium}>Me lo voy a pensar</Button>
+                                                <Button color="success" onClick={this.bePremium}>Hazme Premium</Button>
+                                                </ModalFooter>
+                                                </Modal></p>}</div>
                                             {/*<strong>Tipo de Negocio: </strong> {this.props.business.businessType} <br/>
                                             <strong>Precio medio: </strong> {this.props.business.businessPrice}
                                         </Col>
