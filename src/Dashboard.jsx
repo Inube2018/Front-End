@@ -1103,6 +1103,7 @@ export default class Dashboard extends React.Component {
                     <Col md="12">
                     <Label> Número de transacciones por mes </Label>
                     <ColumnChart data={this.state.data1} />
+                    <br/>
                     <Filter id={"graph1"} onFilter={this.onFilter}/>
                     </Col>
                 </div>
@@ -1112,6 +1113,7 @@ export default class Dashboard extends React.Component {
                     <Col md="12">
                     <Label> Número de transacciones por día </Label>
                     <LineChart data={this.state.data2} />
+                    <br/>
                     <Filter id={"graph2"} onFilter={this.onFilter}/>
                     </Col>
                 </div>
@@ -1121,6 +1123,7 @@ export default class Dashboard extends React.Component {
                     <Col md="12">
                     <Label> Ingresos por mes </Label>
                     <ColumnChart data={this.state.data3} />
+                    <br/>
                     <Filter id={"graph3"} onFilter={this.onFilter}/>
                     </Col>
                 </div>
@@ -1130,6 +1133,7 @@ export default class Dashboard extends React.Component {
                     <Col md="12">
                     <Label> Ingresos por día </Label>
                     <LineChart data={this.state.data4} />
+                    <br/>
                     <Filter id={"graph4"} onFilter={this.onFilter}/>
                     </Col>
                 </div>
@@ -1152,6 +1156,7 @@ export default class Dashboard extends React.Component {
                         <Row>
                             <Col md="9">
                                 <ColumnChart data={this.state.data5} />
+                                <br/>
                                 <Filter id={"graph6"} onFilter={this.onFilter}/>
                             </Col>
                             <Col md="3">
@@ -1175,6 +1180,7 @@ export default class Dashboard extends React.Component {
                     <Row>
                         <Col md="9">
                             <LineChart data={this.state.data6} />
+                            <br/>
                             <Filter id={"graph7"} onFilter={this.onFilter}/>
                         </Col>
                         <Col md="3">
@@ -1196,6 +1202,7 @@ export default class Dashboard extends React.Component {
                         <Row>
                             <Col md="9">
                                 <ColumnChart data={this.state.data7} />
+                                <br/>
                                 <Filter id={"graph8"} onFilter={this.onFilter}/>
                             </Col>
                             <Col md="3">
@@ -1217,6 +1224,7 @@ export default class Dashboard extends React.Component {
                         <Row>
                             <Col md="9">
                                 <LineChart data={this.state.data8} />
+                                <br/>
                                 <Filter id={"graph9"} onFilter={this.onFilter}/>
                             </Col>
                             <Col md="3">
@@ -1235,10 +1243,12 @@ export default class Dashboard extends React.Component {
                 <div>
                     <Row>
                         <Label>Comparativa de tipo de cliente</Label>
+                        <br/>
                         <PieChart data={this.state.dataPie2.data1} />
                     </Row>
                     <Row>
                         <Label>Comparativa de ingresos por tipo de cliente</Label>
+                        <br/>
                         <PieChart data={this.state.dataPie2.data2} />
                     </Row>
                 </div>;

@@ -29,7 +29,7 @@ class LogIn extends React.Component {
                     <FormGroup row>
                         <Label for="email" sm={5}>MID</Label>
                         <Col sm={12}>
-                            <Input type="email" id="email" placeholder="example@email.com"/>
+                            <Input type="email" id="email" placeholder="MID"/>
                         </Col>
                     </FormGroup>
                     <FormGroup row>
