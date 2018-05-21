@@ -51,6 +51,7 @@ class App extends React.Component {
 
     render() {
         return (
+
             <div style={{height: '100%'}}>
                 <h1 className="text-info" style = {{textAlign: 'center', marginTop: '1%'}}><FontAwesome name='cloud' /> iNube</h1>
                 <Navigator changePassword         = {this.changePassword}

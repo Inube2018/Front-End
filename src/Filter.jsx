@@ -139,12 +139,15 @@ export default class Filter extends React.Component {
                 <div id={this.props.id}>
                     <Row>
                         <Col md='6'>
+                            <br/>
                             <DatePicker includeDates={[moment(new Date("January 1, 2018")), moment(new Date("February 1, 2018")), moment(new Date("March 1, 2018")), moment(new Date("April 1, 2018")), moment(new Date("May 1, 2018")), moment(new Date("June 1, 2018")), moment(new Date("July 1, 2018")), moment(new Date("August 1, 2018")), moment(new Date("September 1, 2018")), moment(new Date("October 1, 2018")), moment(new Date("November 1, 2018")), moment(new Date("December 1, 2018"))]} dateFormat="DD/MM/YYYY" selected={this.state.startDateMin === null ? moment(new Date().setDate(1)) : this.state.startDateMin}  onChange={this.handleMin} />
                         </Col>
                         <Col md='6'>
+                            <br/>
                             <DatePicker includeDates={[moment(new Date("January 1, 2018")), moment(new Date("February 1, 2018")), moment(new Date("March 1, 2018")), moment(new Date("April 1, 2018")), moment(new Date("May 1, 2018")), moment(new Date("June 1, 2018")), moment(new Date("July 1, 2018")), moment(new Date("August 1, 2018")), moment(new Date("September 1, 2018")), moment(new Date("October 1, 2018")), moment(new Date("November 1, 2018")), moment(new Date("December 1, 2018"))]} dateFormat="DD/MM/YYYY" selected={this.state.startDateMax === null ? moment(new Date().setDate(1)) : this.state.startDateMax}  onChange={this.handleMax} />
                         </Col>
                     </Row>
+                    <br/>
                     <Button color="info" size="lg" className='filter' onClick={this.onFilter}>Filtrar</Button>
                 </div>
             </div>;
@@ -156,12 +159,15 @@ export default class Filter extends React.Component {
                 <div id={this.props.id}>
                     <Row>
                         <Col md='6'>
+                            <br/>
                             <DatePicker dateFormat="DD/MM/YYYY" selected={this.state.startDateMin === null ? moment() : this.state.startDateMin}  onChange={this.handleMin} />
                         </Col>
                         <Col md='6'>
+                            <br/>
                             <DatePicker dateFormat="DD/MM/YYYY" selected={this.state.startDateMax === null ? moment() : this.state.startDateMax}  onChange={this.handleMax} />
                         </Col>
                     </Row>
+                    <br/>
                     <Button color="info" size="lg" className='filter' onClick={this.onFilter}>Filtrar</Button>
                 </div>
             </div>;
@@ -173,12 +179,15 @@ export default class Filter extends React.Component {
                 <div id={this.props.id}>
                     <Row>
                         <Col md='6'>
+                            <br/>
                             <DatePicker includeDates={[moment(new Date("January 1, 2018")), moment(new Date("February 1, 2018")), moment(new Date("March 1, 2018")), moment(new Date("April 1, 2018")), moment(new Date("May 1, 2018")), moment(new Date("June 1, 2018")), moment(new Date("July 1, 2018")), moment(new Date("August 1, 2018")), moment(new Date("September 1, 2018")), moment(new Date("October 1, 2018")), moment(new Date("November 1, 2018")), moment(new Date("December 1, 2018"))]} dateFormat="DD/MM/YYYY" selected={this.state.startDateMin === null ? moment(new Date().setDate(1)) : this.state.startDateMin}  onChange={this.handleMin} />
                         </Col>
                         <Col md='6'>
+                            <br/>
                             <DatePicker includeDates={[moment(new Date("January 1, 2018")), moment(new Date("February 1, 2018")), moment(new Date("March 1, 2018")), moment(new Date("April 1, 2018")), moment(new Date("May 1, 2018")), moment(new Date("June 1, 2018")), moment(new Date("July 1, 2018")), moment(new Date("August 1, 2018")), moment(new Date("September 1, 2018")), moment(new Date("October 1, 2018")), moment(new Date("November 1, 2018")), moment(new Date("December 1, 2018"))]} dateFormat="DD/MM/YYYY" selected={this.state.startDateMax === null ? moment(new Date().setDate(1)) : this.state.startDateMax}  onChange={this.handleMax} />
                         </Col>
                     </Row>
+                    <br/>
                     <Button color="info" size="lg" className='filter' onClick={this.onFilter}>Filtrar</Button>
                 </div>
             </div>;
@@ -190,12 +199,15 @@ export default class Filter extends React.Component {
                 <div id={this.props.id}>
                     <Row>
                         <Col md='6'>
+                            <br/>
                             <DatePicker dateFormat="DD/MM/YYYY" selected={this.state.startDateMin === null ? moment() : this.state.startDateMin}  onChange={this.handleMin} />
                         </Col>
                         <Col md='6'>
+                            <br/>
                             <DatePicker dateFormat="DD/MM/YYYY" selected={this.state.startDateMax === null ? moment() : this.state.startDateMax}  onChange={this.handleMax} />
                         </Col>
                     </Row>
+                    <br/>
                     <Button color="info" size="lg" className='filter' onClick={this.onFilter}>Filtrar</Button>
                 </div>
             </div>;
@@ -207,12 +219,15 @@ export default class Filter extends React.Component {
                 <div id={this.props.id}>
                     <Row>
                         <Col md='6'>
+                            <br/>
                             <DatePicker includeDates={[moment(new Date("January 1, 2018")), moment(new Date("February 1, 2018")), moment(new Date("March 1, 2018")), moment(new Date("April 1, 2018")), moment(new Date("May 1, 2018")), moment(new Date("June 1, 2018")), moment(new Date("July 1, 2018")), moment(new Date("August 1, 2018")), moment(new Date("September 1, 2018")), moment(new Date("October 1, 2018")), moment(new Date("November 1, 2018")), moment(new Date("December 1, 2018"))]} dateFormat="DD/MM/YYYY" selected={this.state.startDateMin === null ? moment(new Date().setDate(1)) : this.state.startDateMin}  onChange={this.handleMin} />
                         </Col>
                         <Col md='6'>
+                            <br/>
                             <DatePicker includeDates={[moment(new Date("January 1, 2018")), moment(new Date("February 1, 2018")), moment(new Date("March 1, 2018")), moment(new Date("April 1, 2018")), moment(new Date("May 1, 2018")), moment(new Date("June 1, 2018")), moment(new Date("July 1, 2018")), moment(new Date("August 1, 2018")), moment(new Date("September 1, 2018")), moment(new Date("October 1, 2018")), moment(new Date("November 1, 2018")), moment(new Date("December 1, 2018"))]} dateFormat="DD/MM/YYYY" selected={this.state.startDateMax === null ? moment(new Date().setDate(1)) : this.state.startDateMax}  onChange={this.handleMax} />
                         </Col>
                     </Row>
+                    <br/>
                     <Button color="info" size="lg" className='filter' onClick={this.onFilter}>Filtrar</Button>
                 </div>
             </div>;
@@ -224,12 +239,15 @@ export default class Filter extends React.Component {
                 <div id={this.props.id}>
                     <Row>
                         <Col md='6'>
+                            <br/>
                             <DatePicker includeDates={[moment(new Date("January 1, 2018")), moment(new Date("February 1, 2018")), moment(new Date("March 1, 2018")), moment(new Date("April 1, 2018")), moment(new Date("May 1, 2018")), moment(new Date("June 1, 2018")), moment(new Date("July 1, 2018")), moment(new Date("August 1, 2018")), moment(new Date("September 1, 2018")), moment(new Date("October 1, 2018")), moment(new Date("November 1, 2018")), moment(new Date("December 1, 2018"))]} dateFormat="DD/MM/YYYY" selected={this.state.startDateMin === null ? moment(new Date().setDate(1)) : this.state.startDateMin}  onChange={this.handleMin} />
                         </Col>
                         <Col md='6'>
+                            <br/>
                             <DatePicker includeDates={[moment(new Date("January 1, 2018")), moment(new Date("February 1, 2018")), moment(new Date("March 1, 2018")), moment(new Date("April 1, 2018")), moment(new Date("May 1, 2018")), moment(new Date("June 1, 2018")), moment(new Date("July 1, 2018")), moment(new Date("August 1, 2018")), moment(new Date("September 1, 2018")), moment(new Date("October 1, 2018")), moment(new Date("November 1, 2018")), moment(new Date("December 1, 2018"))]} dateFormat="DD/MM/YYYY" selected={this.state.startDateMax === null ? moment(new Date().setDate(1)) : this.state.startDateMax}  onChange={this.handleMax} />
                         </Col>
                     </Row>
+                    <br/>
                     <Button color="info" size="lg" className='filter' onClick={this.onFilter}>Filtrar</Button>
                 </div>
             </div>;
@@ -241,12 +259,15 @@ export default class Filter extends React.Component {
                 <div id={this.props.id}>
                     <Row>
                         <Col md='6'>
+                            <br/>
                             <DatePicker dateFormat="DD/MM/YYYY" selected={this.state.startDateMin === null ? moment() : this.state.startDateMin}  onChange={this.handleMin} />
                         </Col>
                         <Col md='6'>
+                            <br/>
                             <DatePicker dateFormat="DD/MM/YYYY" selected={this.state.startDateMax === null ? moment() : this.state.startDateMax}  onChange={this.handleMax} />
                         </Col>
                     </Row>
+                    <br/>
                     <Button color="info" size="lg" className='filter' onClick={this.onFilter}>Filtrar</Button>
                 </div>
             </div>;
@@ -258,12 +279,15 @@ export default class Filter extends React.Component {
                 <div id={this.props.id}>
                     <Row>
                         <Col md='6'>
+                            <br/>
                             <DatePicker includeDates={[moment(new Date("January 1, 2018")), moment(new Date("February 1, 2018")), moment(new Date("March 1, 2018")), moment(new Date("April 1, 2018")), moment(new Date("May 1, 2018")), moment(new Date("June 1, 2018")), moment(new Date("July 1, 2018")), moment(new Date("August 1, 2018")), moment(new Date("September 1, 2018")), moment(new Date("October 1, 2018")), moment(new Date("November 1, 2018")), moment(new Date("December 1, 2018"))]} dateFormat="DD/MM/YYYY" selected={this.state.startDateMin === null ? moment(new Date().setDate(1)) : this.state.startDateMin}  onChange={this.handleMin} />
                         </Col>
                         <Col md='6'>
+                            <br/>
                             <DatePicker includeDates={[moment(new Date("January 1, 2018")), moment(new Date("February 1, 2018")), moment(new Date("March 1, 2018")), moment(new Date("April 1, 2018")), moment(new Date("May 1, 2018")), moment(new Date("June 1, 2018")), moment(new Date("July 1, 2018")), moment(new Date("August 1, 2018")), moment(new Date("September 1, 2018")), moment(new Date("October 1, 2018")), moment(new Date("November 1, 2018")), moment(new Date("December 1, 2018"))]} dateFormat="DD/MM/YYYY" selected={this.state.startDateMax === null ? moment(new Date().setDate(1)) : this.state.startDateMax}  onChange={this.handleMax} />
                         </Col>
                     </Row>
+                    <br/>
                     <Button color="info" size="lg" className='filter' onClick={this.onFilter}>Filtrar</Button>
                 </div>
             </div>;
@@ -275,12 +299,15 @@ export default class Filter extends React.Component {
                 <div id={this.props.id}>
                     <Row>
                         <Col md='6'>
+                            <br/>
                             <DatePicker dateFormat="DD/MM/YYYY" selected={this.state.startDateMin === null ? moment() : this.state.startDateMin}  onChange={this.handleMin} />
                         </Col>
                         <Col md='6'>
+                            <br/>
                             <DatePicker dateFormat="DD/MM/YYYY" selected={this.state.startDateMax === null ? moment() : this.state.startDateMax}  onChange={this.handleMax} />
                         </Col>
                     </Row>
+                    <br/>
                     <Button color="info" size="lg" className='filter' onClick={this.onFilter}>Filtrar</Button>
                 </div>
             </div>;
