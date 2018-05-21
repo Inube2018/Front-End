@@ -1079,15 +1079,11 @@ export default class Dashboard extends React.Component {
                 <Modal isOpen={this.state.modalPremium} toggle={this.togglemodalPremium} className='premium'>
                     <ModalHeader toggle={this.togglemodalPremium}> Hazte Premium</ModalHeader>
                     <ModalBody>
-
-                        <p className='text-center'>VENTAJAS DE HACERSE PREMIUM</p>
-
-                        <p>Al hacerte premium tendrás acceso a nuevas gráficas</p>
-                        <p className='text-center'> PRECIO</p>
-
-                        <p>por solo 50€/mes</p>
-
-
+                        <p className='text-center'><strong>VENTAJAS DE HACERSE PREMIUM</strong></p>
+                        <p>Ser cliente Inube premium te proporcionará acceso a una mayor cantidad de contenido que te permitirá tener una perspectiva más completa y global sobre el entorno en el que se ubica tu comercio.</p>
+                        <p>Por <strong>solo 49,99€ al mes </strong>podrás acceder a una mayor cantidad de gráficas que te permitirán tomar mejores decisiones, aumentando tu capacidad de análisis y actuación.</p>
+                        <p>El nuevo contenido al que tendrás acceso comparará la información propia de tu negocio con los del sector, pudiendo filtrar tanto por código postal como por la fecha en la que se realizaron las transacciones.</p>
+                        <p>Por último siendo cliente premium serás el primero en tener acceso a las nuevas mejoras y actualizaciones que se desarrollan en Inube.</p>
                     </ModalBody>
                     <ModalFooter>
                         <Button color="danger" onClick={this.togglemodalPremium}>Me lo voy a pensar</Button>

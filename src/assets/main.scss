@@ -95,3 +95,14 @@
   //background: url("http://cdn3.spiegel.de/images/image-994882-860_poster_16x9-uxye-994882.jpg");
 }
 
+ul.nav-tabs{
+  background-color:#8FCCD7;
+}
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link{
+  background-color:#17a2b8;
+  color: white;
+}
+div.faq button.btn{
+  background-color: #8FCCD7;
+  color: black;
+}
